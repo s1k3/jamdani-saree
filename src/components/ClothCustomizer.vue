@@ -6,9 +6,8 @@
           <div class="row">
             <div class="col-lg-4 mb-2 p-2" 
                  v-for="(saree,index) in filteredSarees" 
-                 :class="[index ===  selectedSaree? 'border-red' : 'border-transparent']"
                  :key="index">
-              <img :src="saree.link" @click="selectSaree(index)"/>
+              <saree :saree="saree"  @click="startCustomization(index)"/>
             </div>
           </div>
           <div class="w-100">
@@ -16,12 +15,6 @@
                      href="javascript:void(0);"
                      @click="loadMoreSarees" 
                      v-if="load_more_sarees.length > 0"> লোড করুন<span></span>
-            </button>
-            <button class="thm-btn mt-30 md-btn lft-icon fill-btn mr-5" 
-                       href="javascript:void(0);"
-                       @click="startCustomization" 
-                       v-if="selectedSaree != -1"
-                       title="">কাস্টমাইজ করুন<span></span>
             </button>
           </div>
         </div>
@@ -214,9 +207,11 @@
 
 <script>
 import html2canvas from 'html2canvas';
+import Saree from './Saree';
 export default {
   name: 'ClothCustomizer',
   components:{
+    Saree
   },
   data(){
     return{
@@ -235,23 +230,24 @@ export default {
       yarn_count:"70",
       search:"",
       sarees:[
-        {tag:"red", link:"sarees/1.jpg"},
-        {tag:"", link:"sarees/2.jpg"},
-        {tag:"", link:"sarees/3.jpg"},
-        {tag:"", link:"sarees/4.jpg"},
-        {tag:"", link:"sarees/5.jpg"},
+        {tag:"red", link:"sarees/1.jpg",background:0,pair:0,achol:0,grid:0},
+        {tag:"", link:"sarees/2.jpg",background:1,pair:1,achol:1,grid:1},
+        {tag:"", link:"sarees/3.jpg",background:2,pair:2,achol:2,grid:2},
+        {tag:"", link:"sarees/4.jpg",background:3,pair:3,achol:3,grid:3},
+        {tag:"", link:"sarees/5.jpg",background:4,pair:4,achol:4,grid:4},
+        {tag:"red", link:"sarees/6.jpg",background:5,pair:5,achol:5,grid:5},
+        {tag:"", link:"sarees/7.jpg",background:6,pair:6,achol:6,grid:6},
+        {tag:"", link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
+        {tag:"red", link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
+        {tag:"", link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
+        {tag:"", link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
+        {tag:"", link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
+        {tag:"", link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},
+        {tag:"", link:"sarees/14.jpg",background:13,pair:13,achol:13,grid:13},
+        {tag:"", link:"sarees/15.jpg",background:14,pair:14,achol:14,grid:14},
       ],
       load_more_sarees:[
-        {tag:"red", link:"sarees/6.jpg"},
-        {tag:"", link:"sarees/7.jpg"},
-        {tag:"", link:"sarees/8.jpg"},
-        {tag:"red", link:"sarees/9.jpg"},
-        {tag:"", link:"sarees/10.jpg"},
-        {tag:"", link:"sarees/11.jpg"},
-        {tag:"", link:"sarees/12.jpg"},
-        {tag:"", link:"sarees/13.jpg"},
-        {tag:"", link:"sarees/14.jpg"},
-        {tag:"", link:"sarees/15.jpg"},
+
       ],
       backgrounds:[
         "backgrounds/body850-1.png",
@@ -422,15 +418,13 @@ export default {
     }
   },
   methods:{
-    selectSaree(index){
-      this.selectedSaree = index;
-      this.selectBackground(index);
-      this.selectPair(index);
-      this.selectAchol(index);
-      this.selectGrid(index);
-    },
-    startCustomization(){
+    startCustomization(index){
       this.hasSelectedSaree = true;
+      this.selectedSaree = index;
+      this.selectBackground(this.sarees[index].background);
+      this.selectPair(this.sarees[index].pair);
+      this.selectAchol(this.sarees[index].achol);
+      this.selectGrid(this.sarees[index].grid);
     },
     selectBackground(index){
       this.selectedBackground = index;
@@ -661,5 +655,6 @@ export default {
   border-left-color:#25a94a;
 
 }
+
 
 </style>
