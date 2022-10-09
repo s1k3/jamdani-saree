@@ -68,17 +68,9 @@
 <div class="col-lg-12" v-if="step == 1">
   <h3>সুতার কাউন্ট নির্বাচন করুন</h3>
   <div class="d-inline-flex p-2">
-    <div class="form-check">
+    <div class="form-check" v-for="(yarn_type,index) in yarn_types" :key="index">
       <input type="radio" v-model="yarn_count" name="yarn_count" value="70" class="mr-2"/>
-      <label class="form-check-label">৭০ কাউন্ট সুতা</label>
-    </div>
-    <div class="form-check">
-      <input type="radio" v-model="yarn_count" name="yarn_count" value="84" class="mr-2"/> 
-      <label class="form-check-label">৮৪ কাউন্ট সুতা</label>
-    </div>
-    <div class="form-check">
-      <input type="radio" v-model="yarn_count" name="yarn_count" value="100" class="mr-2"/>
-      <label>১০০ কাউন্ট সুতা</label>
+      <label class="form-check-label">{{ yarn_type.title }}</label>
     </div>
   </div>
   <div class="w-100">
@@ -228,8 +220,21 @@
         selectedPair:-1,
         selectedAchol:-1,
         selectedGrid:-1,
-        yarn_count:"70",
+        yarn_count:{},
         search:"",
+        yarn_types:[
+          {title:"২০/২৬ কাউন্ট সুতা", price:"4000"},
+          {title:"৩২ কাউন্ট সুতা", price:"4500"},
+          {title:"৪০ কাউন্ট সুতা", price:"8000"},
+          {title:"৪০+৮০  কাউন্ট সুতা", price:"3000"},
+          {title:"৬০+৮০ কাউন্ট সুতা", price:"5000"},
+          {title:"৮০ কাউন্ট সুতা", price:"14000"},
+          {title:"৮৪ কাউন্ট সুতা", price:"25000"},
+          {title:"১০০ কাউন্ট সুতা", price:"50000"},
+          {title:"১২০ কাউন্ট সুতা", price:"100000"},
+          {title:"১৫০ কাউন্ট সুতা", price:"120000"},
+          {title:"২০০ কাউন্ট সুতা", price:"150000"},
+        ]
         sarees:[
         {tag:"হালকা কাজ", link:"sarees/18.jpg",background:14,pair:2,achol:2,grid:1},
         {tag:"লাল কাজ", link:"sarees/17.jpg",background:17,pair:13,achol:9,grid:1},
