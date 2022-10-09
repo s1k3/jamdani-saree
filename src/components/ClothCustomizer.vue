@@ -43,11 +43,11 @@
   </div>
   <div class="class-lg-12">
     <div id="capture" class="parent parent-scale">
-      <img :src="background" class="image1"/>
-      <img :src="grid" class="image2"/>
-      <img :src="achol" class="image3"/>
-      <img :src="pair" class="image4"/>
-      <img :src="pair" class="image5 pair-rotated"/>
+      <img :src="background.image" class="image1"/>
+      <img :src="grid.image" class="image2"/>
+      <img :src="achol.image" class="image3"/>
+      <img :src="pair.image" class="image4"/>
+      <img :src="pair.image" class="image5 pair-rotated"/>
     </div> 
   </div>
   <div class="col-lg-12">
@@ -88,13 +88,13 @@
   <div class="row">
     <div  class="col-lg-12" >
       <h3>রঙ নির্বাচন করুন</h3>
-      <img :src="`${base_url}/${background}`" 
-      v-for="(background,index) in backgrounds"  
-      :key="index" 
-      class="p-2"
-      @click="selectBackground(index)"
-      style="width:150px;height:150px;"
-      :class="[index ===  selectedBackground? 'border-red' : 'border-transparent','background-image']"/> 
+      <img :src="`${base_url}/${background.image}`" 
+           v-for="(background,index) in backgrounds"  
+           :key="index" 
+           class="p-2"
+           @click="selectBackground(index)"
+           style="width:150px;height:150px;"
+           :class="[index ===  selectedBackground? 'border-red' : 'border-transparent','background-image']"/> 
       <br/> 
       <div class="w-100">
         <button class="thm-btn mt-30 md-btn lft-icon fill-btn mr-5" 
@@ -118,12 +118,12 @@
   <div class="row">
     <div  class="col-lg-12" >
       <h3>শাড়ির পাড় নির্বাচন করুন</h3>
-      <img :src="`${base_url}/${pair}`" 
-      v-for="(pair,index) in pair_thumbnails"  
-      :key="index" 
-      class="p-2"
-      @click="selectPair(index)"
-      :class="[index ===  selectedPair? 'border-red' : 'border-transparent','background-image']"/> 
+      <img :src="`${base_url}/${pair.thumbnail}`" 
+           v-for="(pair,index) in pairs"  
+           :key="index" 
+           class="p-2"
+           @click="selectPair(index)"
+           :class="[index ===  selectedPair? 'border-red' : 'border-transparent','background-image']"/> 
       <br/> 
       <div class="w-100"> 
         <button class="thm-btn mt-30 md-btn lft-icon fill-btn mr-5" 
@@ -147,13 +147,13 @@
   <div class="row">
     <div  class="col-lg-12" >
       <h3>শাড়ির আচল নির্বাচন করুন</h3>
-      <img :src="`${base_url}/${achol}`" 
-      v-for="(achol,index) in achols_thumbnails"  
-      :key="index" 
-      class="p-2"
-      @click="selectAchol(index)"
-      style="width:150px;height:150px;"
-      :class="[index ===  selectedAchol? 'border-red' : 'border-transparent','background-image']"/> 
+      <img :src="`${base_url}/${achol.thumbnail}`" 
+           v-for="(achol,index) in achols"  
+           :key="index" 
+           class="p-2"
+           @click="selectAchol(index)"
+           style="width:150px;height:150px;"
+           :class="[index ===  selectedAchol? 'border-red' : 'border-transparent','background-image']"/> 
       <br/>
       <div class="w-100"> 
         <button class="thm-btn mt-30 md-btn lft-icon fill-btn  mr-5" 
@@ -177,13 +177,13 @@
   <div class="row">
     <div  class="col-lg-12" >
       <h3>শাড়ির জমিন নির্বাচন করুন</h3>
-      <img :src="`${base_url}/${grid}`" 
-      v-for="(grid,index) in grids_thumbnails"  
-      :key="index" 
-      class="p-2"
-      @click="selectGrid(index)"
-      style="width:180px;height:180px;"
-      :class="[index ===  selectedGrid? 'border-red' : 'border-transparent','background-image']"/> 
+      <img :src="`${base_url}/${grid.thumbnail}`" 
+           v-for="(grid,index) in grids"  
+           :key="index" 
+           class="p-2"
+           @click="selectGrid(index)"
+           style="width:180px;height:180px;"
+           :class="[index ===  selectedGrid? 'border-red' : 'border-transparent','background-image']"/> 
       <br/>
       <div class="w-100"> 
         <button class="thm-btn mt-30 md-btn lft-icon fill-btn mr-5" 
@@ -238,270 +238,159 @@
           {title:"২০০ কাউন্ট সুতা", price:"150000"},
         ],
         sarees:[
-        {tag:"হালকা কাজ", link:"sarees/18.jpg",background:14,pair:2,achol:2,grid:1},
-        {tag:"লাল কাজ", link:"sarees/17.jpg",background:17,pair:13,achol:9,grid:1},
-        {tag:"লাল কাজ", link:"sarees/19.jpg",background:23,pair:11,achol:15,grid:5},
-
-
-        {tag:"ফুল বডি কাজ", link:"sarees/16.jpg",background:8,pair:0,achol:15,grid:16},
-        {tag:"হালকা কাজ", link:"sarees/2.jpg",background:1,pair:1,achol:1,grid:1},
-        {tag:"ফুল বডি কাজ", link:"sarees/3.jpg",background:2,pair:2,achol:2,grid:2},
-        {tag:"ফুল বডি কাজ", link:"sarees/4.jpg",background:3,pair:3,achol:3,grid:3},
-        {tag:"ফুল বডি কাজ", link:"sarees/5.jpg",background:4,pair:4,achol:4,grid:4},
-        {tag:"ফুল বডি কাজ", link:"sarees/6.jpg",background:5,pair:5,achol:5,grid:5},
-        {tag:"লাল_পার", link:"sarees/7.jpg",background:6,pair:6,achol:6,grid:6},
-        {tag:"ফুল বডি কাজ", link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
-        {tag:"লাল পার", link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
-
-
-
+          {tag:"হালকা কাজ", link:"sarees/18.jpg",background:14,pair:2,achol:2,grid:1},
+          {tag:"লাল কাজ", link:"sarees/17.jpg",background:17,pair:13,achol:9,grid:1},
+          {tag:"লাল কাজ", link:"sarees/19.jpg",background:23,pair:11,achol:15,grid:5},
+          {tag:"ফুল বডি কাজ", link:"sarees/16.jpg",background:8,pair:0,achol:15,grid:16},
+          {tag:"হালকা কাজ", link:"sarees/2.jpg",background:1,pair:1,achol:1,grid:1},
+          {tag:"ফুল বডি কাজ", link:"sarees/3.jpg",background:2,pair:2,achol:2,grid:2},
+          {tag:"ফুল বডি কাজ", link:"sarees/4.jpg",background:3,pair:3,achol:3,grid:3},
+          {tag:"ফুল বডি কাজ", link:"sarees/5.jpg",background:4,pair:4,achol:4,grid:4},
+          {tag:"ফুল বডি কাজ", link:"sarees/6.jpg",background:5,pair:5,achol:5,grid:5},
+          {tag:"লাল_পার", link:"sarees/7.jpg",background:6,pair:6,achol:6,grid:6},
+          {tag:"ফুল বডি কাজ", link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
+          {tag:"লাল পার", link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
         ],
         load_more_sarees:[
-        {tag:"ফুল বডি কাজ", link:"sarees/20.jpg",background:30,pair:3,achol:14,grid:13},
-        {tag:"", link:"sarees/15.jpg",background:14,pair:14,achol:14,grid:14},
-        {tag:"লাল কাজ", link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
-        {tag:"লাল পার", link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
-
-
-
-
-        {tag:"লাল পার", link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
-        {tag:"লাল পার", link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},
-        {tag:"", link:"sarees/14.jpg",background:13,pair:13,achol:13,grid:13},
-        {tag:"", link:"sarees/15.jpg",background:14,pair:14,achol:14,grid:14},
-        {tag:"লাল_পার", link:"sarees/1.jpg",background:0,pair:0,achol:0,grid:0},
-
-
-
-        {tag:"", link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
-        {tag:"red", link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
-        {tag:"", link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
-        {tag:"", link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
-        {tag:"", link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
-        {tag:"", link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},
-        {tag:"", link:"sarees/14.jpg",background:13,pair:13,achol:13,grid:13},
-
-
+          {tag:"ফুল বডি কাজ", link:"sarees/20.jpg",background:30,pair:3,achol:14,grid:13},
+          {tag:"", link:"sarees/15.jpg",background:14,pair:14,achol:14,grid:14},
+          {tag:"লাল কাজ", link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
+          {tag:"লাল পার", link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
+          {tag:"লাল পার", link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
+          {tag:"লাল পার", link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},
+          {tag:"", link:"sarees/14.jpg",background:13,pair:13,achol:13,grid:13},
+          {tag:"", link:"sarees/15.jpg",background:14,pair:14,achol:14,grid:14},
+          {tag:"লাল_পার", link:"sarees/1.jpg",background:0,pair:0,achol:0,grid:0},
+          {tag:"", link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
+          {tag:"red", link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
+          {tag:"", link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
+          {tag:"", link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
+          {tag:"", link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
+          {tag:"", link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},
+          {tag:"", link:"sarees/14.jpg",background:13,pair:13,achol:13,grid:13},
         ],
         backgrounds:[
-        "backgrounds/body850-1.png",
-        "backgrounds/body850-2.png",
-        "backgrounds/body850-3.png",
-        "backgrounds/body850-4.png",
-        "backgrounds/body850-5.png",
-        "backgrounds/body850-6.png",
-        "backgrounds/body850-7.png",
-        "backgrounds/body850-8.png",
-        "backgrounds/body850-9.png",
-        "backgrounds/body850-11.png",
-        "backgrounds/body850-12.png",
-        "backgrounds/body850-13.png",
-        "backgrounds/body850-14.png",
-        "backgrounds/body850-15.png",
-        "backgrounds/body850-16.png",
-        "backgrounds/body850-17.png",
-        "backgrounds/body850-18.png",
-        "backgrounds/body850-19.png",
-        "backgrounds/body850-20.png",
-        "backgrounds/body850-21.png",
-        "backgrounds/body850-22.png",
-        "backgrounds/body850-23.png",
-        "backgrounds/body850-24.png",
-        "backgrounds/body850-25.png",
-        "backgrounds/body850-26.png",
-        "backgrounds/body850-27.png",
-        "backgrounds/body850-28.png",
-        "backgrounds/body850-29.png",
-        "backgrounds/body850-30.png",
-        "backgrounds/body850-31.png",
-        "backgrounds/body850-32.png",
-        "backgrounds/body850-33.png",
-        "backgrounds/body850-34.png",
-        "backgrounds/body850-35.png",
-        "backgrounds/body850-36.png",
-        "backgrounds/body850-37.png",
-        "backgrounds/body850-38.png",
-        "backgrounds/body850-39.png",
-        "backgrounds/body850-40.png",
-        "backgrounds/body850-41.png",
-        "backgrounds/body850-42.png",
+          {image:"backgrounds/body850-1.png",price: "2000"},
+          {image:"backgrounds/body850-2.png",price: "2150"},
+          {image:"backgrounds/body850-3.png",price: "2300"},
+          {image:"backgrounds/body850-4.png",price: "4000"},
+          {image:"backgrounds/body850-5.png",price: "3200"},
+          {image:"backgrounds/body850-6.png",price: "1800"},
+          {image:"backgrounds/body850-7.png",price: "1740"},
+          {image:"backgrounds/body850-8.png",price: "5000"},
+          {image:"backgrounds/body850-9.png",price: "2490"},
+          {image:"backgrounds/body850-11.png",price: "2300"},
+          {image:"backgrounds/body850-12.png",price: "5200"},
+          {image:"backgrounds/body850-13.png",price: "2900"},
+          {image:"backgrounds/body850-14.png",price: "3800"},
+          {image:"backgrounds/body850-15.png",price: "9000"},
+          {image:"backgrounds/body850-16.png",price: "1200"},
+          {image:"backgrounds/body850-17.png",price: "2990"},
+          {image:"backgrounds/body850-18.png",price: "2300"},
+          {image:"backgrounds/body850-19.png",price: "3100"},
+          {image:"backgrounds/body850-20.png",price: "3240"},
+          {image:"backgrounds/body850-21.png",price: "2400"},
+          {image:"backgrounds/body850-22.png",price: "2550"},
+          {image:"backgrounds/body850-23.png",price: "2700"},
+          {image:"backgrounds/body850-24.png",price: "2800"},
+          {image:"backgrounds/body850-25.png",price: "3450"},
+          {image:"backgrounds/body850-26.png",price: "2500"},
+          {image:"backgrounds/body850-27.png",price: "1200"},
+          {image:"backgrounds/body850-28.png",price: "2100"},
+          {image:"backgrounds/body850-29.png",price: "1900"},
+          {image:"backgrounds/body850-30.png",price: "2000"},
+          {image:"backgrounds/body850-31.png",price: "1400"},
+          {image:"backgrounds/body850-32.png",price: "1300"},
+          {image:"backgrounds/body850-33.png",price: "1200"},
+          {image:"backgrounds/body850-34.png",price: "1100"},
+          {image:"backgrounds/body850-35.png",price: "850"},
+          {image:"backgrounds/body850-36.png",price: "6000"},
+          {image:"backgrounds/body850-37.png",price: "2000"},
+          {image:"backgrounds/body850-38.png",price: "3000"},
+          {image:"backgrounds/body850-39.png",price: "2100"},
+          {image:"backgrounds/body850-40.png",price: "2200"},
+          {image:"backgrounds/body850-41.png",price: "2300"},
+          {image:"backgrounds/body850-42.png",price: "1800"},
         ], 
         pairs:[
-        "pairs/p-001.png",
-        "pairs/p-002.png",
-        "pairs/p-003.png",
-        "pairs/p-005.png",
-        "pairs/p-006.png",
-        "pairs/p-007.png",
-        "pairs/p-008.png",
-        "pairs/p-009.png",
-        "pairs/p-0010.png",
-        "pairs/p-0011.png",
-        "pairs/p-0012.png",
-        "pairs/p-0013.png",
-        "pairs/p-0014.png",
-        "pairs/p-0015.png",
-
-        "pairs/p-16.png",
-        "pairs/p-17.png",
-        "pairs/p-18.png",
-        "pairs/p-19.png",
-        "pairs/p-20.png",
-        "pairs/p-21.png",
-        "pairs/p-22.png",
-
-
-        ],
-        pair_thumbnails:[
-        "pairs/s-p-001.png",
-        "pairs/s-p-002.png",
-        "pairs/s-p-003.png",
-        "pairs/s-p-005.png",
-        "pairs/s-p-006.png",
-        "pairs/s-p-007.png",
-        "pairs/s-p-008.png",
-        "pairs/s-p-009.png",
-        "pairs/s-p-0010.png",
-        "pairs/s-p-0011.png",
-        "pairs/s-p-0012.png",
-        "pairs/s-p-0013.png",
-        "pairs/s-p-0014.png",
-        "pairs/s-p-0015.png",
-
-        "pairs/s-p-16.png",
-        "pairs/s-p-17.png",
-        "pairs/s-p-18.png",
-        "pairs/s-p-19.png",
-        "pairs/s-p-20.png",
-        "pairs/s-p-21.png",
-        "pairs/s-p-22.png",
-
+          {image:"pairs/p-001.png",thumbnail:"pairs/s-p-001.png",price:"600"},
+          {image:"pairs/p-002.png",thumbnail:"pairs/s-p-002.png",price:"450"},
+          {image:"pairs/p-003.png",thumbnail:"pairs/s-p-003.png",price:"700"},
+          {image:"pairs/p-005.png",thumbnail:"pairs/s-p-005.png",price:"1200"},
+          {image:"pairs/p-006.png",thumbnail:"pairs/s-p-006.png",price:"990"},
+          {image:"pairs/p-007.png",thumbnail:"pairs/s-p-007.png",price:"320"},
+          {image:"pairs/p-008.png",thumbnail:"pairs/s-p-008.png",price:"590"},
+          {image:"pairs/p-009.png",thumbnail:"pairs/s-p-009.png",price:"800"},
+          {image:"pairs/p-0010.png",thumbnail:"pairs/s-p-0010.png",price:"900"},
+          {image:"pairs/p-0011.png",thumbnail:"pairs/s-p-0011.png",price:"450"},
+          {image:"pairs/p-0012.png",thumbnail:"pairs/s-p-0012.png",price:"620"},
+          {image:"pairs/p-0013.png",thumbnail:"pairs/s-p-0013.png",price:"480"},
+          {image:"pairs/p-0014.png",thumbnail:"pairs/s-p-0014.png",price:"510"},
+          {image:"pairs/p-0015.png",thumbnail:"pairs/s-p-0015.png",price:"550"},
+          {image:"pairs/p-16.png",thumbnail:"pairs/s-p-16.png",price:"450"},
+          {image:"pairs/p-17.png",thumbnail:"pairs/s-p-17.png",price:"400"},
+          {image:"pairs/p-18.png",thumbnail:"pairs/s-p-18.png",price:"350"},
+          {image:"pairs/p-19.png",thumbnail:"pairs/s-p-19.png",price:"600"},
+          {image:"pairs/p-20.png",thumbnail:"pairs/s-p-20.png",price:"700"},
+          {image:"pairs/p-21.png",thumbnail:"pairs/s-p-21.png",price:"450"},
+          {image:"pairs/p-22.png",thumbnail:"pairs/s-p-22.png",price:"700"}
         ],
         grids:[
-        "grids/b-001.png",
-        "grids/b-002.png",
-        "grids/b-003.png",
-        "grids/b-004.png",
-        "grids/b-005.png",
-        "grids/b-006.png",
-        "grids/b-007.png",
-        "grids/b-008.png",
-        "grids/b-009.png",
-        "grids/b-0010.png",
-        "grids/b-0011.png",
-        "grids/b-0012.png",
-        "grids/b-0013.png",
-        "grids/b-0014.png",
-        "grids/b-0015.png",
-        "grids/b-0016.png",
-        "grids/b-0017.png",
-
-        "grids/b-0018.png",
-        "grids/b-0019.png",
-        "grids/b-20.png",
-        "grids/b-21.png",
-        "grids/b-22.png",
-        "grids/b-23.png",
-        "grids/b-24.png",
-        "grids/b-25.png",
-        "grids/b-26.png",
-        "grids/b-27.png",
-        
-
-
-        ],
-        grids_thumbnails:[
-        "grids/s-b-001.png",
-        "grids/s-b-002.png",
-        "grids/s-b-003.png",
-        "grids/s-b-004.png",
-        "grids/s-b-005.png",
-        "grids/s-b-006.png",
-        "grids/s-b-007.png",
-        "grids/s-b-008.png",
-        "grids/s-b-009.png",
-        "grids/s-b-0010.png",
-        "grids/s-b-0011.png",
-        "grids/s-b-0012.png",
-        "grids/s-b-0013.png",
-        "grids/s-b-0014.png",
-        "grids/s-b-0015.png",
-        "grids/s-b-0016.png",
-        "grids/s-b-0017.png",
-        "grids/s-b-0018.png",
-        "grids/s-b-0019.png",
-        "grids/s-b-20.png",
-        "grids/s-b-21.png",
-        "grids/s-b-22.png",
-        "grids/s-b-23.png",
-        "grids/s-b-24.png",
-        "grids/s-b-25.png",
-        "grids/s-b-26.png",
-        "grids/s-b-27.png",
-
-
-
+          {image:"grids/b-001.png",thumbnail:"grids/s-b-001.png",price:"12000"},
+          {image:"grids/b-002.png",thumbnail:"grids/s-b-002.png",price:"5000"},
+          {image:"grids/b-003.png",thumbnail:"grids/s-b-003.png",price:"2000"},
+          {image:"grids/b-004.png",thumbnail:"grids/s-b-004.png",price:"4500"},
+          {image:"grids/b-005.png",thumbnail:"grids/s-b-005.png",price:"5600"},
+          {image:"grids/b-006.png",thumbnail:"grids/s-b-006.png",price:"2500"},
+          {image:"grids/b-007.png",thumbnail:"grids/s-b-007.png",price:"7400"},
+          {image:"grids/b-008.png",thumbnail:"grids/s-b-008.png",price:"5000"},
+          {image:"grids/b-009.png",thumbnail:"grids/s-b-009.png",price:"12000"},
+          {image:"grids/b-0010.png",thumbnail:"grids/s-b-0010.png",price:"6500"},
+          {image:"grids/b-0011.png",thumbnail:"grids/s-b-0011.png",price:"2000"},
+          {image:"grids/b-0012.png",thumbnail:"grids/s-b-0012.png",price:"3500"},
+          {image:"grids/b-0013.png",thumbnail:"grids/s-b-0013.png",price:"6700"},
+          {image:"grids/b-0014.png",thumbnail:"grids/s-b-0014.png",price:"5900"},
+          {image:"grids/b-0015.png",thumbnail:"grids/s-b-0015.png",price:"1200"},
+          {image:"grids/b-0016.png",thumbnail:"grids/s-b-0016.png",price:"1900"},
+          {image:"grids/b-0017.png",thumbnail:"grids/s-b-0017.png",price:"1200"},
+          {image:"grids/b-0018.png",thumbnail:"grids/s-b-0018.png",price:"1250"},
+          {image:"grids/b-0019.png",thumbnail:"grids/s-b-0019.png",price:"3500"},
+          {image:"grids/b-20.png",thumbnail:"grids/s-b-20.png",price:"10000"},
+          {image:"grids/b-21.png",thumbnail:"grids/s-b-21.png",price:"1300"},
+          {image:"grids/b-22.png",thumbnail:"grids/s-b-22.png",price:"1250"},
+          {image:"grids/b-23.png",thumbnail:"grids/s-b-23.png",price:"1200"},
+          {image:"grids/b-24.png",thumbnail:"grids/s-b-24.png",price:"6000"},
+          {image:"grids/b-25.png",thumbnail:"grids/s-b-25.png",price:"2000"},
+          {image:"grids/b-26.png",thumbnail:"grids/s-b-26.png",price:"3500"},
+          {image:"grids/b-27.png",thumbnail:"grids/s-b-27.png",price:"4500"}
         ],
         achols:[
-        "achols/a-01.png",
-        "achols/a-02.png",
-        "achols/a-03.png",
-        "achols/a-04.png",
-        "achols/a-05.png",
-        "achols/a-06.png",
-        "achols/a-07.png",
-        "achols/a-08.png",
-        "achols/a-09.png",
-        "achols/a-10.png",
-        "achols/a-11.png",
-        "achols/a-12.png",
-        "achols/a-13.png",
-        "achols/a-14.png",
-        "achols/a-15.png",
-        "achols/a-16.png",
-
-        "achols/a-17.png",
-        "achols/a-18.png",
-        "achols/a-19.png",
-        "achols/a-20.png",
-        "achols/a-21.png",
-        "achols/a-22.png",
-        "achols/a-23.png",
-        "achols/a-24.png",
-        "achols/a-25.png",
-
-
+          {image:"achols/a-01.png",thumbnail:"achols/s-a-01.png",price:"1000"},
+          {image:"achols/a-02.png",thumbnail:"achols/s-a-02.png",price:"1500"},
+          {image:"achols/a-03.png",thumbnail:"achols/s-a-03.png",price:"3000"},
+          {image:"achols/a-04.png",thumbnail:"achols/s-a-04.png",price:"3500"},
+          {image:"achols/a-05.png",thumbnail:"achols/s-a-05.png",price:"6500"},
+          {image:"achols/a-06.png",thumbnail:"achols/s-a-06.png",price:"1550"},
+          {image:"achols/a-07.png",thumbnail:"achols/s-a-07.png",price:"2100"},
+          {image:"achols/a-08.png",thumbnail:"achols/s-a-08.png",price:"12000"},
+          {image:"achols/a-09.png",thumbnail:"achols/s-a-09.png",price:"1300"},
+          {image:"achols/a-10.png",thumbnail:"achols/s-a-10.png",price:"1250"},
+          {image:"achols/a-11.png",thumbnail:"achols/s-a-11.png",price:"2100"},
+          {image:"achols/a-12.png",thumbnail:"achols/s-a-12.png",price:"3500"},
+          {image:"achols/a-13.png",thumbnail:"achols/s-a-13.png",price:"430"},
+          {image:"achols/a-14.png",thumbnail:"achols/s-a-14.png",price:"6500"},
+          {image:"achols/a-15.png",thumbnail:"achols/s-a-15.png",price:"7300"},
+          {image:"achols/a-16.png",thumbnail:"achols/s-a-16.png",price:"6300"},
+          {image:"achols/a-17.png",thumbnail:"achols/s-a-17.png",price:"5500"},
+          {image:"achols/a-18.png",thumbnail:"achols/s-a-18.png",price:"3500"},
+          {image:"achols/a-19.png",thumbnail:"achols/s-a-19.png",price:"4800"},
+          {image:"achols/a-20.png",thumbnail:"achols/s-a-20.png",price:"9000"},
+          {image:"achols/a-21.png",thumbnail:"achols/s-a-21.png",price:"12000"},
+          {image:"achols/a-22.png",thumbnail:"achols/s-a-22.png",price:"2500"},
+          {image:"achols/a-23.png",thumbnail:"achols/s-a-23.png",price:"3200"},
+          {image:"achols/a-24.png",thumbnail:"achols/s-a-24.png",price:"5000"},
+          {image:"achols/a-25.png",thumbnail:"achols/s-a-25.png",price:"6800"}
         ],
-        achols_thumbnails:[
-        "achols/s-a-01.png",
-        "achols/s-a-02.png",
-        "achols/s-a-03.png",
-        "achols/s-a-04.png",
-        "achols/s-a-05.png",
-        "achols/s-a-06.png",
-        "achols/s-a-07.png",
-        "achols/s-a-08.png",
-        "achols/s-a-09.png",
-        "achols/s-a-10.png",
-        "achols/s-a-11.png",
-        "achols/s-a-12.png",
-        "achols/s-a-13.png",
-        "achols/s-a-14.png",
-        "achols/s-a-15.png",
-        "achols/s-a-16.png",
-
-        "achols/s-a-17.png",
-        "achols/s-a-18.png",
-        "achols/s-a-19.png",
-        "achols/s-a-20.png",
-        "achols/s-a-21.png",
-        "achols/s-a-22.png",
-        "achols/s-a-23.png",
-        "achols/s-a-24.png",
-        "achols/s-a-25.png",
-
-
-        ]
       }
     },
     mounted(){
