@@ -2,7 +2,7 @@
   <div class="container" style="margin-top: -30px;">
     <div class="row" v-if="!hasSelectedSaree">
       <div class="col-lg-12">
-        <input class="form-control mb-2" placeholder="আপনার পছন্দের শাড়ি খুঁজুন; লাল_পার | লাল কাজ | ফুল বডি কাজ | হালকা কাজ" v-model="search"/>
+        <input class="form-control mb-2" placeholder="আপনার পছন্দের শাড়ি খুঁজুন; লাল পার | লাল কাজ | ফুল বডি কাজ | হালকা কাজ" v-model="search"/>
         <div class="row">
           <div class="col-lg-4 mb-2 p-2" 
           v-for="(saree,index) in filteredSarees" 
@@ -18,212 +18,243 @@
       </button>
     </div>
   </div>
+</div>
+<div class="row" v-if="hasSelectedSaree">
+  <div class="col-lg-12">
+    <div id="crumbs" >
+      <ul>
+        <li>
+          <a href="javascript:void(0);" @click="step = 1" :class="{'active-step':step === 1}">সুতার কাউন্ট</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" @click="step = 2" :class="{'active-step':step === 2}">কাপড়ের রং</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" @click="step = 3" :class="{'active-step':step === 3}">পাড়ের নকশা</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" @click="step = 4" :class="{'active-step':step === 4}">আঁচলের নকশা</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" @click="step = 5" :class="{'active-step':step === 5}">জমিনের নকশা </a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="row" v-if="hasSelectedSaree">
-    <div class="col-lg-12">
-      <div id="crumbs" >
-        <ul>
-          <li>
-            <a href="javascript:void(0);" @click="step = 1" :class="{'active-step':step === 1}">সুতার কাউন্ট</a>
-          </li>
-          <li>
-            <a href="javascript:void(0);" @click="step = 2" :class="{'active-step':step === 2}">কাপড়ের রং</a>
-          </li>
-          <li>
-            <a href="javascript:void(0);" @click="step = 3" :class="{'active-step':step === 3}">পাড়ের নকশা</a>
-          </li>
-          <li>
-            <a href="javascript:void(0);" @click="step = 4" :class="{'active-step':step === 4}">আঁচলের নকশা</a>
-          </li>
-          <li>
-            <a href="javascript:void(0);" @click="step = 5" :class="{'active-step':step === 5}">জমিনের নকশা </a>
-          </li>
-        </ul>
-      </div>
+  <div class="class-lg-12">
+    <div id="capture" class="parent parent-scale">
+      <img :src="background.image" class="image1"/>
+      <img :src="grid.image" class="image2"/>
+      <img :src="achol.image" class="image3"/>
+      <img :src="pair.image" class="image4"/>
+      <img :src="pair.image" class="image5 pair-rotated"/>
     </div>
-    <div class="class-lg-12">
-      <div id="capture" class="parent parent-scale">
-        <img :src="background.image" class="image1"/>
-        <img :src="grid.image" class="image2"/>
-        <img :src="achol.image" class="image3"/>
-        <img :src="pair.image" class="image4"/>
-        <img :src="pair.image" class="image5 pair-rotated"/>
-      </div>
-    </div>
-    <div class="col-lg-12">
-      <div class="w-100" style="margin-top: -45px; padding-bottom: 15px;">
-        <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
-                @click="resetEveryThing">
-          পুনরায় শাড়ি পছন্দ করুণ <span></span>
-      </button>            
+  </div>
+  <div class="col-lg-12">
+    <div class="w-100" style="margin-top: -45px; padding-bottom: 15px;">
       <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
-              @click="downloadImage">
-        ডাউনলোড করুন<span></span>
-      </button>
-      <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
-              v-if="totalPrice !== 0"
-              data-toggle="modal"
-              data-target="#priceModal">
-        শাড়ীর মোট মূল্যঃ {{numberWithCommas(totalPrice)}} টাকা<span></span>
-    </button>
-  </div>
-  </div>
-  <div class="divider4 w-100"></div>
-  <div class="col-lg-12" v-if="step == 1">
-    <h3>সুতার কাউন্ট নির্বাচন করুন</h3>
-    <div class="w-100">
-      <div class="form-check float-left" v-for="(yarn_type,index) in yarn_types" :key="index">
-        <input :id="`count${index}`" 
-               type="radio" 
-               v-model="yarn_count"
-               :value="yarn_type" 
-               class="mr-2"/>
-        <label :for="`count${index}`" class="form-check-label">{{ yarn_type.title }}</label>
-      </div>
-      <p class="clearfix"></p>
+      @click="resetEveryThing">
+      পুনরায় শাড়ি পছন্দ করুণ <span></span>
+    </button>            
+    <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
+    @click="downloadImage">
+    ডাউনলোড করুন<span></span>
+  </button>
+  <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
+  v-if="totalPrice !== 0"
+  data-toggle="modal"
+  data-target="#priceModal">
+  শাড়ীর মোট মূল্যঃ {{numberWithCommas(totalPrice)}} টাকা<span></span>
+</button>
+</div>
+</div>
+<div class="divider4 w-100"></div>
+<div class="col-lg-12" v-if="step == 1">
+  <h3>সুতার কাউন্ট নির্বাচন করুন</h3>
+  <div class="w-100">
+    <div class="form-check float-left" v-for="(yarn_type,index) in yarn_types" :key="index">
+      <input :id="`count${index}`" 
+      type="radio" 
+      v-model="yarn_count"
+      :value="yarn_type" 
+      class="mr-2"/>
+      <label :for="`count${index}`" class="form-check-label">{{ yarn_type.title }}</label>
     </div>
+    <p class="clearfix"></p>
+  </div>
 
-    <div class="w-100">
-      <button class="thm-btn mt-30 md-btn lft-icon fill-btn" 
+  <div class="w-100">
+    <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
+    href="javascript:void(0);" 
+    @click="nextStep"
+    title="">
+    পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
+  </button>
+</div>
+</div>
+<div class="col-lg-12" v-if="step == 2">
+  <div class="row">
+    <div  class="col-lg-12" >
+      <h3>রঙ নির্বাচন করুন</h3>
+      <img :src="`${base_url}/${background.image}`" 
+      v-for="(background,index) in backgrounds"  
+      :key="index" 
+      class="p-2"
+      @click="selectBackground(index)"
+      style="width:150px;height:150px;"
+      :class="[index ===  selectedBackground? 'border-red' : 'border-transparent','background-image']"/> 
+      <br/> 
+      <div class="w-100">
+        <button class="thm-btn mt-30 sml-btn lft-icon fill-btn mr-5" 
+        href="javascript:void(0);"
+        @click="previousStep" 
+        title="">
+        <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
+      </button>
+      <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
       href="javascript:void(0);" 
       @click="nextStep"
+      :disabled="selectedBackground === -1"
       title="">
       পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
     </button>
-  </div>
-  </div>
-  <div class="col-lg-12" v-if="step == 2">
-    <div class="row">
-      <div  class="col-lg-12" >
-        <h3>রঙ নির্বাচন করুন</h3>
-        <img :src="`${base_url}/${background.image}`" 
-             v-for="(background,index) in backgrounds"  
-             :key="index" 
-             class="p-2"
-             @click="selectBackground(index)"
-             style="width:150px;height:150px;"
-             :class="[index ===  selectedBackground? 'border-red' : 'border-transparent','background-image']"/> 
-        <br/> 
-        <div class="w-100">
-          <button class="thm-btn mt-30 md-btn lft-icon fill-btn mr-5" 
-          href="javascript:void(0);"
-          @click="previousStep" 
-          title="">
-          <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
-        </button>
-        <button class="thm-btn mt-30 md-btn lft-icon fill-btn" 
-        href="javascript:void(0);" 
-        @click="nextStep"
-        :disabled="selectedBackground === -1"
+  </div>   
+</div>
+</div>
+</div>
+<div class="col-lg-12" v-if="step == 3">
+  <div class="row">
+    <div  class="col-lg-12" >
+      <h3>শাড়ির পাড় নির্বাচন করুন</h3>
+      <img :src="`${base_url}/${pair.thumbnail}`" 
+      v-for="(pair,index) in pairs"  
+      :key="index" 
+      class="p-2"
+      @click="selectPair(index)"
+      :class="[index ===  selectedPair? 'border-red' : 'border-transparent','background-image']"/> 
+      <br/> 
+      <div class="w-100"> 
+        <button class="thm-btn mt-30 sml-btn lft-icon fill-btn mr-5" 
+        href="javascript:void(0);"
+        @click="previousStep" 
         title="">
-        পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
+        <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
       </button>
-    </div>   
-  </div>
-  </div>
-  </div>
-  <div class="col-lg-12" v-if="step == 3">
-    <div class="row">
-      <div  class="col-lg-12" >
-        <h3>শাড়ির পাড় নির্বাচন করুন</h3>
-        <img :src="`${base_url}/${pair.thumbnail}`" 
-             v-for="(pair,index) in pairs"  
-             :key="index" 
-             class="p-2"
-             @click="selectPair(index)"
-             :class="[index ===  selectedPair? 'border-red' : 'border-transparent','background-image']"/> 
-        <br/> 
-        <div class="w-100"> 
-          <button class="thm-btn mt-30 md-btn lft-icon fill-btn mr-5" 
-          href="javascript:void(0);"
-          @click="previousStep" 
-          title="">
-          <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
-        </button>
-        <button class="thm-btn mt-30 md-btn lft-icon fill-btn" 
-        href="javascript:void(0);" 
-        @click="nextStep"
-        :disabled="selectedPair === -1"
+      <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
+      href="javascript:void(0);" 
+      @click="nextStep"
+      :disabled="selectedPair === -1"
+      title="">
+      পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
+    </button>
+  </div>    
+</div>
+</div>
+</div>
+<div class="col-lg-12" v-if="step == 4">
+  <div class="row">
+    <div  class="col-lg-12" >
+      <h3>শাড়ির আঁচল নির্বাচন করুন</h3>
+      <img :src="`${base_url}/${achol.thumbnail}`" 
+      v-for="(achol,index) in achols"  
+      :key="index" 
+      class="p-2"
+      @click="selectAchol(index)"
+      style="width:150px;height:150px;"
+      :class="[index ===  selectedAchol? 'border-red' : 'border-transparent','background-image']"/> 
+      <br/>
+      <div class="w-100"> 
+        <button class="thm-btn mt-30 sml-btn lft-icon fill-btn  mr-5" 
+        href="javascript:void(0);"
+        @click="previousStep" 
         title="">
-        পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
+        <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
       </button>
-    </div>    
-  </div>
-  </div>
-  </div>
-  <div class="col-lg-12" v-if="step == 4">
-    <div class="row">
-      <div  class="col-lg-12" >
-        <h3>শাড়ির আচল নির্বাচন করুন</h3>
-        <img :src="`${base_url}/${achol.thumbnail}`" 
-             v-for="(achol,index) in achols"  
-             :key="index" 
-             class="p-2"
-             @click="selectAchol(index)"
-             style="width:150px;height:150px;"
-             :class="[index ===  selectedAchol? 'border-red' : 'border-transparent','background-image']"/> 
-        <br/>
-        <div class="w-100"> 
-          <button class="thm-btn mt-30 md-btn lft-icon fill-btn  mr-5" 
-          href="javascript:void(0);"
-          @click="previousStep" 
-          title="">
-          <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
-        </button>
-        <button class="thm-btn mt-30 md-btn lft-icon fill-btn" 
-        href="javascript:void(0);" 
-        @click="nextStep"
-        :disabled="selectedAchol === -1"
+      <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
+      href="javascript:void(0);" 
+      @click="nextStep"
+      :disabled="selectedAchol === -1"
+      title="">
+      পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
+    </button> 
+  </div>    
+</div>
+</div>
+</div>
+<div class="col-lg-12" v-if="step == 5">
+  <div class="row">
+    <div  class="col-lg-12" >
+      <h3>শাড়ির জমিন নির্বাচন করুন</h3>
+      <img :src="`${base_url}/${grid.thumbnail}`" 
+      v-for="(grid,index) in grids"  
+      :key="index" 
+      class="p-2"
+      @click="selectGrid(index)"
+      style="width:180px;height:180px;"
+      :class="[index ===  selectedGrid? 'border-red' : 'border-transparent','background-image']"/> 
+      <br/>
+      <div class="w-100"> 
+        <button class="thm-btn mt-30 sml-btn lft-icon fill-btn mr-5" 
+        href="javascript:void(0);"
+        @click="previousStep" 
         title="">
-        পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
-      </button> 
-    </div>    
+        <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
+      </button>
+    </div>     
   </div>
-  </div>
-  </div>
-  <div class="col-lg-12" v-if="step == 5">
-    <div class="row">
-      <div  class="col-lg-12" >
-        <h3>শাড়ির জমিন নির্বাচন করুন</h3>
-        <img :src="`${base_url}/${grid.thumbnail}`" 
-             v-for="(grid,index) in grids"  
-             :key="index" 
-             class="p-2"
-             @click="selectGrid(index)"
-             style="width:180px;height:180px;"
-             :class="[index ===  selectedGrid? 'border-red' : 'border-transparent','background-image']"/> 
-        <br/>
-        <div class="w-100"> 
-          <button class="thm-btn mt-30 md-btn lft-icon fill-btn mr-5" 
-          href="javascript:void(0);"
-          @click="previousStep" 
-          title="">
-          <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
+</div>
+</div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="priceModal" style="top:150px;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="text-align: center;">শাড়ির মূল্যঃ {{numberWithCommas(totalPrice)}} টাকা</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
         </button>
-      </div>     
-    </div>
-  </div>
-  </div>
-  </div>
-  <div class="modal" tabindex="-1" role="dialog" id="priceModal" style="top:150px">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">শাড়ির মূল্যঃ {{numberWithCommas(totalPrice)}} টাকা</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>কাউন্টের মূল্যঃ {{numberWithCommas(yarn_count.price)}} টাকা</p>
-          <p>কাপড়ের রং এর মূল্যঃ {{numberWithCommas(background.price)}} টাকা</p>
-          <p>আঁচলের  মূল্যঃ {{(achol.price)}} টাকা</p>
-          <p>পাড়ের মূল্যঃ {{(pair.price)}} টাকা</p>
-          <p>জমিনের মূল্যঃ {{(grid.price)}} টাকা</p>
-        </div>
       </div>
+      <div class="modal-body" style=" background-image: url(/assets/images/modal.png); background-repeat: no-repeat;
+      background-position: 0 0;
+      background-size: cover">
+      <table class="table" >
+        <thead>
+          <tr style="background-color:rgb(223, 238, 214); ">
+            <th scope="col">বিবরণ</th>
+            <th scope="col" style="text-align: center;">মূল্য</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">সুতার কাউন্টের মূল্য</th>
+            <td><b> {{numberWithCommas(yarn_count.price)}} টাকা</b></td>
+          </tr>
+          <tr>
+            <th scope="row">কাপড়ের রং এর মূল্য</th>
+            <td><b> {{numberWithCommas(background.price)}} টাকা</b></td>
+          </tr>
+          <tr>
+            <th scope="row">আঁচলের  মূল্য</th>
+            <td><b> {{numberWithCommas(achol.price)}} টাকা</b></td>
+          </tr>
+          <tr>
+            <th scope="row">পাড়ের মূল্য</th>
+            <td><b> {{numberWithCommas(pair.price)}} টাকা</b></td>
+          </tr>
+          <tr>
+            <th scope="row">জমিনের মূল্য</th>
+            <td><b> {{numberWithCommas(grid.price)}} টাকা</b></td>
+          </tr>
+          <tr style="background-color:rgb(223, 238, 214);">
+            <th scope="row">মোট</th>
+            <td><b> {{numberWithCommas(totalPrice)}} টাকা</b></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
+</div>
 </div>
 </template>
 
@@ -252,171 +283,188 @@
         yarn_count: {title:"২০/২৬ কাউন্ট সুতা", price:"4000"},
         search:"",
         yarn_types:[
-          {title:"২০/২৬ কাউন্ট সুতা", price:"4000"},
-          {title:"৩২ কাউন্ট সুতা", price:"4500"},
-          {title:"৪০ কাউন্ট সুতা", price:"8000"},
-          {title:"৪০+৮০  কাউন্ট সুতা", price:"3000"},
-          {title:"৬০+৮০ কাউন্ট সুতা", price:"5000"},
-          {title:"৮০ কাউন্ট সুতা", price:"14000"},
-          {title:"৮৪ কাউন্ট সুতা", price:"25000"},
-          {title:"১০০ কাউন্ট সুতা", price:"50000"},
-          {title:"১২০ কাউন্ট সুতা", price:"100000"},
-          {title:"১৫০ কাউন্ট সুতা", price:"120000"},
-          {title:"২০০ কাউন্ট সুতা", price:"150000"},
+        {title:"২০/২৬ কাউন্ট সুতা", price:"4000"},
+        {title:"৩২ কাউন্ট সুতা", price:"4500"},
+        {title:"৪০ কাউন্ট সুতা", price:"8000"},
+        {title:"৪০+৮০  কাউন্ট সুতা", price:"3000"},
+        {title:"৬০+৮০ কাউন্ট সুতা", price:"5000"},
+        {title:"৮০ কাউন্ট সুতা", price:"14000"},
+        {title:"৮৪ কাউন্ট সুতা", price:"25000"},
+        {title:"১০০ কাউন্ট সুতা", price:"50000"},
+        {title:"১২০ কাউন্ট সুতা", price:"100000"},
+        {title:"১৫০ কাউন্ট সুতা", price:"120000"},
+        {title:"২০০ কাউন্ট সুতা", price:"150000"},
         ],
         sarees:[
-          {tag:"হালকা কাজ", link:"sarees/18.jpg",background:14,pair:2,achol:2,grid:1},
-          {tag:"লাল কাজ", link:"sarees/17.jpg",background:17,pair:13,achol:9,grid:1},
-          {tag:"লাল কাজ", link:"sarees/19.jpg",background:23,pair:11,achol:15,grid:5},
-          {tag:"ফুল বডি কাজ", link:"sarees/16.jpg",background:8,pair:0,achol:15,grid:16},
-          {tag:"হালকা কাজ", link:"sarees/2.jpg",background:1,pair:1,achol:1,grid:1},
-          {tag:"ফুল বডি কাজ", link:"sarees/3.jpg",background:2,pair:2,achol:2,grid:2},
-          {tag:"ফুল বডি কাজ", link:"sarees/4.jpg",background:3,pair:3,achol:3,grid:3},
-          {tag:"ফুল বডি কাজ", link:"sarees/5.jpg",background:4,pair:4,achol:4,grid:4},
-          {tag:"ফুল বডি কাজ", link:"sarees/6.jpg",background:5,pair:5,achol:5,grid:5},
-          {tag:"লাল_পার", link:"sarees/7.jpg",background:6,pair:6,achol:6,grid:6},
-          {tag:"ফুল বডি কাজ", link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
-          {tag:"লাল পার", link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
+        {tag:"হালকা কাজ", link:"sarees/27.jpg",background:5,pair:20,achol:11,grid:12},
+        {tag:"হালকা কাজ", link:"sarees/28.jpg",background:22,pair:16,achol:21,grid:21},
+        {tag:"ফুল বডি কাজ", link:"sarees/29.jpg",background:24,pair:3,achol:2,grid:5},
+        {tag:"হালকা কাজ", link:"sarees/18.jpg",background:14,pair:2,achol:2,grid:1},
+        {tag:"লাল কাজ", link:"sarees/17.jpg",background:17,pair:13,achol:9,grid:1},
+        {tag:"লাল কাজ", link:"sarees/21.jpg",background:4,pair:6,achol:1,grid:13},
+        {tag:"হালকা কাজ", link:"sarees/22.jpg",background:26,pair:14,achol:19,grid:6},
+        {tag:"ফুল বডি কাজ", link:"sarees/23.jpg",background:37,pair:15,achol:22,grid:4},
+        {tag:"হালকা কাজ", link:"sarees/24.jpg",background:10,pair:18,achol:19,grid:6},
+        {tag:"হালকা কাজ", link:"sarees/25.jpg",background:40,pair:11,achol:15,grid:5},
+        {tag:"লাল কাজ", link:"sarees/26.jpg",background:36,pair:3,achol:7,grid:1},
+        {tag:"লাল কাজ", link:"sarees/19.jpg",background:23,pair:11,achol:15,grid:5},
+        {tag:"ফুল বডি কাজ", link:"sarees/16.jpg",background:8,pair:0,achol:15,grid:16},
+        {tag:"হালকা কাজ", link:"sarees/2.jpg",background:1,pair:1,achol:1,grid:1},
+        {tag:"লাল পার", link:"sarees/7.jpg",background:6,pair:6,achol:6,grid:6},
+        {tag:"ফুল বডি কাজ", link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
+        {tag:"লাল পার", link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
+        {tag:"হালকা কাজ", link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
+        {tag:"লাল পার", link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
+        {tag:"ফুল বডি কাজ", link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},
+        {tag:"ফুল বডি কাজ", link:"sarees/14.jpg",background:13,pair:13,achol:13,grid:13},
+
+
         ],
         load_more_sarees:[
-          {tag:"ফুল বডি কাজ", link:"sarees/20.jpg",background:30,pair:3,achol:14,grid:13},
-          {tag:"", link:"sarees/15.jpg",background:14,pair:14,achol:14,grid:14},
-          {tag:"লাল কাজ", link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
-          {tag:"লাল পার", link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
-          {tag:"লাল পার", link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
-          {tag:"লাল পার", link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},
-          {tag:"", link:"sarees/14.jpg",background:13,pair:13,achol:13,grid:13},
-          {tag:"", link:"sarees/15.jpg",background:14,pair:14,achol:14,grid:14},
-          {tag:"লাল_পার", link:"sarees/1.jpg",background:0,pair:0,achol:0,grid:0},
-          {tag:"", link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
-          {tag:"red", link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
-          {tag:"", link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
-          {tag:"", link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
-          {tag:"", link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
-          {tag:"", link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},
-          {tag:"", link:"sarees/14.jpg",background:13,pair:13,achol:13,grid:13},
+        {tag:"ফুল বডি কাজ", link:"sarees/30.jpg",background:5,pair:0,achol:0,grid:5},
+        {tag:"হালকা কাজ", link:"sarees/31.jpg",background:13,pair:3,achol:2,grid:5},
+        {tag:"লাল কাজ", link:"sarees/32.jpg",background:38,pair:11,achol:0,grid:3},
+        {tag:"লাল কাজ", link:"sarees/33.jpg",background:10,pair:6,achol:7,grid:5},
+        {tag:"ফুল বডি কাজ", link:"sarees/34.jpg",background:2,pair:15,achol:19,grid:7},
+        {tag:"হালকা কাজ", link:"sarees/35.jpg",background:3,pair:3,achol:2,grid:6},
+        {tag:"ফুল বডি কাজ", link:"sarees/20.jpg",background:30,pair:3,achol:14,grid:13},
+        {tag:"ফুল বডি কাজ", link:"sarees/15.jpg",background:14,pair:14,achol:14,grid:14},
+        {tag:"লাল কাজ", link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
+        {tag:"লাল পার", link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
+        {tag:"লাল পার", link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
+        {tag:"লাল পার", link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},
+        {tag:"ফুল বডি কাজ", link:"sarees/14.jpg",background:13,pair:13,achol:13,grid:13},
+        {tag:"লাল পার", link:"sarees/1.jpg",background:0,pair:0,achol:0,grid:0},
+        {tag:"হালকা কাজ", link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
+        {tag:"ফুল বডি কাজ", link:"sarees/3.jpg",background:2,pair:2,achol:2,grid:2},
+        {tag:"ফুল বডি কাজ", link:"sarees/4.jpg",background:3,pair:3,achol:3,grid:3},
+        {tag:"ফুল বডি কাজ", link:"sarees/5.jpg",background:4,pair:4,achol:4,grid:4},
+        {tag:"ফুল বডি কাজ", link:"sarees/6.jpg",background:5,pair:5,achol:5,grid:5},
+        {tag:"লাল পার", link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
+        {tag:"ফুল বডি কাজ", link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
+
         ],
         backgrounds:[
-          {image:"backgrounds/body850-1.png",price: "2000"},
-          {image:"backgrounds/body850-2.png",price: "2150"},
-          {image:"backgrounds/body850-3.png",price: "2300"},
-          {image:"backgrounds/body850-4.png",price: "4000"},
-          {image:"backgrounds/body850-5.png",price: "3200"},
-          {image:"backgrounds/body850-6.png",price: "1800"},
-          {image:"backgrounds/body850-7.png",price: "1740"},
-          {image:"backgrounds/body850-8.png",price: "5000"},
-          {image:"backgrounds/body850-9.png",price: "2490"},
-          {image:"backgrounds/body850-11.png",price: "2300"},
-          {image:"backgrounds/body850-12.png",price: "5200"},
-          {image:"backgrounds/body850-13.png",price: "2900"},
-          {image:"backgrounds/body850-14.png",price: "3800"},
-          {image:"backgrounds/body850-15.png",price: "9000"},
-          {image:"backgrounds/body850-16.png",price: "1200"},
-          {image:"backgrounds/body850-17.png",price: "2990"},
-          {image:"backgrounds/body850-18.png",price: "2300"},
-          {image:"backgrounds/body850-19.png",price: "3100"},
-          {image:"backgrounds/body850-20.png",price: "3240"},
-          {image:"backgrounds/body850-21.png",price: "2400"},
-          {image:"backgrounds/body850-22.png",price: "2550"},
-          {image:"backgrounds/body850-23.png",price: "2700"},
-          {image:"backgrounds/body850-24.png",price: "2800"},
-          {image:"backgrounds/body850-25.png",price: "3450"},
-          {image:"backgrounds/body850-26.png",price: "2500"},
-          {image:"backgrounds/body850-27.png",price: "1200"},
-          {image:"backgrounds/body850-28.png",price: "2100"},
-          {image:"backgrounds/body850-29.png",price: "1900"},
-          {image:"backgrounds/body850-30.png",price: "2000"},
-          {image:"backgrounds/body850-31.png",price: "1400"},
-          {image:"backgrounds/body850-32.png",price: "1300"},
-          {image:"backgrounds/body850-33.png",price: "1200"},
-          {image:"backgrounds/body850-34.png",price: "1100"},
-          {image:"backgrounds/body850-35.png",price: "850"},
-          {image:"backgrounds/body850-36.png",price: "6000"},
-          {image:"backgrounds/body850-37.png",price: "2000"},
-          {image:"backgrounds/body850-38.png",price: "3000"},
-          {image:"backgrounds/body850-39.png",price: "2100"},
-          {image:"backgrounds/body850-40.png",price: "2200"},
-          {image:"backgrounds/body850-41.png",price: "2300"},
-          {image:"backgrounds/body850-42.png",price: "1800"},
+        {image:"backgrounds/body850-1.png",price: "2000"},
+        {image:"backgrounds/body850-2.png",price: "2150"},
+        {image:"backgrounds/body850-3.png",price: "2300"},
+        {image:"backgrounds/body850-4.png",price: "4000"},
+        {image:"backgrounds/body850-5.png",price: "3200"},
+        {image:"backgrounds/body850-6.png",price: "1800"},
+        {image:"backgrounds/body850-7.png",price: "1740"},
+        {image:"backgrounds/body850-8.png",price: "5000"},
+        {image:"backgrounds/body850-9.png",price: "2490"},
+        {image:"backgrounds/body850-11.png",price: "2300"},
+        {image:"backgrounds/body850-12.png",price: "5200"},
+        {image:"backgrounds/body850-13.png",price: "2900"},
+        {image:"backgrounds/body850-14.png",price: "3800"},
+        {image:"backgrounds/body850-15.png",price: "9000"},
+        {image:"backgrounds/body850-16.png",price: "1200"},
+        {image:"backgrounds/body850-17.png",price: "2990"},
+        {image:"backgrounds/body850-18.png",price: "2300"},
+        {image:"backgrounds/body850-19.png",price: "3100"},
+        {image:"backgrounds/body850-20.png",price: "3240"},
+        {image:"backgrounds/body850-21.png",price: "2400"},
+        {image:"backgrounds/body850-22.png",price: "2550"},
+        {image:"backgrounds/body850-23.png",price: "2700"},
+        {image:"backgrounds/body850-24.png",price: "2800"},
+        {image:"backgrounds/body850-25.png",price: "3450"},
+        {image:"backgrounds/body850-26.png",price: "2500"},
+        {image:"backgrounds/body850-27.png",price: "1200"},
+        {image:"backgrounds/body850-28.png",price: "2100"},
+        {image:"backgrounds/body850-29.png",price: "1900"},
+        {image:"backgrounds/body850-30.png",price: "2000"},
+        {image:"backgrounds/body850-31.png",price: "1400"},
+        {image:"backgrounds/body850-32.png",price: "1300"},
+        {image:"backgrounds/body850-33.png",price: "1200"},
+        {image:"backgrounds/body850-34.png",price: "1100"},
+        {image:"backgrounds/body850-35.png",price: "850"},
+        {image:"backgrounds/body850-36.png",price: "6000"},
+        {image:"backgrounds/body850-37.png",price: "2000"},
+        {image:"backgrounds/body850-38.png",price: "3000"},
+        {image:"backgrounds/body850-39.png",price: "2100"},
+        {image:"backgrounds/body850-40.png",price: "2200"},
+        {image:"backgrounds/body850-41.png",price: "2300"},
+        {image:"backgrounds/body850-42.png",price: "1800"},
         ], 
         pairs:[
-          {image:"pairs/p-001.png",thumbnail:"pairs/s-p-001.png",price:"600"},
-          {image:"pairs/p-002.png",thumbnail:"pairs/s-p-002.png",price:"450"},
-          {image:"pairs/p-003.png",thumbnail:"pairs/s-p-003.png",price:"700"},
-          {image:"pairs/p-005.png",thumbnail:"pairs/s-p-005.png",price:"1200"},
-          {image:"pairs/p-006.png",thumbnail:"pairs/s-p-006.png",price:"990"},
-          {image:"pairs/p-007.png",thumbnail:"pairs/s-p-007.png",price:"320"},
-          {image:"pairs/p-008.png",thumbnail:"pairs/s-p-008.png",price:"590"},
-          {image:"pairs/p-009.png",thumbnail:"pairs/s-p-009.png",price:"800"},
-          {image:"pairs/p-0010.png",thumbnail:"pairs/s-p-0010.png",price:"900"},
-          {image:"pairs/p-0011.png",thumbnail:"pairs/s-p-0011.png",price:"450"},
-          {image:"pairs/p-0012.png",thumbnail:"pairs/s-p-0012.png",price:"620"},
-          {image:"pairs/p-0013.png",thumbnail:"pairs/s-p-0013.png",price:"480"},
-          {image:"pairs/p-0014.png",thumbnail:"pairs/s-p-0014.png",price:"510"},
-          {image:"pairs/p-0015.png",thumbnail:"pairs/s-p-0015.png",price:"550"},
-          {image:"pairs/p-16.png",thumbnail:"pairs/s-p-16.png",price:"450"},
-          {image:"pairs/p-17.png",thumbnail:"pairs/s-p-17.png",price:"400"},
-          {image:"pairs/p-18.png",thumbnail:"pairs/s-p-18.png",price:"350"},
-          {image:"pairs/p-19.png",thumbnail:"pairs/s-p-19.png",price:"600"},
-          {image:"pairs/p-20.png",thumbnail:"pairs/s-p-20.png",price:"700"},
-          {image:"pairs/p-21.png",thumbnail:"pairs/s-p-21.png",price:"450"},
-          {image:"pairs/p-22.png",thumbnail:"pairs/s-p-22.png",price:"700"}
+        {image:"pairs/p-001.png",thumbnail:"pairs/s-p-001.png",price:"600"},
+        {image:"pairs/p-002.png",thumbnail:"pairs/s-p-002.png",price:"450"},
+        {image:"pairs/p-003.png",thumbnail:"pairs/s-p-003.png",price:"700"},
+        {image:"pairs/p-005.png",thumbnail:"pairs/s-p-005.png",price:"1200"},
+        {image:"pairs/p-006.png",thumbnail:"pairs/s-p-006.png",price:"990"},
+        {image:"pairs/p-007.png",thumbnail:"pairs/s-p-007.png",price:"320"},
+        {image:"pairs/p-008.png",thumbnail:"pairs/s-p-008.png",price:"590"},
+        {image:"pairs/p-009.png",thumbnail:"pairs/s-p-009.png",price:"800"},
+        {image:"pairs/p-0010.png",thumbnail:"pairs/s-p-0010.png",price:"900"},
+        {image:"pairs/p-0011.png",thumbnail:"pairs/s-p-0011.png",price:"450"},
+        {image:"pairs/p-0012.png",thumbnail:"pairs/s-p-0012.png",price:"620"},
+        {image:"pairs/p-0013.png",thumbnail:"pairs/s-p-0013.png",price:"480"},
+        {image:"pairs/p-0014.png",thumbnail:"pairs/s-p-0014.png",price:"510"},
+        {image:"pairs/p-0015.png",thumbnail:"pairs/s-p-0015.png",price:"550"},
+        {image:"pairs/p-16.png",thumbnail:"pairs/s-p-16.png",price:"450"},
+        {image:"pairs/p-17.png",thumbnail:"pairs/s-p-17.png",price:"400"},
+        {image:"pairs/p-18.png",thumbnail:"pairs/s-p-18.png",price:"350"},
+        {image:"pairs/p-19.png",thumbnail:"pairs/s-p-19.png",price:"600"},
+        {image:"pairs/p-20.png",thumbnail:"pairs/s-p-20.png",price:"700"},
+        {image:"pairs/p-21.png",thumbnail:"pairs/s-p-21.png",price:"450"},
+        {image:"pairs/p-22.png",thumbnail:"pairs/s-p-22.png",price:"700"}
         ],
         grids:[
-          {image:"grids/b-001.png",thumbnail:"grids/s-b-001.png",price:"12000"},
-          {image:"grids/b-002.png",thumbnail:"grids/s-b-002.png",price:"5000"},
-          {image:"grids/b-003.png",thumbnail:"grids/s-b-003.png",price:"2000"},
-          {image:"grids/b-004.png",thumbnail:"grids/s-b-004.png",price:"4500"},
-          {image:"grids/b-005.png",thumbnail:"grids/s-b-005.png",price:"5600"},
-          {image:"grids/b-006.png",thumbnail:"grids/s-b-006.png",price:"2500"},
-          {image:"grids/b-007.png",thumbnail:"grids/s-b-007.png",price:"7400"},
-          {image:"grids/b-008.png",thumbnail:"grids/s-b-008.png",price:"5000"},
-          {image:"grids/b-009.png",thumbnail:"grids/s-b-009.png",price:"12000"},
-          {image:"grids/b-0010.png",thumbnail:"grids/s-b-0010.png",price:"6500"},
-          {image:"grids/b-0011.png",thumbnail:"grids/s-b-0011.png",price:"2000"},
-          {image:"grids/b-0012.png",thumbnail:"grids/s-b-0012.png",price:"3500"},
-          {image:"grids/b-0013.png",thumbnail:"grids/s-b-0013.png",price:"6700"},
-          {image:"grids/b-0014.png",thumbnail:"grids/s-b-0014.png",price:"5900"},
-          {image:"grids/b-0015.png",thumbnail:"grids/s-b-0015.png",price:"1200"},
-          {image:"grids/b-0016.png",thumbnail:"grids/s-b-0016.png",price:"1900"},
-          {image:"grids/b-0017.png",thumbnail:"grids/s-b-0017.png",price:"1200"},
-          {image:"grids/b-0018.png",thumbnail:"grids/s-b-0018.png",price:"1250"},
-          {image:"grids/b-0019.png",thumbnail:"grids/s-b-0019.png",price:"3500"},
-          {image:"grids/b-20.png",thumbnail:"grids/s-b-20.png",price:"10000"},
-          {image:"grids/b-21.png",thumbnail:"grids/s-b-21.png",price:"1300"},
-          {image:"grids/b-22.png",thumbnail:"grids/s-b-22.png",price:"1250"},
-          {image:"grids/b-23.png",thumbnail:"grids/s-b-23.png",price:"1200"},
-          {image:"grids/b-24.png",thumbnail:"grids/s-b-24.png",price:"6000"},
-          {image:"grids/b-25.png",thumbnail:"grids/s-b-25.png",price:"2000"},
-          {image:"grids/b-26.png",thumbnail:"grids/s-b-26.png",price:"3500"},
-          {image:"grids/b-27.png",thumbnail:"grids/s-b-27.png",price:"4500"}
+        {image:"grids/b-001.png",thumbnail:"grids/s-b-001.png",price:"12000"},
+        {image:"grids/b-002.png",thumbnail:"grids/s-b-002.png",price:"5000"},
+        {image:"grids/b-003.png",thumbnail:"grids/s-b-003.png",price:"2000"},
+        {image:"grids/b-004.png",thumbnail:"grids/s-b-004.png",price:"4500"},
+        {image:"grids/b-005.png",thumbnail:"grids/s-b-005.png",price:"5600"},
+        {image:"grids/b-006.png",thumbnail:"grids/s-b-006.png",price:"2500"},
+        {image:"grids/b-007.png",thumbnail:"grids/s-b-007.png",price:"7400"},
+        {image:"grids/b-008.png",thumbnail:"grids/s-b-008.png",price:"5000"},
+        {image:"grids/b-009.png",thumbnail:"grids/s-b-009.png",price:"12000"},
+        {image:"grids/b-0010.png",thumbnail:"grids/s-b-0010.png",price:"6500"},
+        {image:"grids/b-0011.png",thumbnail:"grids/s-b-0011.png",price:"2000"},
+        {image:"grids/b-0012.png",thumbnail:"grids/s-b-0012.png",price:"3500"},
+        {image:"grids/b-0013.png",thumbnail:"grids/s-b-0013.png",price:"6700"},
+        {image:"grids/b-0014.png",thumbnail:"grids/s-b-0014.png",price:"5900"},
+        {image:"grids/b-0015.png",thumbnail:"grids/s-b-0015.png",price:"1200"},
+        {image:"grids/b-0016.png",thumbnail:"grids/s-b-0016.png",price:"1900"},
+        {image:"grids/b-0017.png",thumbnail:"grids/s-b-0017.png",price:"1200"},
+        {image:"grids/b-0018.png",thumbnail:"grids/s-b-0018.png",price:"1250"},
+        {image:"grids/b-0019.png",thumbnail:"grids/s-b-0019.png",price:"3500"},
+        {image:"grids/b-20.png",thumbnail:"grids/s-b-20.png",price:"10000"},
+        {image:"grids/b-21.png",thumbnail:"grids/s-b-21.png",price:"1300"},
+        {image:"grids/b-22.png",thumbnail:"grids/s-b-22.png",price:"1250"},
+        {image:"grids/b-23.png",thumbnail:"grids/s-b-23.png",price:"1200"},
+        {image:"grids/b-24.png",thumbnail:"grids/s-b-24.png",price:"6000"},
+        {image:"grids/b-25.png",thumbnail:"grids/s-b-25.png",price:"2000"},
+        {image:"grids/b-26.png",thumbnail:"grids/s-b-26.png",price:"3500"},
+        {image:"grids/b-27.png",thumbnail:"grids/s-b-27.png",price:"4500"}
         ],
         achols:[
-          {image:"achols/a-01.png",thumbnail:"achols/s-a-01.png",price:"1000"},
-          {image:"achols/a-02.png",thumbnail:"achols/s-a-02.png",price:"1500"},
-          {image:"achols/a-03.png",thumbnail:"achols/s-a-03.png",price:"3000"},
-          {image:"achols/a-04.png",thumbnail:"achols/s-a-04.png",price:"3500"},
-          {image:"achols/a-05.png",thumbnail:"achols/s-a-05.png",price:"6500"},
-          {image:"achols/a-06.png",thumbnail:"achols/s-a-06.png",price:"1550"},
-          {image:"achols/a-07.png",thumbnail:"achols/s-a-07.png",price:"2100"},
-          {image:"achols/a-08.png",thumbnail:"achols/s-a-08.png",price:"12000"},
-          {image:"achols/a-09.png",thumbnail:"achols/s-a-09.png",price:"1300"},
-          {image:"achols/a-10.png",thumbnail:"achols/s-a-10.png",price:"1250"},
-          {image:"achols/a-11.png",thumbnail:"achols/s-a-11.png",price:"2100"},
-          {image:"achols/a-12.png",thumbnail:"achols/s-a-12.png",price:"3500"},
-          {image:"achols/a-13.png",thumbnail:"achols/s-a-13.png",price:"430"},
-          {image:"achols/a-14.png",thumbnail:"achols/s-a-14.png",price:"6500"},
-          {image:"achols/a-15.png",thumbnail:"achols/s-a-15.png",price:"7300"},
-          {image:"achols/a-16.png",thumbnail:"achols/s-a-16.png",price:"6300"},
-          {image:"achols/a-17.png",thumbnail:"achols/s-a-17.png",price:"5500"},
-          {image:"achols/a-18.png",thumbnail:"achols/s-a-18.png",price:"3500"},
-          {image:"achols/a-19.png",thumbnail:"achols/s-a-19.png",price:"4800"},
-          {image:"achols/a-20.png",thumbnail:"achols/s-a-20.png",price:"9000"},
-          {image:"achols/a-21.png",thumbnail:"achols/s-a-21.png",price:"12000"},
-          {image:"achols/a-22.png",thumbnail:"achols/s-a-22.png",price:"2500"},
-          {image:"achols/a-23.png",thumbnail:"achols/s-a-23.png",price:"3200"},
-          {image:"achols/a-24.png",thumbnail:"achols/s-a-24.png",price:"5000"},
-          {image:"achols/a-25.png",thumbnail:"achols/s-a-25.png",price:"6800"}
+        {image:"achols/a-01.png",thumbnail:"achols/s-a-01.png",price:"1000"},
+        {image:"achols/a-02.png",thumbnail:"achols/s-a-02.png",price:"1500"},
+        {image:"achols/a-03.png",thumbnail:"achols/s-a-03.png",price:"3000"},
+        {image:"achols/a-04.png",thumbnail:"achols/s-a-04.png",price:"3500"},
+        {image:"achols/a-05.png",thumbnail:"achols/s-a-05.png",price:"6500"},
+        {image:"achols/a-06.png",thumbnail:"achols/s-a-06.png",price:"1550"},
+        {image:"achols/a-07.png",thumbnail:"achols/s-a-07.png",price:"2100"},
+        {image:"achols/a-08.png",thumbnail:"achols/s-a-08.png",price:"12000"},
+        {image:"achols/a-09.png",thumbnail:"achols/s-a-09.png",price:"1300"},
+        {image:"achols/a-10.png",thumbnail:"achols/s-a-10.png",price:"1250"},
+        {image:"achols/a-11.png",thumbnail:"achols/s-a-11.png",price:"2100"},
+        {image:"achols/a-12.png",thumbnail:"achols/s-a-12.png",price:"3500"},
+        {image:"achols/a-13.png",thumbnail:"achols/s-a-13.png",price:"430"},
+        {image:"achols/a-14.png",thumbnail:"achols/s-a-14.png",price:"6500"},
+        {image:"achols/a-15.png",thumbnail:"achols/s-a-15.png",price:"7300"},
+        {image:"achols/a-16.png",thumbnail:"achols/s-a-16.png",price:"6300"},
+        {image:"achols/a-17.png",thumbnail:"achols/s-a-17.png",price:"5500"},
+        {image:"achols/a-18.png",thumbnail:"achols/s-a-18.png",price:"3500"},
+        {image:"achols/a-19.png",thumbnail:"achols/s-a-19.png",price:"4800"},
+        {image:"achols/a-20.png",thumbnail:"achols/s-a-20.png",price:"9000"},
+        {image:"achols/a-21.png",thumbnail:"achols/s-a-21.png",price:"12000"},
+        {image:"achols/a-22.png",thumbnail:"achols/s-a-22.png",price:"2500"},
+        {image:"achols/a-23.png",thumbnail:"achols/s-a-23.png",price:"3200"},
+        {image:"achols/a-24.png",thumbnail:"achols/s-a-24.png",price:"5000"},
+        {image:"achols/a-25.png",thumbnail:"achols/s-a-25.png",price:"6800"}
         ],
       }
     },
@@ -514,32 +562,37 @@
       },
       convertEnglishToBangla(input) {
         let numbers = {
-           0:'০',
-           1:'১',
-           2:'২',
-           3:'৩',
-           4:'৪',
-           5:'৫',
-           6:'৬',
-           7:'৭',
-           8:'৮',
-           9:'৯'
-        };
-        var output = [];
-        for (var i = 0; i < input.length; ++i) {
-          if (!isNaN(input[i])) {
-            output.push(numbers[input[i]]);
-          } else {
-            output.push(input[i]);
-          }
+         0:'০',
+         1:'১',
+         2:'২',
+         3:'৩',
+         4:'৪',
+         5:'৫',
+         6:'৬',
+         7:'৭',
+         8:'৮',
+         9:'৯'
+       };
+       var output = [];
+       for (var i = 0; i < input.length; ++i) {
+        if (!isNaN(input[i])) {
+          output.push(numbers[input[i]]);
+        } else {
+          output.push(input[i]);
         }
-        return output.join('');
       }
+      return output.join('');
     }
   }
+}
 </script>
 
 <style scoped>
+
+  body {
+    font-family: 'kalpurushregular';  
+    
+  }
   .grid{
     width:650px;
     height:300px;
@@ -726,37 +779,40 @@
     padding-bottom: .4rem;
   }
   .divider4 {
-  height: 2px;
-  margin: 0.188rem 0 0.5rem;
-  background-color: var(--color10);
-}
+    height: 2px;
+    margin: 0.188rem 0 0.5rem;
+    background-color: var(--color10);
+  }
 
-.p-2.border-red.background-image:hover {
-  background: #25a94a;
+  .p-2.border-red.background-image:hover {
+    background: #25a94a;
     color: #f3d078;
     font-size: 150%;
     background-color: rgb(0 0 0 / 5%)!important;
-         font-size: 150%;
-         -webkit-transform: scale(1.4);
-         -ms-transform: scale(1.4);
-         transform: scale(1.4);
-         transition: 1s ease;
-       border-radius: 15%;
-}
+    font-size: 150%;
+    -webkit-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+    transition: 1s ease;
+    border-radius: 15%;
+  }
 
 
 
-.p-2.border-transparent.background-image:hover {
+  .p-2.border-transparent.background-image:hover {
     font-size: 150%;
     background-color:#155724  !important;
-         font-size: 150%;
-         -webkit-transform: scale(1.4);
-         -ms-transform: scale(1.4);
-         transform: scale(1.4);
-         transition: 1s ease;
-       border-radius: 15%;
+    font-size: 150%;
+    -webkit-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+    transition: 1s ease;
+    border-radius: 15%;
 
-}
+  }
+  th {
+    text-align: left;
+  }
 
 
 
