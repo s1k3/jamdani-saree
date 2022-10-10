@@ -9,8 +9,9 @@
           :key="index">
           <saree :saree="saree"  @click="startCustomization(index)"/>
         </div>
+        <h4 v-if="search !== '' && filteredSarees.length === 0" class="text-center" style="color:red">কোন কিছু খুঁজে পাওয়া যায়নি</h4>
       </div>
-      <div class="w-100">
+      <div class="w-100" v-if="search === ''">
         <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
         href="javascript:void(0);"
         @click="loadMoreSarees" 
@@ -296,52 +297,52 @@
         {title:"২০০ কাউন্ট সুতা", price:"150000"},
         ],
         sarees:[
-        {tag:"হালকা কাজ", link:"sarees/27.jpg",background:5,pair:20,achol:11,grid:12},
-        {tag:"হালকা কাজ", link:"sarees/28.jpg",background:22,pair:16,achol:21,grid:21},
-        {tag:"ফুল বডি কাজ", link:"sarees/29.jpg",background:24,pair:3,achol:2,grid:5},
-        {tag:"হালকা কাজ", link:"sarees/18.jpg",background:14,pair:2,achol:2,grid:1},
-        {tag:"লাল কাজ", link:"sarees/17.jpg",background:17,pair:13,achol:9,grid:1},
-        {tag:"লাল কাজ", link:"sarees/21.jpg",background:4,pair:6,achol:1,grid:13},
-        {tag:"হালকা কাজ", link:"sarees/22.jpg",background:26,pair:14,achol:19,grid:6},
-        {tag:"ফুল বডি কাজ", link:"sarees/23.jpg",background:37,pair:15,achol:22,grid:4},
-        {tag:"হালকা কাজ", link:"sarees/24.jpg",background:10,pair:18,achol:19,grid:6},
-        {tag:"হালকা কাজ", link:"sarees/25.jpg",background:40,pair:11,achol:15,grid:5},
-        {tag:"লাল কাজ", link:"sarees/26.jpg",background:36,pair:3,achol:7,grid:1},
-        {tag:"লাল কাজ", link:"sarees/19.jpg",background:23,pair:11,achol:15,grid:5},
-        {tag:"ফুল বডি কাজ", link:"sarees/16.jpg",background:8,pair:0,achol:15,grid:16},
-        {tag:"হালকা কাজ", link:"sarees/2.jpg",background:1,pair:1,achol:1,grid:1},
-        {tag:"লাল পার", link:"sarees/7.jpg",background:6,pair:6,achol:6,grid:6},
-        {tag:"ফুল বডি কাজ", link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
-        {tag:"লাল পার", link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
-        {tag:"হালকা কাজ", link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
-        {tag:"লাল পার", link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
-        {tag:"ফুল বডি কাজ", link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},
-        {tag:"ফুল বডি কাজ", link:"sarees/14.jpg",background:13,pair:13,achol:13,grid:13},
+        {tag:["হালকা কাজ"], link:"sarees/27.jpg",background:5,pair:20,achol:11,grid:12},
+        {tag:["হালকা কাজ"], link:"sarees/28.jpg",background:22,pair:16,achol:21,grid:21},
+        {tag:["ফুল বডি কাজ"], link:"sarees/29.jpg",background:24,pair:3,achol:2,grid:5},
+        {tag:["হালকা কাজ"], link:"sarees/18.jpg",background:14,pair:2,achol:2,grid:1},
+        {tag:["লাল কাজ"], link:"sarees/17.jpg",background:17,pair:13,achol:9,grid:1},
+        {tag:["লাল কাজ"], link:"sarees/21.jpg",background:4,pair:6,achol:1,grid:13},
+        {tag:["হালকা কাজ"], link:"sarees/22.jpg",background:26,pair:14,achol:19,grid:6},
+        {tag:["ফুল বডি কাজ"], link:"sarees/23.jpg",background:37,pair:15,achol:22,grid:4},
+        {tag:["হালকা কাজ"], link:"sarees/24.jpg",background:10,pair:18,achol:19,grid:6},
+        {tag:["হালকা কাজ"], link:"sarees/25.jpg",background:40,pair:11,achol:15,grid:5},
+        {tag:["লাল কাজ"], link:"sarees/26.jpg",background:36,pair:3,achol:7,grid:1},
+        {tag:["লাল কাজ"], link:"sarees/19.jpg",background:23,pair:11,achol:15,grid:5},
+        {tag:["ফুল বডি কাজ"], link:"sarees/16.jpg",background:8,pair:0,achol:15,grid:16},
+        {tag:["হালকা কাজ"], link:"sarees/2.jpg",background:1,pair:1,achol:1,grid:1},
+        {tag:["লাল পার"], link:"sarees/7.jpg",background:6,pair:6,achol:6,grid:6},
+        {tag:["ফুল বডি কাজ"], link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
+        {tag:["লাল পার"], link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
+        {tag:["হালকা কাজ"], link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
+        {tag:["লাল পার"], link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
+        {tag:["ফুল বডি কাজ"], link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},
+        {tag:["ফুল বডি কাজ"], link:"sarees/14.jpg",background:13,pair:13,achol:13,grid:13},
 
 
         ],
         load_more_sarees:[
-        {tag:"ফুল বডি কাজ", link:"sarees/30.jpg",background:5,pair:0,achol:0,grid:5},
-        {tag:"হালকা কাজ", link:"sarees/31.jpg",background:13,pair:3,achol:2,grid:5},
-        {tag:"লাল কাজ", link:"sarees/32.jpg",background:38,pair:11,achol:0,grid:3},
-        {tag:"লাল কাজ", link:"sarees/33.jpg",background:10,pair:6,achol:7,grid:5},
-        {tag:"ফুল বডি কাজ", link:"sarees/34.jpg",background:2,pair:15,achol:19,grid:7},
-        {tag:"হালকা কাজ", link:"sarees/35.jpg",background:3,pair:3,achol:2,grid:6},
-        {tag:"ফুল বডি কাজ", link:"sarees/20.jpg",background:30,pair:3,achol:14,grid:13},
-        {tag:"ফুল বডি কাজ", link:"sarees/15.jpg",background:14,pair:14,achol:14,grid:14},
-        {tag:"লাল কাজ", link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
-        {tag:"লাল পার", link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
-        {tag:"লাল পার", link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
-        {tag:"লাল পার", link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},
-        {tag:"ফুল বডি কাজ", link:"sarees/14.jpg",background:13,pair:13,achol:13,grid:13},
-        {tag:"লাল পার", link:"sarees/1.jpg",background:0,pair:0,achol:0,grid:0},
-        {tag:"হালকা কাজ", link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
-        {tag:"ফুল বডি কাজ", link:"sarees/3.jpg",background:2,pair:2,achol:2,grid:2},
-        {tag:"ফুল বডি কাজ", link:"sarees/4.jpg",background:3,pair:3,achol:3,grid:3},
-        {tag:"ফুল বডি কাজ", link:"sarees/5.jpg",background:4,pair:4,achol:4,grid:4},
-        {tag:"ফুল বডি কাজ", link:"sarees/6.jpg",background:5,pair:5,achol:5,grid:5},
-        {tag:"লাল পার", link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
-        {tag:"ফুল বডি কাজ", link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
+        {tag:["ফুল বডি কাজ"], link:"sarees/30.jpg",background:5,pair:0,achol:0,grid:5},
+        {tag:["হালকা কাজ"], link:"sarees/31.jpg",background:13,pair:3,achol:2,grid:5},
+        {tag:["লাল কাজ"], link:"sarees/32.jpg",background:38,pair:11,achol:0,grid:3},
+        {tag:["লাল কাজ"], link:"sarees/33.jpg",background:10,pair:6,achol:7,grid:5},
+        {tag:["ফুল বডি কাজ"], link:"sarees/34.jpg",background:2,pair:15,achol:19,grid:7},
+        {tag:["হালকা কাজ"], link:"sarees/35.jpg",background:3,pair:3,achol:2,grid:6},
+        {tag:["ফুল বডি কাজ"], link:"sarees/20.jpg",background:30,pair:3,achol:14,grid:13},
+        {tag:["ফুল বডি কাজ"], link:"sarees/15.jpg",background:14,pair:14,achol:14,grid:14},
+        {tag:["লাল কাজ"], link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
+        {tag:["লাল পার"], link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
+        {tag:["লাল পার"], link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
+        {tag:["লাল পার"], link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},
+        {tag:["ফুল বডি কাজ"], link:"sarees/14.jpg",background:13,pair:13,achol:13,grid:13},
+        {tag:["লাল পার"], link:"sarees/1.jpg",background:0,pair:0,achol:0,grid:0},
+        {tag:["হালকা কাজ"], link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
+        {tag:["ফুল বডি কাজ"], link:"sarees/3.jpg",background:2,pair:2,achol:2,grid:2},
+        {tag:["ফুল বডি কাজ"], link:"sarees/4.jpg",background:3,pair:3,achol:3,grid:3},
+        {tag:["ফুল বডি কাজ"], link:"sarees/5.jpg",background:4,pair:4,achol:4,grid:4},
+        {tag:["ফুল বডি কাজ"], link:"sarees/6.jpg",background:5,pair:5,achol:5,grid:5},
+        {tag:["লাল পার"], link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
+        {tag:["ফুল বডি কাজ"], link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
 
         ],
         backgrounds:[
@@ -478,7 +479,8 @@
         }
         let sarees = [];
         this.sarees.forEach(saree =>{
-          if(this.search === saree.tag){
+          let hasTag = saree.tag.some(t => t.indexOf(this.search.trim()) >=0);
+          if(hasTag){
             sarees.push(saree);
           }
         });
