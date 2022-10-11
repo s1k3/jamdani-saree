@@ -297,21 +297,21 @@
         {title:"২০০ কাউন্ট সুতা", price:"150000"},
         ],
         sarees:[
-        {tag:["হালকা কাজ", "সাদা", "নীল পার", "কালো কাজ", "নীল কাজ","halka kaj","sada","white","nil kaj", "nil par","blue"], link:"sarees/27.jpg",background:5,pair:20,achol:11,grid:12},
-        {tag:["হালকা কাজ", "নীল পার", "নীল কাজ","halka kaj","nil kaj", "nil par","blue"], link:"sarees/28.jpg",background:22,pair:16,achol:21,grid:21},
-        {tag:["ফুল বডি কাজ", "বাসন্তি", "কমলা", "গোলাপি পার", "গোলাপি কাজ","golapi","komola","orange","full body kaj", "pink"], link:"sarees/29.jpg",background:24,pair:3,achol:2,grid:5},
+        {tag:["হালকা কাজ", "সাদা", "নীল পার", "কালো কাজ", "নীল কাজ","halka kaj","sada","white","nil kaj", "nil par","blue", "asmani"], link:"sarees/27.jpg",background:5,pair:20,achol:11,grid:12},
+        {tag:["হালকা কাজ", "নীল পার", "নীল কাজ","halka kaj","nil kaj", "nil par","blue", "asmani"], link:"sarees/28.jpg",background:22,pair:16,achol:21,grid:21},
+        {tag:["ফুল বডি কাজ", "বাসন্তি", "কমলা", "গোলাপি পার", "গোলাপি কাজ","golapi","komola","orange","full body kaj", "pink", "holud", "yellow"], link:"sarees/29.jpg",background:24,pair:3,achol:2,grid:5},
         {tag:["হালকা কাজ", "গোলাপি পার", "গোলাপি কাজ","halka kaj","pink par","pink", "golapi"], link:"sarees/18.jpg",background:14,pair:2,achol:2,grid:1},
         {tag:["লাল কাজ","লাল আচল","মেজেন্ডা পার", "ফুল বডি কাজ","red","full body kaj", "lal"], link:"sarees/17.jpg",background:17,pair:13,achol:9,grid:1},
         {tag:["লাল কাজ", "নীল আচল","হালকা কাজ","blue achol","red kaj", "red", "nil", "lal" ], link:"sarees/21.jpg",background:4,pair:6,achol:1,grid:13},
-        {tag:["হালকা কাজ","বাসন্তি","কমলা","সুরমা কাজ","orange","surma","bashonti","halka kaj", "pair"], link:"sarees/22.jpg",background:26,pair:14,achol:19,grid:6},
+        {tag:["হালকা কাজ","বাসন্তি","কমলা","সুরমা কাজ","orange","surma","bashonti","halka kaj", "pair", "holud", "yellow"], link:"sarees/22.jpg",background:26,pair:14,achol:19,grid:6},
         {tag:["ফুল বডি কাজ","গোলাপি পার", "গোলাপি কাজ", "বাসন্তি", "কমলা","full body kaj","golapi kaj","orange"], link:"sarees/23.jpg",background:37,pair:15,achol:22,grid:4},
         {tag:["হালকা কাজ","সুরমা কাজ","ash color","ash","surma", "halka kaj"], link:"sarees/24.jpg",background:10,pair:18,achol:19,grid:6},
         {tag:["ফুল বডি কাজ", "বাসন্তি", "কমলা", "komola", "red", "orange","full body kaj"], link:"sarees/25.jpg",background:40,pair:11,achol:15,grid:5},
         {tag:["লাল কাজ","লাল আচল", "ফুল বডি কাজ", "full body kaj", "red par", "red pair", "red achol", "lal"], link:"sarees/26.jpg",background:36,pair:3,achol:7,grid:1},
-        {tag:["লাল কাজ", "বাসন্তি", "কমলা", "red","komola", "lal", "bashonti"], link:"sarees/19.jpg",background:23,pair:11,achol:15,grid:5},
+        {tag:["লাল কাজ", "বাসন্তি", "কমলা", "red","komola", "lal", "bashonti", "holud", "yellow"], link:"sarees/19.jpg",background:23,pair:11,achol:15,grid:5},
         {tag:["ফুল বডি কাজ", "full body kaj", "sada", "white", "lal par", "red"], link:"sarees/16.jpg",background:8,pair:0,achol:15,grid:16},
-        {tag:["হালকা কাজ","sada", "white", "lal par", "kalo", "black",  "halka kaj","কাল"], link:"sarees/2.jpg",background:1,pair:1,achol:1,grid:1},
-        {tag:["লাল পার", "ফুল বডি কাজ", "full body kaj", "red", "lal","red achol", "লাল আচল", "sada", "white body", "সাদা"  ], link:"sarees/7.jpg",background:6,pair:6,achol:6,grid:6},
+        {tag:["হালকা কাজ","sada", "white", "kalo", "black",  "halka kaj","কাল"], link:"sarees/2.jpg",background:1,pair:1,achol:1,grid:1},
+        {tag:["লাল পার", "ফুল বডি কাজ", "full body kaj", "red", "lal","red achol", "লাল আচল", "full", "colorful" ], link:"sarees/7.jpg",background:6,pair:6,achol:6,grid:6},
         {tag:["ফুল বডি কাজ", "full body kaj", "ash","sada", "white body", "সাদা" ], link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
         {tag:["লাল পার", "sada", "white", "সাদা","ফুল বডি কাজ", "full body kaj", "lal", "red", "megenda", "মেজেন্ডা পার" ], link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
         {tag:["হালকা কাজ", "ask", "pink", "halka kaj"], link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
@@ -322,27 +322,24 @@
 
         ],
         load_more_sarees:[
-        {tag:["ফুল বডি কাজ"], link:"sarees/30.jpg",background:5,pair:0,achol:0,grid:5},
-        {tag:["হালকা কাজ"], link:"sarees/31.jpg",background:13,pair:3,achol:2,grid:5},
-        {tag:["লাল কাজ"], link:"sarees/32.jpg",background:38,pair:11,achol:0,grid:3},
-        {tag:["লাল কাজ"], link:"sarees/33.jpg",background:10,pair:6,achol:7,grid:5},
-        {tag:["ফুল বডি কাজ"], link:"sarees/34.jpg",background:2,pair:15,achol:19,grid:7},
-        {tag:["হালকা কাজ"], link:"sarees/35.jpg",background:3,pair:3,achol:2,grid:6},
-        {tag:["ফুল বডি কাজ"], link:"sarees/20.jpg",background:30,pair:3,achol:14,grid:13},
-        {tag:["ফুল বডি কাজ"], link:"sarees/15.jpg",background:14,pair:14,achol:14,grid:14},
-        {tag:["লাল কাজ"], link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
-        {tag:["লাল পার"], link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
-        {tag:["লাল পার"], link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
-        {tag:["লাল পার"], link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},
-        {tag:["ফুল বডি কাজ"], link:"sarees/14.jpg",background:13,pair:13,achol:13,grid:13},
+        {tag:["ফুল বডি কাজ", "sada", "white body", "সাদা", "full body kaj", "red" , "red kaj", "লাল পার"], link:"sarees/30.jpg",background:5,pair:0,achol:0,grid:5},
+        {tag:["হালকা কাজ", "golapi", "গোলাপি পার", "গোলাপি কাজ", "off white"], link:"sarees/31.jpg",background:13,pair:3,achol:2,grid:5},
+        {tag:["লাল কাজ", "orange", "কমলা", "বাসন্তি"], link:"sarees/32.jpg",background:38,pair:11,achol:0,grid:3},
+        {tag:["ফুল বডি কাজ", "full body kaj", "sada", "white", "lal par", "red"], link:"sarees/33.jpg",background:10,pair:6,achol:7,grid:5},
+        {tag:["ফুল বডি কাজ", "ash", "sada", "white", "full body kaj", "surma", "chai color"], link:"sarees/34.jpg",background:2,pair:15,achol:19,grid:7},
+        {tag:["হালকা কাজ", "golapi", "গোলাপি পার", "গোলাপি কাজ", "halka kaj"], link:"sarees/35.jpg",background:3,pair:3,achol:2,grid:6},
+        {tag:["ফুল বডি কাজ","full body kaj", "sobuj", "green", "colorful"], link:"sarees/20.jpg",background:30,pair:3,achol:14,grid:13},
+        {tag:["ফুল বডি কাজ", "full body kaj", "গোলাপি পার", "গোলাপি কাজ", "sada", "white"], link:"sarees/15.jpg",background:14,pair:14,achol:14,grid:14},
+        {tag:["লাল কাজ", "গোলাপি কাজ", "halka kaj", "full lota"], link:"sarees/11.jpg",background:10,pair:10,achol:10,grid:10},
+        {tag:["লাল পার", "red par", "ash", "chai", "full noksha"], link:"sarees/12.jpg",background:11,pair:11,achol:11,grid:11},
+        {tag:["লাল পার","red par"], link:"sarees/13.jpg",background:12,pair:12,achol:12,grid:12},        
         {tag:["লাল পার"], link:"sarees/1.jpg",background:0,pair:0,achol:0,grid:0},
-        {tag:["হালকা কাজ"], link:"sarees/8.jpg",background:7,pair:7,achol:7,grid:7},
-        {tag:["ফুল বডি কাজ"], link:"sarees/3.jpg",background:2,pair:2,achol:2,grid:2},
-        {tag:["ফুল বডি কাজ"], link:"sarees/4.jpg",background:3,pair:3,achol:3,grid:3},
-        {tag:["ফুল বডি কাজ"], link:"sarees/5.jpg",background:4,pair:4,achol:4,grid:4},
-        {tag:["ফুল বডি কাজ"], link:"sarees/6.jpg",background:5,pair:5,achol:5,grid:5},
-        {tag:["লাল পার"], link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
-        {tag:["ফুল বডি কাজ"], link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
+        {tag:["ফুল বডি কাজ", "kalo", "black", "blue", "কাল", "full" ,"গোলাপি পার", "গোলাপি কাজ", "colorful", "golapi"], link:"sarees/3.jpg",background:2,pair:2,achol:2,grid:2},
+        {tag:["ফুল বডি কাজ", "full body kaj", "গোলাপি পার", "গোলাপি কাজ", "full", "colorful", "golapi"], link:"sarees/4.jpg",background:3,pair:3,achol:3,grid:3},
+        {tag:["ফুল বডি কাজ", "kalo", "black", "blue", "কাল"], link:"sarees/5.jpg",background:4,pair:4,achol:4,grid:4},
+        {tag:["ফুল বডি কাজ", "sada", "white", "সাদা","green","সবুজ কাজ", "লাল", "red"], link:"sarees/6.jpg",background:5,pair:5,achol:5,grid:5},
+        {tag:["লাল পার", "red par", "full", "golapi","গোলাপি কাজ", "sada", "white", "সাদা"], link:"sarees/9.jpg",background:8,pair:8,achol:8,grid:8},
+        {tag:["ফুল বডি কাজ","green","সবুজ কাজ","sada", "white", "blue", "সাদা" ], link:"sarees/10.jpg",background:9,pair:9,achol:9,grid:9},
 
         ],
         backgrounds:[
@@ -540,7 +537,7 @@
       loadMoreSarees(){
         let i =0;
         while(this.load_more_sarees.length > 0){
-          if(i == 5){
+          if(i == 6){
             break;
           }
           this.sarees.push(this.load_more_sarees[0]);
