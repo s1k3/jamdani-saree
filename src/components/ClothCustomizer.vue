@@ -67,143 +67,78 @@
             </button>
          </div>
     </div>
-     <div class="col-lg-6">
-      <div class="row">
-         <div class="col-lg-12" v-if="step == 1">
-            <h3>সুতার কাউন্ট নির্বাচন করুন</h3>
-            <div class="w-100">
-               <div class="form-check float-left" v-for="(yarn_type,index) in yarn_types" :key="index">
-                  <input :id="`count${index}`" 
-                     type="radio" 
-                     v-model="yarn_count"
-                     :value="yarn_type" 
-                     class="mr-2"/>
-                  <label :for="`count${index}`" class="form-check-label">{{ yarn_type.title }}</label>
+     <div class="col-lg-6 m-0 p-0">
+        <div class="row m-0 p-0">
+            <div class="col-lg-12" v-if="step == 1">
+               <h3>সুতার কাউন্ট নির্বাচন করুন</h3>
+               <div class="w-100">
+                  <div class="form-check float-left" v-for="(yarn_type,index) in yarn_types" :key="index">
+                     <input :id="`count${index}`" 
+                        type="radio" 
+                        v-model="yarn_count"
+                        :value="yarn_type" 
+                        class="mr-2"/>
+                     <label :for="`count${index}`" class="form-check-label">{{ yarn_type.title }}</label>
+                  </div>
+                  <p class="clearfix"></p>
                </div>
-               <p class="clearfix"></p>
             </div>
-            <div class="w-100">
-               <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
-                  href="javascript:void(0);" 
-                  @click="nextStep"
-                  title="">
-               পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
-               </button>
+            <div class="col-lg-12" v-if="step == 2">
+               <div class="row">
+                  <div  class="col-lg-12" style="overflow-y: scroll;height:400px">
+                     <h3>রঙ নির্বাচন করুন</h3>
+                     <img :src="`${base_url}/${background.image}`" 
+                        v-for="(background,index) in backgrounds"  
+                        :key="index" 
+                        class="p-2"
+                        @click="selectBackground(index)"
+                        style="width:100px;height:100px;"
+                        :class="[index ===  selectedBackground? 'border-red' : 'border-transparent','background-image']"/> 
+                  </div>
+               </div>
             </div>
-         </div>
-         <div class="col-lg-12" v-if="step == 2">
-            <div class="row">
-               <div  class="col-lg-12" >
-                  <h3>রঙ নির্বাচন করুন</h3>
-                  <img :src="`${base_url}/${background.image}`" 
-                     v-for="(background,index) in backgrounds"  
-                     :key="index" 
-                     class="p-2"
-                     @click="selectBackground(index)"
-                     style="width:150px;height:150px;"
-                     :class="[index ===  selectedBackground? 'border-red' : 'border-transparent','background-image']"/> 
-                  <br/> 
-                  <div class="w-100">
-                     <button class="thm-btn mt-30 sml-btn lft-icon fill-btn mr-5" 
-                        href="javascript:void(0);"
-                        @click="previousStep" 
-                        title="">
-                     <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
-                     </button>
-                     <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
-                        href="javascript:void(0);" 
-                        @click="nextStep"
-                        :disabled="selectedBackground === -1"
-                        title="">
-                     পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
-                     </button>
+            <div class="col-lg-12" v-if="step == 3">
+               <div class="row">
+                  <div  class="col-lg-12" style="overflow-y: scroll;height:400px">
+                     <h3>শাড়ির পাড় নির্বাচন করুন</h3>
+                     <img :src="`${base_url}/${pair.thumbnail}`" 
+                        v-for="(pair,index) in pairs"  
+                        :key="index" 
+                        class="p-2"
+                        @click="selectPair(index)"
+                        :class="[index ===  selectedPair? 'border-red' : 'border-transparent','background-image']"/>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-12" v-if="step == 4">
+               <div class="row">
+                  <div  class="col-lg-12" style="overflow-y: scroll;height:400px">
+                     <h3>শাড়ির আঁচল নির্বাচন করুন</h3>
+                     <img :src="`${base_url}/${achol.thumbnail}`" 
+                        v-for="(achol,index) in achols"  
+                        :key="index" 
+                        class="p-2"
+                        @click="selectAchol(index)"
+                        style="width:100px;height:100px;"
+                        :class="[index ===  selectedAchol? 'border-red' : 'border-transparent','background-image']"/>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-12" v-if="step == 5">
+               <div class="row">
+                  <div  class="col-lg-12" style="overflow-y: scroll;height:400px">
+                     <h3>শাড়ির জমিন নির্বাচন করুন</h3>
+                     <img :src="`${base_url}/${grid.thumbnail}`" 
+                        v-for="(grid,index) in grids"  
+                        :key="index" 
+                        class="p-2"
+                        @click="selectGrid(index)"
+                        style="width:100px;height:100px;"
+                        :class="[index ===  selectedGrid? 'border-red' : 'border-transparent','background-image']"/> 
                   </div>
                </div>
             </div>
          </div>
-         <div class="col-lg-12" v-if="step == 3">
-            <div class="row">
-               <div  class="col-lg-12" >
-                  <h3>শাড়ির পাড় নির্বাচন করুন</h3>
-                  <img :src="`${base_url}/${pair.thumbnail}`" 
-                     v-for="(pair,index) in pairs"  
-                     :key="index" 
-                     class="p-2"
-                     @click="selectPair(index)"
-                     :class="[index ===  selectedPair? 'border-red' : 'border-transparent','background-image']"/> 
-                  <br/> 
-                  <div class="w-100"> 
-                     <button class="thm-btn mt-30 sml-btn lft-icon fill-btn mr-5" 
-                        href="javascript:void(0);"
-                        @click="previousStep" 
-                        title="">
-                     <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
-                     </button>
-                     <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
-                        href="javascript:void(0);" 
-                        @click="nextStep"
-                        :disabled="selectedPair === -1"
-                        title="">
-                     পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
-                     </button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-12" v-if="step == 4">
-            <div class="row">
-               <div  class="col-lg-12" >
-                  <h3>শাড়ির আঁচল নির্বাচন করুন</h3>
-                  <img :src="`${base_url}/${achol.thumbnail}`" 
-                     v-for="(achol,index) in achols"  
-                     :key="index" 
-                     class="p-2"
-                     @click="selectAchol(index)"
-                     style="width:150px;height:150px;"
-                     :class="[index ===  selectedAchol? 'border-red' : 'border-transparent','background-image']"/> 
-                  <br/>
-                  <div class="w-100"> 
-                     <button class="thm-btn mt-30 sml-btn lft-icon fill-btn  mr-5" 
-                        href="javascript:void(0);"
-                        @click="previousStep" 
-                        title="">
-                     <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
-                     </button>
-                     <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
-                        href="javascript:void(0);" 
-                        @click="nextStep"
-                        :disabled="selectedAchol === -1"
-                        title="">
-                     পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
-                     </button> 
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-12" v-if="step == 5">
-            <div class="row">
-               <div  class="col-lg-12" >
-                  <h3>শাড়ির জমিন নির্বাচন করুন</h3>
-                  <img :src="`${base_url}/${grid.thumbnail}`" 
-                     v-for="(grid,index) in grids"  
-                     :key="index" 
-                     class="p-2"
-                     @click="selectGrid(index)"
-                     style="width:180px;height:180px;"
-                     :class="[index ===  selectedGrid? 'border-red' : 'border-transparent','background-image']"/> 
-                  <br/>
-                  <div class="w-100"> 
-                     <button class="thm-btn mt-30 sml-btn lft-icon fill-btn mr-5" 
-                        href="javascript:void(0);"
-                        @click="previousStep" 
-                        title="">
-                     <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
-                     </button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
       </div>
    </div>
    <div class="modal" tabindex="-1" role="dialog" id="priceModal" style="top:150px;">
@@ -262,11 +197,12 @@
 
 <script>
   import html2canvas from 'html2canvas';
+
   import Saree from './Saree';
   export default {
     name: 'ClothCustomizer',
     components:{
-      Saree
+      Saree,
     },
     data(){
       return{
@@ -812,5 +748,10 @@
   }
 
 
+::-webkit-scrollbar {
+  height: 4px;              /* height of horizontal scrollbar ← You're missing this */
+  width: 4px;               /* width of vertical scrollbar */
+  border: 1px solid #d5d5d5;
+}
 
 </style>
