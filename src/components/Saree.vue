@@ -33,8 +33,8 @@ font-family: 'kalpurushregular';
 }
 .hover-button{
 position: absolute;
-top: 50px;
-left: 85px;
+top: 64px;
+left: 100px;
 z-index:3;
 }
 .hover{

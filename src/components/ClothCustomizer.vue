@@ -1,6 +1,6 @@
 <template>
 <div>
-   <div class="row" v-if="!hasSelectedSaree">
+   <div class="row m-5" v-if="!hasSelectedSaree">
       <div class="col-lg-12">
          <input class="form-control mb-2" placeholder="আপনার পছন্দের শাড়ি খুঁজুন; লাল পার | লাল কাজ | ফুল বডি কাজ | হালকা কাজ" v-model="search"/>
          <div class="row">
@@ -21,33 +21,7 @@
       </div>
    </div>
    <div class="row m-0 p-0" v-if="hasSelectedSaree">
- 
-    <div class="col-lg-6">
-         <div id="capture" class="parent parent-scale">
-            <img :src="background.image" class="image1"/>
-            <img :src="grid.image" class="image2"/>
-            <img :src="achol.image" class="image3"/>
-            <img :src="pair.image" class="image4"/>
-            <img :src="pair.image" class="image5 pair-rotated"/>
-         </div>
-         <div class="w-100" style="margin-top: -45px; padding-bottom: 15px;">
-            <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
-               @click="resetEveryThing">
-            পুনরায় শাড়ি পছন্দ করুণ <span></span>
-            </button>            
-            <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
-               @click="downloadImage">
-            ডাউনলোড করুন<span></span>
-            </button>
-            <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
-               v-if="totalPrice !== 0"
-               data-toggle="modal"
-               data-target="#priceModal">
-            শাড়ীর মোট মূল্যঃ {{numberWithCommas(totalPrice)}} টাকা<span></span>
-            </button>
-         </div>
-    </div>
-     <div class="col-lg-6">
+   <div class="col-lg-12">
          <div id="crumbs" >
             <ul>
                <li>
@@ -67,141 +41,169 @@
                </li>
             </ul>
          </div>
-      </div>
-      <div class="divider4 w-100"></div>
-      <div class="col-lg-12" v-if="step == 1">
-         <h3>সুতার কাউন্ট নির্বাচন করুন</h3>
-         <div class="w-100">
-            <div class="form-check float-left" v-for="(yarn_type,index) in yarn_types" :key="index">
-               <input :id="`count${index}`" 
-                  type="radio" 
-                  v-model="yarn_count"
-                  :value="yarn_type" 
-                  class="mr-2"/>
-               <label :for="`count${index}`" class="form-check-label">{{ yarn_type.title }}</label>
-            </div>
-            <p class="clearfix"></p>
+   </div>
+    <div class="col-lg-6">
+         <div id="capture" class="parent parent-scale">
+            <img :src="background.image" class="image1"/>
+            <img :src="grid.image" class="image2"/>
+            <img :src="achol.image" class="image3"/>
+            <img :src="pair.image" class="image4"/>
+            <img :src="pair.image" class="image5 pair-rotated"/>
          </div>
-         <div class="w-100">
-            <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
-               href="javascript:void(0);" 
-               @click="nextStep"
-               title="">
-            পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
+         <div class="w-100" >
+            <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
+               @click="resetEveryThing">
+            পুনরায় শাড়ি পছন্দ করুণ <span></span>
+            </button>            
+            <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
+               @click="downloadImage">
+            ডাউনলোড করুন<span></span>
+            </button>
+            <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
+               v-if="totalPrice !== 0"
+               data-toggle="modal"
+               data-target="#priceModal">
+            শাড়ীর মোট মূল্যঃ {{numberWithCommas(totalPrice)}} টাকা<span></span>
             </button>
          </div>
-      </div>
-      <div class="col-lg-12" v-if="step == 2">
-         <div class="row">
-            <div  class="col-lg-12" >
-               <h3>রঙ নির্বাচন করুন</h3>
-               <img :src="`${base_url}/${background.image}`" 
-                  v-for="(background,index) in backgrounds"  
-                  :key="index" 
-                  class="p-2"
-                  @click="selectBackground(index)"
-                  style="width:150px;height:150px;"
-                  :class="[index ===  selectedBackground? 'border-red' : 'border-transparent','background-image']"/> 
-               <br/> 
-               <div class="w-100">
-                  <button class="thm-btn mt-30 sml-btn lft-icon fill-btn mr-5" 
-                     href="javascript:void(0);"
-                     @click="previousStep" 
-                     title="">
-                  <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
-                  </button>
-                  <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
-                     href="javascript:void(0);" 
-                     @click="nextStep"
-                     :disabled="selectedBackground === -1"
-                     title="">
-                  পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
-                  </button>
+    </div>
+     <div class="col-lg-6">
+      <div class="row">
+         <div class="col-lg-12" v-if="step == 1">
+            <h3>সুতার কাউন্ট নির্বাচন করুন</h3>
+            <div class="w-100">
+               <div class="form-check float-left" v-for="(yarn_type,index) in yarn_types" :key="index">
+                  <input :id="`count${index}`" 
+                     type="radio" 
+                     v-model="yarn_count"
+                     :value="yarn_type" 
+                     class="mr-2"/>
+                  <label :for="`count${index}`" class="form-check-label">{{ yarn_type.title }}</label>
+               </div>
+               <p class="clearfix"></p>
+            </div>
+            <div class="w-100">
+               <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
+                  href="javascript:void(0);" 
+                  @click="nextStep"
+                  title="">
+               পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
+               </button>
+            </div>
+         </div>
+         <div class="col-lg-12" v-if="step == 2">
+            <div class="row">
+               <div  class="col-lg-12" >
+                  <h3>রঙ নির্বাচন করুন</h3>
+                  <img :src="`${base_url}/${background.image}`" 
+                     v-for="(background,index) in backgrounds"  
+                     :key="index" 
+                     class="p-2"
+                     @click="selectBackground(index)"
+                     style="width:150px;height:150px;"
+                     :class="[index ===  selectedBackground? 'border-red' : 'border-transparent','background-image']"/> 
+                  <br/> 
+                  <div class="w-100">
+                     <button class="thm-btn mt-30 sml-btn lft-icon fill-btn mr-5" 
+                        href="javascript:void(0);"
+                        @click="previousStep" 
+                        title="">
+                     <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
+                     </button>
+                     <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
+                        href="javascript:void(0);" 
+                        @click="nextStep"
+                        :disabled="selectedBackground === -1"
+                        title="">
+                     পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-12" v-if="step == 3">
+            <div class="row">
+               <div  class="col-lg-12" >
+                  <h3>শাড়ির পাড় নির্বাচন করুন</h3>
+                  <img :src="`${base_url}/${pair.thumbnail}`" 
+                     v-for="(pair,index) in pairs"  
+                     :key="index" 
+                     class="p-2"
+                     @click="selectPair(index)"
+                     :class="[index ===  selectedPair? 'border-red' : 'border-transparent','background-image']"/> 
+                  <br/> 
+                  <div class="w-100"> 
+                     <button class="thm-btn mt-30 sml-btn lft-icon fill-btn mr-5" 
+                        href="javascript:void(0);"
+                        @click="previousStep" 
+                        title="">
+                     <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
+                     </button>
+                     <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
+                        href="javascript:void(0);" 
+                        @click="nextStep"
+                        :disabled="selectedPair === -1"
+                        title="">
+                     পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-12" v-if="step == 4">
+            <div class="row">
+               <div  class="col-lg-12" >
+                  <h3>শাড়ির আঁচল নির্বাচন করুন</h3>
+                  <img :src="`${base_url}/${achol.thumbnail}`" 
+                     v-for="(achol,index) in achols"  
+                     :key="index" 
+                     class="p-2"
+                     @click="selectAchol(index)"
+                     style="width:150px;height:150px;"
+                     :class="[index ===  selectedAchol? 'border-red' : 'border-transparent','background-image']"/> 
+                  <br/>
+                  <div class="w-100"> 
+                     <button class="thm-btn mt-30 sml-btn lft-icon fill-btn  mr-5" 
+                        href="javascript:void(0);"
+                        @click="previousStep" 
+                        title="">
+                     <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
+                     </button>
+                     <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
+                        href="javascript:void(0);" 
+                        @click="nextStep"
+                        :disabled="selectedAchol === -1"
+                        title="">
+                     পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
+                     </button> 
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-12" v-if="step == 5">
+            <div class="row">
+               <div  class="col-lg-12" >
+                  <h3>শাড়ির জমিন নির্বাচন করুন</h3>
+                  <img :src="`${base_url}/${grid.thumbnail}`" 
+                     v-for="(grid,index) in grids"  
+                     :key="index" 
+                     class="p-2"
+                     @click="selectGrid(index)"
+                     style="width:180px;height:180px;"
+                     :class="[index ===  selectedGrid? 'border-red' : 'border-transparent','background-image']"/> 
+                  <br/>
+                  <div class="w-100"> 
+                     <button class="thm-btn mt-30 sml-btn lft-icon fill-btn mr-5" 
+                        href="javascript:void(0);"
+                        @click="previousStep" 
+                        title="">
+                     <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
+                     </button>
+                  </div>
                </div>
             </div>
          </div>
       </div>
-      <div class="col-lg-12" v-if="step == 3">
-         <div class="row">
-            <div  class="col-lg-12" >
-               <h3>শাড়ির পাড় নির্বাচন করুন</h3>
-               <img :src="`${base_url}/${pair.thumbnail}`" 
-                  v-for="(pair,index) in pairs"  
-                  :key="index" 
-                  class="p-2"
-                  @click="selectPair(index)"
-                  :class="[index ===  selectedPair? 'border-red' : 'border-transparent','background-image']"/> 
-               <br/> 
-               <div class="w-100"> 
-                  <button class="thm-btn mt-30 sml-btn lft-icon fill-btn mr-5" 
-                     href="javascript:void(0);"
-                     @click="previousStep" 
-                     title="">
-                  <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
-                  </button>
-                  <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
-                     href="javascript:void(0);" 
-                     @click="nextStep"
-                     :disabled="selectedPair === -1"
-                     title="">
-                  পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
-                  </button>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="col-lg-12" v-if="step == 4">
-         <div class="row">
-            <div  class="col-lg-12" >
-               <h3>শাড়ির আঁচল নির্বাচন করুন</h3>
-               <img :src="`${base_url}/${achol.thumbnail}`" 
-                  v-for="(achol,index) in achols"  
-                  :key="index" 
-                  class="p-2"
-                  @click="selectAchol(index)"
-                  style="width:150px;height:150px;"
-                  :class="[index ===  selectedAchol? 'border-red' : 'border-transparent','background-image']"/> 
-               <br/>
-               <div class="w-100"> 
-                  <button class="thm-btn mt-30 sml-btn lft-icon fill-btn  mr-5" 
-                     href="javascript:void(0);"
-                     @click="previousStep" 
-                     title="">
-                  <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
-                  </button>
-                  <button class="thm-btn mt-30 sml-btn lft-icon fill-btn" 
-                     href="javascript:void(0);" 
-                     @click="nextStep"
-                     :disabled="selectedAchol === -1"
-                     title="">
-                  পরবর্তী ধাপ <i class="flaticon-trajectory"></i><span></span>
-                  </button> 
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="col-lg-12" v-if="step == 5">
-         <div class="row">
-            <div  class="col-lg-12" >
-               <h3>শাড়ির জমিন নির্বাচন করুন</h3>
-               <img :src="`${base_url}/${grid.thumbnail}`" 
-                  v-for="(grid,index) in grids"  
-                  :key="index" 
-                  class="p-2"
-                  @click="selectGrid(index)"
-                  style="width:180px;height:180px;"
-                  :class="[index ===  selectedGrid? 'border-red' : 'border-transparent','background-image']"/> 
-               <br/>
-               <div class="w-100"> 
-                  <button class="thm-btn mt-30 sml-btn lft-icon fill-btn mr-5" 
-                     href="javascript:void(0);"
-                     @click="previousStep" 
-                     title="">
-                  <i class="flaticon-arrow-pointing-to-left"></i> পূর্ববর্তী ধাপ<span></span>
-                  </button>
-               </div>
-            </div>
-         </div>
       </div>
    </div>
    <div class="modal" tabindex="-1" role="dialog" id="priceModal" style="top:150px;">
@@ -635,7 +637,7 @@
     position: relative;
   }
   .parent-scale{
-    transform: scale(0.75);
+    transform: scale(0.90);
   }
 
   .image1 {
@@ -643,22 +645,19 @@
     top: 0;
     left: 0;
   }
-  .image2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
 
   .image2 {
     position: absolute;
-    top: 25px;
-    left: 0;
+    top: -15px;
+    left: -80px;
+    transform: scale(0.75);
   }
 
   .image3 {
     position: absolute;
-    top: 25px;
-    left: 650px;
+    top: -15px;
+    left: 476px;
+    transform: scale(0.77);
   }
 
   .image4 {
