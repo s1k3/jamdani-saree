@@ -437,6 +437,8 @@
         this.selectPair(this.sarees[index].pair);
         this.selectAchol(this.sarees[index].achol);
         this.selectGrid(this.sarees[index].grid);
+        window.scrollTo(0, 0);          
+        window.scrollTo(0, 190);          
       },
       selectBackground(index){
         this.selectedBackground = index;
@@ -591,8 +593,8 @@
 
   .image3 {
     position: absolute;
-    top: -15px;
-    left: 476px;
+    top: -17px;
+    left: 464px;
     transform: scale(0.77);
   }
 
@@ -752,6 +754,13 @@
   height: 4px;              /* height of horizontal scrollbar ← You're missing this */
   width: 4px;               /* width of vertical scrollbar */
   border: 1px solid #d5d5d5;
+}
+
+
+.form-check {
+  position: relative;
+  display: block;
+  padding: 10px 1.25rem;
 }
 
 </style>
