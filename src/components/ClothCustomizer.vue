@@ -43,23 +43,20 @@
          </div>
    </div>
     <div class="col-lg-6">
-         <div id="capture" class="parent parent-scale">
-            <img :src="background.image" class="image1"/>
-            <img :src="grid.image" class="image2"/>
-            <img :src="achol.image" class="image3"/>
-            <img :src="pair.image" class="image4"/>
-            <img :src="pair.image" class="image5 pair-rotated"/>
+
+         <div id="capture">
+            <img id="saree-image" style="transform:scale(0.90)"/>
          </div>
          <div class="w-100" >
-            <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
+            <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5 btn-w-100" 
                @click="resetEveryThing">
             পুনরায় শাড়ি পছন্দ করুণ <span></span>
             </button>            
-            <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
+            <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5 btn-w-100" 
                @click="downloadImage">
             ডাউনলোড করুন<span></span>
             </button>
-            <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5" 
+            <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5 btn-w-100 mb-2" 
                v-if="totalPrice !== 0"
                data-toggle="modal"
                data-target="#priceModal">
@@ -197,7 +194,7 @@
 
 <script>
   import html2canvas from 'html2canvas';
-
+  import mergeImages from 'merge-images';
   import Saree from './Saree';
   export default {
     name: 'ClothCustomizer',
@@ -323,27 +320,27 @@
         {image:"backgrounds/body850-42.png",price: "1800"},
         ], 
         pairs:[
-        {image:"pairs/p-001.png",thumbnail:"pairs/s-p-001.png",price:"600"},
-        {image:"pairs/p-002.png",thumbnail:"pairs/s-p-002.png",price:"450"},
-        {image:"pairs/p-003.png",thumbnail:"pairs/s-p-003.png",price:"700"},
-        {image:"pairs/p-005.png",thumbnail:"pairs/s-p-005.png",price:"1200"},
-        {image:"pairs/p-006.png",thumbnail:"pairs/s-p-006.png",price:"990"},
-        {image:"pairs/p-007.png",thumbnail:"pairs/s-p-007.png",price:"320"},
-        {image:"pairs/p-008.png",thumbnail:"pairs/s-p-008.png",price:"590"},
-        {image:"pairs/p-009.png",thumbnail:"pairs/s-p-009.png",price:"800"},
-        {image:"pairs/p-0010.png",thumbnail:"pairs/s-p-0010.png",price:"900"},
-        {image:"pairs/p-0011.png",thumbnail:"pairs/s-p-0011.png",price:"450"},
-        {image:"pairs/p-0012.png",thumbnail:"pairs/s-p-0012.png",price:"620"},
-        {image:"pairs/p-0013.png",thumbnail:"pairs/s-p-0013.png",price:"480"},
-        {image:"pairs/p-0014.png",thumbnail:"pairs/s-p-0014.png",price:"510"},
-        {image:"pairs/p-0015.png",thumbnail:"pairs/s-p-0015.png",price:"550"},
-        {image:"pairs/p-16.png",thumbnail:"pairs/s-p-16.png",price:"450"},
-        {image:"pairs/p-17.png",thumbnail:"pairs/s-p-17.png",price:"400"},
-        {image:"pairs/p-18.png",thumbnail:"pairs/s-p-18.png",price:"350"},
-        {image:"pairs/p-19.png",thumbnail:"pairs/s-p-19.png",price:"600"},
-        {image:"pairs/p-20.png",thumbnail:"pairs/s-p-20.png",price:"700"},
-        {image:"pairs/p-21.png",thumbnail:"pairs/s-p-21.png",price:"450"},
-        {image:"pairs/p-22.png",thumbnail:"pairs/s-p-22.png",price:"700"}
+        {image:"pairs/p-001.png",image_rotated:"pairs/p-001-rotated.png",thumbnail:"pairs/s-p-001.png",price:"600"},
+        {image:"pairs/p-002.png",image_rotated:"pairs/p-002-rotated.png",thumbnail:"pairs/s-p-002.png",price:"450"},
+        {image:"pairs/p-003.png",image_rotated:"pairs/p-003-rotated.png",thumbnail:"pairs/s-p-003.png",price:"700"},
+        {image:"pairs/p-005.png",image_rotated:"pairs/p-005-rotated.png",thumbnail:"pairs/s-p-005.png",price:"1200"},
+        {image:"pairs/p-006.png",image_rotated:"pairs/p-006-rotated.png",thumbnail:"pairs/s-p-006.png",price:"990"},
+        {image:"pairs/p-007.png",image_rotated:"pairs/p-007-rotated.png",thumbnail:"pairs/s-p-007.png",price:"320"},
+        {image:"pairs/p-008.png",image_rotated:"pairs/p-008-rotated.png",thumbnail:"pairs/s-p-008.png",price:"590"},
+        {image:"pairs/p-009.png",image_rotated:"pairs/p-009-rotated.png",thumbnail:"pairs/s-p-009.png",price:"800"},
+        {image:"pairs/p-0010.png",image_rotated:"pairs/p-0010-rotated.png",thumbnail:"pairs/s-p-0010.png",price:"900"},
+        {image:"pairs/p-0011.png",image_rotated:"pairs/p-0011-rotated.png",thumbnail:"pairs/s-p-0011.png",price:"450"},
+        {image:"pairs/p-0012.png",image_rotated:"pairs/p-0012-rotated.png",thumbnail:"pairs/s-p-0012.png",price:"620"},
+        {image:"pairs/p-0013.png",image_rotated:"pairs/p-0013-rotated.png",thumbnail:"pairs/s-p-0013.png",price:"480"},
+        {image:"pairs/p-0014.png",image_rotated:"pairs/p-0014-rotated.png",thumbnail:"pairs/s-p-0014.png",price:"510"},
+        {image:"pairs/p-0015.png",image_rotated:"pairs/p-0015-rotated.png",thumbnail:"pairs/s-p-0015.png",price:"550"},
+        {image:"pairs/p-16.png",image_rotated:"pairs/p-16-rotated.png",thumbnail:"pairs/s-p-16.png",price:"450"},
+        {image:"pairs/p-17.png",image_rotated:"pairs/p-17-rotated.png",thumbnail:"pairs/s-p-17.png",price:"400"},
+        {image:"pairs/p-18.png",image_rotated:"pairs/p-18-rotated.png",thumbnail:"pairs/s-p-18.png",price:"350"},
+        {image:"pairs/p-19.png",image_rotated:"pairs/p-19-rotated.png",thumbnail:"pairs/s-p-19.png",price:"600"},
+        {image:"pairs/p-20.png",image_rotated:"pairs/p-20-rotated.png",thumbnail:"pairs/s-p-20.png",price:"700"},
+        {image:"pairs/p-21.png",image_rotated:"pairs/p-21-rotated.png",thumbnail:"pairs/s-p-21.png",price:"450"},
+        {image:"pairs/p-22.png",image_rotated:"pairs/p-22-rotated.png",thumbnail:"pairs/s-p-22.png",price:"700"}
         ],
         grids:[
         {image:"grids/b-001.png",thumbnail:"grids/s-b-001.png",price:"12000"},
@@ -404,7 +401,6 @@
       }
     },
     mounted(){
-
     },
     computed: {
       filteredSarees(){
@@ -430,6 +426,17 @@
       }
     },
     methods:{
+      buildSaree(){
+         mergeImages([ 
+            { src: this.background.image, x: 0, y: 0 },
+            { src: this.pair.image, x: 0, y: 0 },
+            { src: this.grid.image, x: 0, y: 25 },
+            { src: this.achol.image, x: 650, y: 25 },
+            { src: this.pair.image_rotated, x: 0, y: 325 },
+         ]).then(src => {
+            document.querySelector('#saree-image').src = src;
+         });
+      },
       startCustomization(index){
         this.hasSelectedSaree = true;
         this.selectedSaree = index;
@@ -443,18 +450,22 @@
       selectBackground(index){
         this.selectedBackground = index;
         this.background = this.backgrounds[index];
+        this.buildSaree();
       },
       selectPair(index){
         this.selectedPair = index;
         this.pair = this.pairs[index];
+        this.buildSaree();
       },
       selectAchol(index){
         this.selectedAchol = index;
         this.achol = this.achols[index];
+        this.buildSaree();
       },
       selectGrid(index){
         this.selectedGrid = index;
         this.grid = this.grids[index];
+        this.buildSaree();
       },
       nextStep(){
         this.step++;
@@ -569,45 +580,6 @@
   }
   .background-image:hover{
     curson:pointer;
-  }
-
-  .parent {
-    position: relative;
-  }
-  .parent-scale{
-    transform: scale(0.90);
-  }
-
-  .image1 {
-    position: relative;
-    top: 0;
-    left: 0;
-  }
-
-  .image2 {
-    position: absolute;
-    top: -15px;
-    left: -80px;
-    transform: scale(0.75);
-  }
-
-  .image3 {
-    position: absolute;
-    top: -17px;
-    left: 464px;
-    transform: scale(0.77);
-  }
-
-  .image4 {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  .image5 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
   }
 
   #crumbs {
@@ -751,8 +723,8 @@
 
 
 ::-webkit-scrollbar {
-  height: 4px;              /* height of horizontal scrollbar ← You're missing this */
-  width: 4px;               /* width of vertical scrollbar */
+  height: 4px;
+  width: 4px;
   border: 1px solid #d5d5d5;
 }
 
@@ -761,6 +733,12 @@
   position: relative;
   display: block;
   padding: 10px 1.25rem;
+}
+
+@media only screen and (max-width: 768px) {
+   .btn-w-100{
+      width:100%
+   }
 }
 
 </style>
