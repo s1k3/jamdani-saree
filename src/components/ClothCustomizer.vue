@@ -50,17 +50,17 @@
          <div class="w-100" >
             <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5 btn-w-100" 
                @click="resetEveryThing">
-            পুনরায় শাড়ি পছন্দ করুণ <span></span>
+            শাড়ি পছন্দ করুণ <span></span>
             </button>            
             <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5 btn-w-100" 
                @click="downloadImage">
-            ডাউনলোড করুন<span></span>
+            ডাউনলোড<span></span>
             </button>
             <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5 btn-w-100 mb-2" 
                v-if="totalPrice !== 0"
                data-toggle="modal"
                data-target="#priceModal">
-            শাড়ীর মোট মূল্যঃ {{numberWithCommas(totalPrice)}} টাকা<span></span>
+            মূল্যঃ {{numberWithCommas(totalPrice)}} টাকা<span></span>
             </button>
          </div>
     </div>
@@ -68,17 +68,23 @@
         <div class="row m-0 p-0">
             <div class="col-lg-12" v-if="step == 1">
                <h3>সুতার কাউন্ট নির্বাচন করুন</h3>
-               <div class="w-100">
-                  <div class="form-check float-left" v-for="(yarn_type,index) in yarn_types" :key="index">
-                     <input :id="`count${index}`" 
-                        type="radio" 
-                        v-model="yarn_count"
-                        :value="yarn_type" 
-                        class="mr-2"/>
-                     <label :for="`count${index}`" class="form-check-label">{{ yarn_type.title }}</label>
-                  </div>
+                <div class="row"> 
+                    <div class="col-lg-6"  v-for="(yarn_type,index) in yarn_types" :key="index"> 
+                        <div class="form-check float-left">
+                           <input :id="`count${index}`" 
+                              type="radio" 
+                              v-model="yarn_count"
+                              :value="yarn_type" 
+                              class="mr-1"/>
+                           <label :for="`count${index}`" 
+                                  :class="{'selected-count-color': yarn_type.title === yarn_count.title}"
+                                  class="form-check-label">
+                                {{ yarn_type.title }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
                   <p class="clearfix"></p>
-               </div>
             </div>
             <div class="col-lg-12" v-if="step == 2">
                <div class="row">
@@ -138,7 +144,7 @@
          </div>
       </div>
    </div>
-   <div class="modal" tabindex="-1" role="dialog" id="priceModal" style="top:150px;">
+   <div class="modal" tabindex="-1" role="dialog" id="priceModal" style="top:90px;">
       <div class="modal-dialog" role="document">
          <div class="modal-content">
             <div class="modal-header">
@@ -160,7 +166,7 @@
                   <tbody>
                      <tr>
                         <th scope="row">সুতার কাউন্টের মূল্য</th>
-                        <td><b> {{numberWithCommas(yarn_count.price)}} টাকা</b></td>
+                        <td><b> {{numberWithCommas(yarn_count.price/4)}} টাকা</b></td>
                      </tr>
                      <tr>
                         <th scope="row">কাপড়ের রং এর মূল্য</th>
@@ -177,6 +183,10 @@
                      <tr>
                         <th scope="row">জমিনের মূল্য</th>
                         <td><b> {{numberWithCommas(grid.price)}} টাকা</b></td>
+                     </tr>
+                     <tr>
+                        <th scope="row">শ্রমিকের (কার্যদিবস) মজুরি </th>
+                        <td><b> {{numberWithCommas(yarn_count.price-(yarn_count.price/4))}} টাকা</b></td>
                      </tr>
                      <tr style="background-color:rgb(223, 238, 214);">
                         <th scope="row">মোট</th>
@@ -203,7 +213,7 @@
     },
     data(){
       return{
-        base_url:"http://localhost:8080",
+        base_url:"http://localhost/web-jamdani-jj",
         background: {tag:"",image:"", price: 0},
         pair: {image:"", thumbnail:"", price: 0},
         achol: {image:"", thumbnail:"", price: 0},
@@ -739,6 +749,16 @@
    .btn-w-100{
       width:100%
    }
+}
+
+.thm-btn.lft-icon.brd-btn {
+  padding: 1.0625rem .875rem;
+    padding-top: 1.0625rem;
+    padding-bottom: 1.0625rem;
+}
+
+.selected-count-color{
+  color: green;
 }
 
 </style>
