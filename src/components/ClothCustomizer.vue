@@ -1,5 +1,6 @@
 <template>
 <div>
+   <loading :active.sync="isBuildingSaree" :can-cancel="false" :is-full-page="true"/>
    <div class="row m-5" v-if="!hasSelectedSaree">
       <div class="col-lg-12">
          <input class="form-control mb-2" placeholder="আপনার পছন্দের শাড়ি খুঁজুন; লাল পার | লাল কাজ | ফুল বডি কাজ | হালকা কাজ" v-model="search"/>
@@ -45,7 +46,7 @@
     <div class="col-lg-6">
 
          <div id="capture">
-            <img id="saree-image" style="transform:scale(0.90)"/>
+            <img v-if="saree_image !== null" :src="saree_image" style="transform:scale(0.90)"/>
          </div>
          <div class="w-100" >
             <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5 btn-w-100" 
@@ -69,7 +70,7 @@
             <div class="col-lg-12" v-if="step == 1">
                <h3>সুতার কাউন্ট নির্বাচন করুন</h3>
                 <div class="row"> 
-                    <div class="col-lg-6"  v-for="(yarn_type,index) in yarn_types" :key="index"> 
+                    <div class="col-md-6 col-lg-4"  v-for="(yarn_type,index) in yarn_types" :key="index"> 
                         <div class="form-check float-left">
                            <input :id="`count${index}`" 
                               type="radio" 
@@ -90,7 +91,7 @@
                <div class="row">
                   <div  class="col-lg-12" style="overflow-y: scroll;height:400px">
                      <h3>রঙ নির্বাচন করুন</h3>
-                     <img :src="`${base_url}/${background.image}`" 
+                     <img :src="background.image" 
                         v-for="(background,index) in backgrounds"  
                         :key="index" 
                         class="p-2"
@@ -104,7 +105,7 @@
                <div class="row">
                   <div  class="col-lg-12" style="overflow-y: scroll;height:400px">
                      <h3>শাড়ির পাড় নির্বাচন করুন</h3>
-                     <img :src="`${base_url}/${pair.thumbnail}`" 
+                     <img :src="pair.thumbnail" 
                         v-for="(pair,index) in pairs"  
                         :key="index" 
                         class="p-2"
@@ -117,7 +118,7 @@
                <div class="row">
                   <div  class="col-lg-12" style="overflow-y: scroll;height:400px">
                      <h3>শাড়ির আঁচল নির্বাচন করুন</h3>
-                     <img :src="`${base_url}/${achol.thumbnail}`" 
+                     <img :src="achol.thumbnail" 
                         v-for="(achol,index) in achols"  
                         :key="index" 
                         class="p-2"
@@ -131,7 +132,7 @@
                <div class="row">
                   <div  class="col-lg-12" style="overflow-y: scroll;height:400px">
                      <h3>শাড়ির জমিন নির্বাচন করুন</h3>
-                     <img :src="`${base_url}/${grid.thumbnail}`" 
+                     <img :src="grid.thumbnail" 
                         v-for="(grid,index) in grids"  
                         :key="index" 
                         class="p-2"
@@ -205,19 +206,23 @@
 <script>
   import html2canvas from 'html2canvas';
   import mergeImages from 'merge-images';
+  import Loading from 'vue-loading-overlay';
+  import 'vue-loading-overlay/dist/vue-loading.css';
   import Saree from './Saree';
   export default {
     name: 'ClothCustomizer',
     components:{
       Saree,
+      Loading
     },
     data(){
       return{
-        base_url:"http://localhost/web-jamdani-jj",
         background: {tag:"",image:"", price: 0},
         pair: {image:"", thumbnail:"", price: 0},
         achol: {image:"", thumbnail:"", price: 0},
         grid: {image:"", thumbnail:"", price: 0},
+        isBuildingSaree:false,
+        saree_image:null,
         hasSelectedSaree:false,
         selectedSaree:-1,
         step:1,
@@ -444,38 +449,58 @@
             { src: this.achol.image, x: 650, y: 25 },
             { src: this.pair.image_rotated, x: 0, y: 325 },
          ]).then(src => {
-            document.querySelector('#saree-image').src = src;
+            this.saree_image = src;
          });
       },
       startCustomization(index){
-        this.hasSelectedSaree = true;
         this.selectedSaree = index;
-        this.selectBackground(this.sarees[index].background);
-        this.selectPair(this.sarees[index].pair);
-        this.selectAchol(this.sarees[index].achol);
-        this.selectGrid(this.sarees[index].grid);
-        window.scrollTo(0, 0);          
-        window.scrollTo(0, 190);          
+        this.selectBackground(this.sarees[index].background, false);
+        this.selectPair(this.sarees[index].pair, false);
+        this.selectAchol(this.sarees[index].achol, false);
+        this.selectGrid(this.sarees[index].grid, false);
+        this.isBuildingSaree = true;
+         mergeImages([ 
+            { src: this.background.image, x: 0, y: 0 },
+            { src: this.pair.image, x: 0, y: 0 },
+            { src: this.grid.image, x: 0, y: 25 },
+            { src: this.achol.image, x: 650, y: 25 },
+            { src: this.pair.image_rotated, x: 0, y: 325 },
+         ]).then(src => {
+            this.saree_image = src;
+            window.scrollTo(0, 0);          
+            window.scrollTo(0, 190);  
+            this.hasSelectedSaree = true;
+            this.isBuildingSaree = false;
+         });
+        
       },
-      selectBackground(index){
+      selectBackground(index, should_build = true){
         this.selectedBackground = index;
         this.background = this.backgrounds[index];
-        this.buildSaree();
+        if(should_build){
+           this.buildSaree();
+        }
       },
-      selectPair(index){
+      selectPair(index, should_build = true){
         this.selectedPair = index;
         this.pair = this.pairs[index];
-        this.buildSaree();
+        if(should_build){
+           this.buildSaree();
+        }
       },
-      selectAchol(index){
+      selectAchol(index, should_build = true){
         this.selectedAchol = index;
         this.achol = this.achols[index];
-        this.buildSaree();
+        if(should_build){
+           this.buildSaree();
+        }
       },
-      selectGrid(index){
+      selectGrid(index, should_build = true){
         this.selectedGrid = index;
         this.grid = this.grids[index];
-        this.buildSaree();
+        if(should_build){
+           this.buildSaree();
+        }
       },
       nextStep(){
         this.step++;
