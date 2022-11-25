@@ -105,19 +105,18 @@
 ===================================================== ***/
 
 /*=== Google Fonts ===*/
-@import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap);
-
+/*@import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap);
+@import url(https://fonts.googleapis.com/css2?family=kalpurushregular:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap);
+*/
+/*@import url(https://land.gov.bd/wp-content/themes/land-portal/fonts/kalpurush/stylesheet.css);
+*/
 /*=== General Variables ===*/
 :root {
-  /*--color1: #e82277;*/
-  --color1: #E72224;
-  
+  --color1: #e82277;
+  /*--color1: #E72224;*/
   --color2: #0a032a;
   /*--color3: #2b2859;*/
-  --color3: #25A94A;
-
-  
+  --color3: #2b2859;  
   --color4: #0f0834;
   --color5: #0a0521;
   --color6: #ff76d5;
@@ -188,7 +187,8 @@ html {overflow-x: hidden;}
 body {
   margin: 0;
   /*font-family: Roboto;*/
-  font-family: 'HindSiliguri-Regular';
+  /*font-family: 'HindSiliguri-Regular';*/
+  font-family: 'kalpurushregular';  
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -199,12 +199,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   color: var(--color3);
   font-weight: 800;
 }
 p {
-  font-family: Roboto;
+  font-family: kalpurushregular;
   color: #666766;
   line-height: 1.875rem;
   font-size: 1.125rem;
@@ -212,7 +212,7 @@ p {
 }
 ul li,
 ol li {
-  font-family: Roboto;
+  font-family: kalpurushregular;
   color: #666766;
   font-size: 1.125rem;
   line-height: 1.875rem;
@@ -812,13 +812,13 @@ header {
   z-index: 9999;
 }
 nav ul li {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 500;
   position: relative;
 }
 nav > div > ul > li {
   /*color: #fff;*/
-  color: #25A94A;
+  color: #e82277;
   margin-right: 2.5rem;
   line-height: 3.75rem;
 }
@@ -885,7 +885,7 @@ nav ul ul li.menu-item-has-children:hover > a::before {
 }
 nav ul ul li.menu-item-has-children > a:after {
   content: "\f10d";
-  font-family: Flaticon;
+  font-family: kalpurushregular;
   position: absolute;
   right: 1.25rem;
   font-size: .75rem;
@@ -926,7 +926,7 @@ body.slidein:before {
   top: 0;
   bottom: 0;
   background-color: #fff;
-  background-image: url(../images/menu-bg.png);
+  background-image: url(../images/menu-bg01.png);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -975,7 +975,7 @@ body.slidein .menu-wrap {
   font-size: 1.5rem;
   text-transform: uppercase;
   font-weight: 700;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   color: var(--color3);
 }
 .menu-wrap > ul li.menu-item-has-children > a {padding-left: 1.5625rem;}
@@ -1105,7 +1105,7 @@ header.style2 {
 .topbar-btns > a {
   color: #fff;
   text-transform: uppercase;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   display: inline-block;
   padding: 0.734375rem 2.8125rem;
   font-weight: 700;
@@ -1288,7 +1288,7 @@ header.style3.sticky .header-right-btns > a {background-color: #f6f7fb;}
   top: 50%;
   font-size: 1rem;
   color: #bcbcbc;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 600;
   background-color: rgba(0,0,0,.9);
   text-transform: uppercase;
@@ -1310,7 +1310,7 @@ header.style3.sticky .header-right-btns > a {background-color: #f6f7fb;}
   font-style: normal;
   font-size: 1.625rem;
   text-transform: uppercase;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 500;
   position: relative;
   letter-spacing: .4px;
@@ -1352,7 +1352,7 @@ header.style3.sticky .header-right-btns > a {background-color: #f6f7fb;}
   z-index: -1;
 }
 .feat-cap ul.countdown li {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   color: #fff;
   font-weight: 600;
   font-size: 3.125rem;
@@ -1424,7 +1424,7 @@ header.style3.sticky .header-right-btns > a {background-color: #f6f7fb;}
 }
 .sec-title-inner > span {
   text-transform: uppercase;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 500;
   font-size: 1.25rem;
   letter-spacing: 5.8px;
@@ -1516,20 +1516,20 @@ header.style3.sticky .header-right-btns > a {background-color: #f6f7fb;}
 .about-info-inner > span {
   color: #2b2959;
   font-size: 1.125rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
 }
 .about-info-inner > p {
   text-transform: uppercase;
   color: #2b2959;
   font-size: 1.25rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 600;
 }
 
 /*===== Theme Button =====*/
 .thm-btn {
   font-size: 1rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 700;
   text-transform: uppercase;
   overflow: hidden;
@@ -1615,7 +1615,7 @@ header.style3.sticky .header-right-btns > a {background-color: #f6f7fb;}
   padding-right: 8.125rem;
 }
 .event-wrap .nav-tabs li {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-size: 1.625rem;
   font-weight: 700;
   margin-bottom: 0;
@@ -1701,7 +1701,7 @@ header.style3.sticky .header-right-btns > a {background-color: #f6f7fb;}
 .event-style1 + .event-style1 {border-top: 1px dashed #dad9d9;}
 .event-meta {line-height: initial;}
 .event-meta > span {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   color: #444545;
   font-size: 1.125rem;
   font-weight: 500;
@@ -1710,7 +1710,7 @@ header.style3.sticky .header-right-btns > a {background-color: #f6f7fb;}
 .event-meta > i {
   font-style: normal;
   font-size: 1.25rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
 }
 .event-meta + .event-info {
   flex: 0 0 calc(100% - 8.125rem);
@@ -1734,7 +1734,7 @@ header.style3.sticky .header-right-btns > a {background-color: #f6f7fb;}
 .event-org {display: flex;}
 .event-org > li {
   color: #999;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   position: relative;
 }
 .event-org > li + li {
@@ -1761,7 +1761,7 @@ header.style3.sticky .header-right-btns > a {background-color: #f6f7fb;}
 .reason-desc-inner ul.nav-tabs li {
   margin-bottom: 0;
   color: #2b2959;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 600;
   font-size: 1.75rem;
   line-height: initial;
@@ -1820,7 +1820,7 @@ header.style3.sticky .header-right-btns > a {background-color: #f6f7fb;}
 .reason-desc-inner > ul + a {margin-top: 2.8125rem;}
 .reason-desc-inner > a,
 .speackers-desc > a {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   text-transform: uppercase;
   display: inline-block;
   font-weight: 700;
@@ -1887,7 +1887,7 @@ header.style3.sticky .header-right-btns > a {background-color: #f6f7fb;}
 .package-head::after {right: -0.9375rem;}
 .package-head > span {
   font-size: 6.25rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 700;
   color: var(--color3);
   line-height: 6.25rem;
@@ -1984,7 +1984,7 @@ header.style3.sticky .header-right-btns > a {background-color: #f6f7fb;}
 .speaker-info > span {
   color: #f1f1f1;
   font-size: 1.125rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
 }
 .speaker-box:hover .speaker-info {
   left: 2.5rem;
@@ -2112,13 +2112,13 @@ header.style3.sticky .header-right-btns > a {background-color: #f6f7fb;}
 }
 .event-grid-info > h3 + span {margin-top: 1rem;}
 .event-grid-info > span.event-date {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 700;
   font-size: 1.125rem;
 }
 .event-grid-meta > li {
   font-size: 1.0625rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   color: #999;
 }
 .event-grid-meta > li:not(:first-child) {margin-left: 1.375rem;}
@@ -2224,7 +2224,7 @@ span.event-loc i {margin-right: .5rem;}
 }
 .post-date {
   font-size: 2.5rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 600;
   line-height: initial;
   position: relative;
@@ -2366,7 +2366,7 @@ span.event-loc i {margin-right: .5rem;}
 .blue-layer .footer-inner > p {color: #d9d9d9;}
 .footer-inner > p + ul {margin-top: 2.3125rem;}
 .footer-inner > ul + p {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   text-transform: uppercase;
   margin-top: 0.875rem;
 }
@@ -2375,7 +2375,7 @@ span.event-loc i {margin-right: .5rem;}
 .footer-inner > p a:focus {color: #fff;}
 .bottom-links > li {
   text-transform: uppercase;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   padding: 0 1.25rem;
   position: relative;
 }
@@ -2398,7 +2398,7 @@ span.event-loc i {margin-right: .5rem;}
 }
 .footer-bottom {padding: 1.875rem 0 2.1875rem;}
 .footer-bottom > p {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-size: 1.75rem;
   font-weight: 400;
   line-height: 3.125rem;
@@ -2446,7 +2446,7 @@ span.event-loc i {margin-right: .5rem;}
 .feat-cap2 > i {
   font-size: 1.5rem;
   font-style: normal;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   text-transform: uppercase;
   font-weight: 600;
   text-decoration: underline;
@@ -2467,7 +2467,7 @@ span.event-loc i {margin-right: .5rem;}
   font-size: 1rem;
   color: #bdbdbd;
   letter-spacing: 2.8px;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   text-transform: uppercase;
   font-weight: 600;
   height: 6.6875rem;
@@ -2566,7 +2566,7 @@ span.event-loc i {margin-right: .5rem;}
   bottom: 0;
   left: 0;
   color: rgba(255,255,255,.8);
-  font-family: Barlow;
+  font-family: kalpurushregular;
   text-transform: uppercase;
   padding: 1.25rem 3.25rem 1.625rem 4.6875rem;
   line-height: initial;
@@ -2599,7 +2599,7 @@ span.event-loc i {margin-right: .5rem;}
 }
 .event-grid-info2 > span {
   color: #999;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-size: 1.125rem;
   position: relative;
 }
@@ -2638,7 +2638,7 @@ span.event-loc i {margin-right: .5rem;}
 }
 .about-icon > i + span {margin-top: .5rem;}
 .about-icon > span {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 500;
   font-size: 1.25rem;
 }
@@ -2662,7 +2662,7 @@ span.event-loc i {margin-right: .5rem;}
   line-height: 4.375rem;
 }
 .fact-box > span {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   color: #535353;
   font-size: 1.125rem;
 }
@@ -2694,7 +2694,7 @@ span.event-loc i {margin-right: .5rem;}
 .event-style2 > h4 + table {margin-top: 0.625rem;}
 .event-style2 table thead th {
   color: #fff;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 1.25rem;
@@ -2808,7 +2808,7 @@ span.event-loc i {margin-right: .5rem;}
   font-size: 5.625rem;
   line-height: 5.625rem;
   color: var(--color3);
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 700;
 }
 .package-head2 > span sup {
@@ -2875,7 +2875,7 @@ span.event-loc i {margin-right: .5rem;}
   right: 1.25rem;
   bottom: 0;
   position: absolute;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 700;
   font-size: 1.125rem;
   padding: 0 1.6875rem;
@@ -2963,7 +2963,7 @@ span.event-loc i {margin-right: .5rem;}
   font-style: normal;
   border-radius: 3px;
   font-size: 1rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 500;
   width: 1.75rem;
   line-height: 1.4375rem;
@@ -3075,7 +3075,7 @@ span.event-loc i {margin-right: .5rem;}
 }
 .post-tags > span {
   font-size: 1.125rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 500;
   margin-right: .5rem;
 }
@@ -3083,7 +3083,7 @@ span.event-loc i {margin-right: .5rem;}
 .post-tags > a {
   font-size: 1.125rem;
   color: #666;
-  font-family: Barlow;
+  font-family: kalpurushregular;
 }
 
 /*===== Testimonials Style 1 =====*/
@@ -3129,7 +3129,7 @@ span.event-loc i {margin-right: .5rem;}
 }
 .testi-item > p + .testi-item-inner {margin-top: 1.75rem;}
 .testi-item-inner > span {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-size: 1.25rem;
   color: #474747;
 }
@@ -3205,7 +3205,7 @@ span.event-loc i {margin-right: .5rem;}
 .about-me-info > span.thm-clr {
   font-size: 1.5rem;
   text-transform: uppercase;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 500;
   letter-spacing: 2px;
 }
@@ -3220,7 +3220,7 @@ span.event-loc i {margin-right: .5rem;}
   font-size: 1.5rem;
   color: #666;
   font-style: normal;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 600;
   text-transform: uppercase;
   border-bottom: 1px solid;
@@ -3260,7 +3260,7 @@ span.event-loc i {margin-right: .5rem;}
   padding: 2.1875rem 0 2.1875rem;
 }
 .countdown-wrap > ul li {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   color: var(--color3);
   position: relative;
   padding: 0 3.125rem 0 3.625rem;
@@ -3369,7 +3369,7 @@ span.event-loc i {margin-right: .5rem;}
 .srv-info2 > a {
   display: inline-block;
   position: relative;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   text-transform: uppercase;
   font-size: 1.125rem;
   color: var(--color3);
@@ -3459,7 +3459,7 @@ span.event-loc i {margin-right: .5rem;}
   color: #fff;
   position: relative;
   font-size: 1.375rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 700;
   padding: 2.40625rem 2.1875rem;
   text-transform: uppercase;
@@ -3501,7 +3501,7 @@ span.event-loc i {margin-right: .5rem;}
 }
 .how-work-box > span {
   color: #fff;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-size: 6.25rem;
   line-height: 6.25rem;
   font-weight: 300;
@@ -3511,7 +3511,7 @@ span.event-loc i {margin-right: .5rem;}
 .how-work-box > p {
   font-size: 1.375rem;
   color: #e4e4e4;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 400;
 }
 .how-work-box > span:before {
@@ -3569,14 +3569,14 @@ span.event-loc i {margin-right: .5rem;}
   font-size: 1rem;
   color: #999;
   text-transform: uppercase;
-  font-family: Barlow;
+  font-family: kalpurushregular;
 }
 
 /*===== Filter Links =====*/
 .filter-links > li {
   font-size: 1.25rem;
   text-transform: uppercase;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 500;
   color: #252525;
   position: relative;
@@ -3761,7 +3761,7 @@ span.event-loc i {margin-right: .5rem;}
 footer .widget > ul {max-width: 50%;}
 .widget > ul li {
   font-size: 1.0625rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
 }
 .widget > ul li a:before {
   content: "\f0da";
@@ -3824,7 +3824,7 @@ footer .widget > ul {max-width: 50%;}
 }
 .bottom-bar-inner > p {
   color: #d9d9d9;
-  font-family: Barlow;
+  font-family: kalpurushregular;
 }
 .bottom-bar-inner > p a {font-weight: 700;}
 .bottom-bar-inner > p a:hover, 
@@ -3871,7 +3871,7 @@ footer .widget > ul {max-width: 50%;}
 .breadcrumb > li.breadcrumb-item {
   font-size: 1.25rem;
   text-transform: uppercase;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 500;
   position: relative;
 }
@@ -3954,7 +3954,7 @@ footer .widget > ul {max-width: 50%;}
 .gallery-info2 > h4 + span {margin-top: .5rem;}
 .gallery-info2 > span {
   font-size: 1.125rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   text-transform: uppercase;
   color: #fff;
 }
@@ -3983,7 +3983,7 @@ footer .widget > ul {max-width: 50%;}
 }
 .pagination li.page-item {
   font-size: 0.9375rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 700;
   color: #444;
   margin: 0 1px;
@@ -4258,7 +4258,7 @@ footer .widget > ul {max-width: 50%;}
 .price {
   font-size: 1.125rem;
   color: #999;
-  font-family: Barlow;
+  font-family: kalpurushregular;
 }
 .price ins {
   font-size: 1.375rem;
@@ -4324,7 +4324,7 @@ footer .widget > ul {max-width: 50%;}
 .article-box > i {
   font-size: 2.1875rem;
   font-style: normal;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 700;
   color: var(--color3);
   width: 1.875rem;
@@ -4356,7 +4356,7 @@ footer .widget > ul {max-width: 50%;}
 }
 .widget-box .cate-list > li {
   font-size: 1rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 500;
   color: var(--color3);
   background-color: #fff;
@@ -4379,7 +4379,7 @@ footer .widget > ul {max-width: 50%;}
 .widget-box .cate-list > li:not(:first-child) {margin-top: 0.625rem;}
 .widget-box ul:not(.cate-list) li {
   font-size: 1.0625rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   color: var(--color3);
 }
 .widget-box ul:not(.cate-list) li:not(:first-child) {margin-top: 5px;}
@@ -4404,7 +4404,7 @@ footer .widget > ul {max-width: 50%;}
 .tagclouds {margin: 0 -0.5625rem -1.25rem;}
 .tagclouds > a {
   background-color: #fff;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   color: var(--color3);
   font-size: 1rem;
   font-weight: 600;
@@ -4442,7 +4442,7 @@ footer .widget > ul {max-width: 50%;}
 .recent-event-info > h4 + span {margin-top: 5px;}
 .recent-event-info > span {
   font-size: 0.9375rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   display: block;
 }
 .flickr-photos-list {margin: 0 -3px -6px !important;}
@@ -4489,7 +4489,7 @@ footer .widget > ul {max-width: 50%;}
 .tweet-box > span {
   color: #fff;
   font-size: 1rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-style: italic;
   border-bottom: 1px solid #fff;
 }
@@ -4497,7 +4497,7 @@ footer .widget > ul {max-width: 50%;}
 .tweet-box > p {
   font-size: 1rem;
   line-height: 1.625rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 400;
   color: #fff;
   font-style: italic;
@@ -4558,7 +4558,7 @@ footer .widget > ul {max-width: 50%;}
 .product-detail-info > form label {
   text-transform: uppercase;
   font-size: 1.125rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 600;
   color: #282828;
   margin-bottom: 0;
@@ -4579,7 +4579,7 @@ footer .widget > ul {max-width: 50%;}
   border: 0;
   font-size: 1.25rem;
   color: #999;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   padding: 0 2.5rem 0 2rem;
   text-align: center;
 }
@@ -4637,7 +4637,7 @@ footer .widget > ul {max-width: 50%;}
 }
 .product-cate {
   font-size: 1.25rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   color: #666;
 }
 .product-cate > span {font-weight: 500;}
@@ -4656,7 +4656,7 @@ footer .widget > ul {max-width: 50%;}
   border: 6px solid #fff;
   font-size: 1rem;
   font-weight: 500;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   color: #444;
   text-transform: uppercase;
   padding: 1.5625rem 1.125rem;
@@ -4697,7 +4697,7 @@ footer .widget > ul {max-width: 50%;}
   font-weight: 700;
 }
 .comment-info > span:not(.product-rate) {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-size: 1rem;
 }
 .comment-info > span.product-rate {
@@ -4752,7 +4752,7 @@ footer .widget > ul {max-width: 50%;}
   font-size: 1.125rem;
   text-transform: uppercase;
   font-weight: 700;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   padding: 0 2.5rem 1.65rem;
 }
 .product-cart tbody tr:nth-child(2n + 1) {background-color: #f6f7fb;}
@@ -4802,7 +4802,7 @@ footer .widget > ul {max-width: 50%;}
 .cart-btns > ul {display: inline-flex;}
 .cart-btns > ul li {
   font-size: 1.125rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 500;
   position: relative;
 }
@@ -4845,7 +4845,7 @@ footer .widget > ul {max-width: 50%;}
   font-size: 1.125rem;
   text-transform: uppercase;
   display: flex;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 700;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -4879,7 +4879,7 @@ footer .widget > ul {max-width: 50%;}
   font-size: 1.125rem;
   color: #666;
   line-height: 1.25rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
 }
 .payment-methods > ul li label {
   margin-bottom: 0;
@@ -4891,6 +4891,7 @@ footer .widget > ul {max-width: 50%;}
   margin-right: -0.625rem;
 }
 .payment-methods > button {margin: 2.5rem 0.9375rem 0 0;}
+
 
 /*===== Blog Detail =====*/
 .blog-detail-info > img + h2 {margin-top: 2.5rem;}
@@ -4970,7 +4971,7 @@ footer .widget > ul {max-width: 50%;}
 .blog-detail-social-tags > div > span {
   font-size: 1.125rem;
   color: var(--color3);
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 700;
   margin-right: 1.25rem;
 }
@@ -4985,7 +4986,7 @@ footer .widget > ul {max-width: 50%;}
 /*===== Event Detail =====*/
 .event-detail-info span.thm-clr {
   font-size: 1.375rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   text-transform: uppercase;
   font-weight: 500;
   position: relative;
@@ -5094,7 +5095,7 @@ blockquote + blockquote:before {
 }
 .event-detail-desc > ul.event-date-list {margin-top: 1.125rem;}
 .event-detail-desc > ul.event-date-list li {
-  font-family: Barlow;
+  font-family: kalpurushregular;
   position: relative;
   padding-left: 1rem;
   margin-top: 2px;
@@ -5114,7 +5115,7 @@ blockquote + blockquote:before {
 .event-detail-speaker {margin-top: 5.9375rem;}
 .event-detail-features-list > li {
   font-size: 1.75rem;
-  font-family: Barlow;
+  font-family: kalpurushregular;
   font-weight: 600;
   position: relative;
   background-color: #f6f7fb;
