@@ -155,7 +155,7 @@ data-target="#priceModal">
 </div>
 </div>
 </div>
-<div class="modal" tabindex="-1" role="dialog" id="priceModal" style="top:90px;">
+<div class="modal" tabindex="-1" role="dialog" id="priceModal" style="top:30px;">
   <div class="modal-dialog" role="document">
    <div class="modal-content">
     <div class="modal-header">
@@ -175,21 +175,41 @@ data-target="#priceModal">
     </tr>
   </thead>
   <tbody>
+    <tr>
+    <th scope="row">সুতার কাউন্ট</th>
+    <td><b> {{yarn_count.title}}</b></td>
+  </tr>
    <tr>
     <th scope="row">সুতার কাউন্টের মূল্য</th>
     <td><b> {{numberWithCommas(yarn_count.price/4)}} টাকা</b></td>
+  </tr>
+  <tr>
+    <th scope="row">কাপড়ের রং</th>
+    <td><b> {{background.name}}</b></td>
   </tr>
   <tr>
     <th scope="row">কাপড়ের রং এর মূল্য</th>
     <td><b> {{numberWithCommas(background.price)}} টাকা</b></td>
   </tr>
   <tr>
+    <th scope="row">আঁচল</th>
+    <td><b> {{achol.name}}</b></td>
+  </tr>
+  <tr>
     <th scope="row">আঁচলের  মূল্য</th>
     <td><b> {{numberWithCommas(achol.price)}} টাকা</b></td>
   </tr>
   <tr>
+    <th scope="row">পাড়</th>
+    <td><b> {{pair.name}}</b></td>
+  </tr>
+  <tr>
     <th scope="row">পাড়ের মূল্য</th>
     <td><b> {{numberWithCommas(pair.price)}} টাকা</b></td>
+  </tr>
+  <tr>
+    <th scope="row">জমিন</th>
+    <td><b> {{grid.name}}</b></td>
   </tr>
   <tr>
     <th scope="row">জমিনের মূল্য</th>
@@ -257,56 +277,56 @@ data-target="#priceModal">
         ],
         sarees:[
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-14.png",background:23,pair:32,achol:53,grid:52,index:0},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-14.png",background:23,pair:32,achol:53,grid:52,index:0},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-1.png",background:6,pair:2,achol:6,grid:14,index:1},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-1.png",background:6,pair:2,achol:6,grid:14,index:1},
 
-        {tag:["হালকা কাজ", "নীল পার", "নীল কাজ","halka kaj","nil kaj", "nil par","blue", "asmani"], link:"sarees/28.jpg",background:50,pair:49,achol:49,grid:46,index:2},
+        {name:"Name",tag:["হালকা কাজ", "নীল পার", "নীল কাজ","halka kaj","nil kaj", "nil par","blue", "asmani"], link:"sarees/28.jpg",background:50,pair:49,achol:49,grid:46,index:2},
 
-        {tag:["হালকা কাজ","বাসন্তি","কমলা","সুরমা কাজ","orange","surma","bashonti","halka kaj", "pair", "holud", "yellow"], link:"sarees/22.jpg",background:52,pair:47,achol:47,grid:31,index:3},
+        {name:"Name",tag:["হালকা কাজ","বাসন্তি","কমলা","সুরমা কাজ","orange","surma","bashonti","halka kaj", "pair", "holud", "yellow"], link:"sarees/22.jpg",background:52,pair:47,achol:47,grid:31,index:3},
 
-        {tag:["লাল কাজ", "নীল আচল","হালকা কাজ","blue achol","red kaj", "red", "nil", "lal" ], link:"sarees/s-12.png",background:27,pair:40,achol:18,grid:22,index:4},
+        {name:"Name",tag:["লাল কাজ", "নীল আচল","হালকা কাজ","blue achol","red kaj", "red", "nil", "lal" ], link:"sarees/s-12.png",background:27,pair:40,achol:18,grid:22,index:4},
 
-        {tag:["লাল পার", "ফুল বডি কাজ", "full body kaj", "lal", "red", "megenda", "মেজেন্ডা পার" ], link:"sarees/s-6.png",background:5,pair:27,achol:12,grid:10,index:5},
+        {name:"Name",tag:["লাল পার", "ফুল বডি কাজ", "full body kaj", "lal", "red", "megenda", "মেজেন্ডা পার" ], link:"sarees/s-6.png",background:5,pair:27,achol:12,grid:10,index:5},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-2.png",background:8,pair:2,achol:14,grid:6,index:6},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-2.png",background:8,pair:2,achol:14,grid:6,index:6},
 
         
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-16.png",background:24,pair:3,achol:3,grid:3,index:7},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-16.png",background:24,pair:3,achol:3,grid:3,index:7},
 
-        {tag:["ফুল বডি কাজ","গোলাপি পার", "গোলাপি কাজ", "বাসন্তি", "কমলা","full body kaj","golapi kaj","orange"], link:"sarees/s-11.png",background:1,pair:5,achol:21,grid:14,index:8},
-
-
-
-        {tag:["ফুল বডি কাজ","গোলাপি পার", "গোলাপি কাজ", "বাসন্তি", "কমলা","full body kaj","golapi kaj","orange"], link:"sarees/s-9.png",background:16,pair:20,achol:6,grid:16,index:9},
+        {name:"Name",tag:["ফুল বডি কাজ","গোলাপি পার", "গোলাপি কাজ", "বাসন্তি", "কমলা","full body kaj","golapi kaj","orange"], link:"sarees/s-11.png",background:1,pair:5,achol:21,grid:14,index:8},
 
 
-        {tag:["ফুল বডি কাজ","গোলাপি পার", "গোলাপি কাজ", "বাসন্তি", "কমলা","full body kaj","golapi kaj","orange"], link:"sarees/s-10.png",background:6,pair:21,achol:17,grid:14,index:10},
 
-        {tag:["হালকা কাজ","সুরমা কাজ","ash color","ash","surma", "halka kaj"], link:"sarees/24.jpg",background:10,pair:42,achol:19,grid:31,index:11},
-
-        {tag:["হালকা কাজ","সুরমা কাজ","ash color","ash","surma", "halka kaj"], link:"sarees/s-13.png",background:14,pair:13,achol:13,grid:3,index:12},
+        {name:"Name",tag:["ফুল বডি কাজ","গোলাপি পার", "গোলাপি কাজ", "বাসন্তি", "কমলা","full body kaj","golapi kaj","orange"], link:"sarees/s-9.png",background:16,pair:20,achol:6,grid:16,index:9},
 
 
-        {tag:["ফুল বডি কাজ","গোলাপি পার", "গোলাপি কাজ", "বাসন্তি", "কমলা","full body kaj","golapi kaj","orange"], link:"sarees/s-7.png",background:21,pair:27,achol:12,grid:10,index:13},
+        {name:"Name",tag:["ফুল বডি কাজ","গোলাপি পার", "গোলাপি কাজ", "বাসন্তি", "কমলা","full body kaj","golapi kaj","orange"], link:"sarees/s-10.png",background:6,pair:21,achol:17,grid:14,index:10},
+
+        {name:"Name",tag:["হালকা কাজ","সুরমা কাজ","ash color","ash","surma", "halka kaj"], link:"sarees/24.jpg",background:10,pair:42,achol:19,grid:31,index:11},
+
+        {name:"Name",tag:["হালকা কাজ","সুরমা কাজ","ash color","ash","surma", "halka kaj"], link:"sarees/s-13.png",background:14,pair:13,achol:13,grid:3,index:12},
 
 
-        {tag:["ফুল বডি কাজ","গোলাপি পার", "গোলাপি কাজ", "বাসন্তি", "কমলা","full body kaj","golapi kaj","orange"], link:"sarees/s-4.png",background:14,pair:4,achol:4,grid:3,index:14},
-
-        {tag:["ফুল বডি কাজ","গোলাপি পার", "গোলাপি কাজ", "বাসন্তি", "কমলা","full body kaj","golapi kaj","orange"], link:"sarees/s-5.png",background:4,pair:26,achol:15,grid:9,index:15},
+        {name:"Name",tag:["ফুল বডি কাজ","গোলাপি পার", "গোলাপি কাজ", "বাসন্তি", "কমলা","full body kaj","golapi kaj","orange"], link:"sarees/s-7.png",background:21,pair:27,achol:12,grid:10,index:13},
 
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-15.png",background:25,pair:24,achol:54,grid:54,index:16},
+        {name:"Name",tag:["ফুল বডি কাজ","গোলাপি পার", "গোলাপি কাজ", "বাসন্তি", "কমলা","full body kaj","golapi kaj","orange"], link:"sarees/s-4.png",background:14,pair:4,achol:4,grid:3,index:14},
+
+        {name:"Name",tag:["ফুল বডি কাজ","গোলাপি পার", "গোলাপি কাজ", "বাসন্তি", "কমলা","full body kaj","golapi kaj","orange"], link:"sarees/s-5.png",background:4,pair:26,achol:15,grid:9,index:15},
 
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-16.png",background:24,pair:3,achol:3,grid:3,index:17},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-15.png",background:25,pair:24,achol:54,grid:54,index:16},
 
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-17.png",background:1,pair:2,achol:2,grid:5,index:18},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-16.png",background:24,pair:3,achol:3,grid:3,index:17},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-18.png",background:2,pair:5,achol:16,grid:4,index:19},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-19.png",background:12,pair:32,achol:54,grid:55,index:20},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-17.png",background:1,pair:2,achol:2,grid:5,index:18},
+
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-18.png",background:2,pair:5,achol:16,grid:4,index:19},
+
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-19.png",background:12,pair:32,achol:54,grid:55,index:20},
 
         
 
@@ -324,296 +344,296 @@ data-target="#priceModal">
         ],
         load_more_sarees:[
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-20.png",background:7,pair:16,achol:9,grid:24,index:21},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-20.png",background:7,pair:16,achol:9,grid:24,index:21},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-21.png",background:27,pair:12,achol:6,grid:5,index:22},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-21.png",background:27,pair:12,achol:6,grid:5,index:22},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-22.png",background:12,pair:13,achol:18,grid:54,index:23},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-22.png",background:12,pair:13,achol:18,grid:54,index:23},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-23.png",background:16,pair:15,achol:11,grid:24,index:24},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-23.png",background:16,pair:15,achol:11,grid:24,index:24},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-24.png",background:19,pair:23,achol:18,grid:21,index:25},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-24.png",background:19,pair:23,achol:18,grid:21,index:25},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-25.png",background:20,pair:22,achol:19,grid:6,index:26},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-25.png",background:20,pair:22,achol:19,grid:6,index:26},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-26.png",background:25,pair:11,achol:3,grid:4,index:27},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-26.png",background:25,pair:11,achol:3,grid:4,index:27},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-27.png",background:17,pair:4,achol:55,grid:24,index:28},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-27.png",background:17,pair:4,achol:55,grid:24,index:28},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-28.png",background:21,pair:6,achol:7,grid:16,index:29},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-28.png",background:21,pair:6,achol:7,grid:16,index:29},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-29.png",background:0,pair:0,achol:21,grid:19,index:30},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-29.png",background:0,pair:0,achol:21,grid:19,index:30},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-30.png",background:14,pair:15,achol:12,grid:18,index:31},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-30.png",background:14,pair:15,achol:12,grid:18,index:31},
 
-        {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-31.png",background:26,pair:0,achol:11,grid:22,index:32},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-31.png",background:26,pair:0,achol:11,grid:22,index:32},
 
-         {tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-32.png",background:4,pair:2,achol:6,grid:14,index:33},
+         {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-32.png",background:4,pair:2,achol:6,grid:14,index:33},
 
         ],
         backgrounds:[
         
-        {image:"backgrounds/bg-43.png",price: "2000"},
-        {image:"backgrounds/bg-44.png",price: "2200"},
-        {image:"backgrounds/bg-45.png",price: "2700"},
-        {image:"backgrounds/bg-46.png",price: "2900"},
-        {image:"backgrounds/bg-47.png",price: "2000"},
-        {image:"backgrounds/bg-48.png",price: "2700"},
-        {image:"backgrounds/bg-49.png",price: "2700"},
-        {image:"backgrounds/bg-50.png",price: "2600"},
-        {image:"backgrounds/bg-51.png",price: "3600"},
-        {image:"backgrounds/bg-52.png",price: "2300"},
-        {image:"backgrounds/bg-53.png",price: "2500"},
-        {image:"backgrounds/bg-54.png",price: "3600"},
-        {image:"backgrounds/bg-55.png",price: "2300"},
-        {image:"backgrounds/bg-56.png",price: "2500"},
-        {image:"backgrounds/bg-57.png",price: "3600"},
-        {image:"backgrounds/bg-58.png",price: "3300"},
-        {image:"backgrounds/bg-59.png",price: "2500"},
-        {image:"backgrounds/bg-60.png",price: "2500"},
-        {image:"backgrounds/bg-61.png",price: "3600"},
-        {image:"backgrounds/bg-62.png",price: "3300"},
-        {image:"backgrounds/bg-63.png",price: "2500"},
-        {image:"backgrounds/bg-64.png",price: "2240"},
-        {image:"backgrounds/bg-65.png",price: "2700"},
-        {image:"backgrounds/bg-66.png",price: "1500"},
-        {image:"backgrounds/bg-67.png",price: "1890"},
-        {image:"backgrounds/bg-68.png",price: "1590"},
-        {image:"backgrounds/bg-69.png",price: "1870"},
-        {image:"backgrounds/bg-70.png",price: "2100"},
+        {name:"Name",image:"backgrounds/bg-43.png",price: "2000"},
+        {name:"Name",image:"backgrounds/bg-44.png",price: "2200"},
+        {name:"Name",image:"backgrounds/bg-45.png",price: "2700"},
+        {name:"Name",image:"backgrounds/bg-46.png",price: "2900"},
+        {name:"Name",image:"backgrounds/bg-47.png",price: "2000"},
+        {name:"Name",image:"backgrounds/bg-48.png",price: "2700"},
+        {name:"Name",image:"backgrounds/bg-49.png",price: "2700"},
+        {name:"Name",image:"backgrounds/bg-50.png",price: "2600"},
+        {name:"Name",image:"backgrounds/bg-51.png",price: "3600"},
+        {name:"Name",image:"backgrounds/bg-52.png",price: "2300"},
+        {name:"Name",image:"backgrounds/bg-53.png",price: "2500"},
+        {name:"Name",image:"backgrounds/bg-54.png",price: "3600"},
+        {name:"Name",image:"backgrounds/bg-55.png",price: "2300"},
+        {name:"Name",image:"backgrounds/bg-56.png",price: "2500"},
+        {name:"Name",image:"backgrounds/bg-57.png",price: "3600"},
+        {name:"Name",image:"backgrounds/bg-58.png",price: "3300"},
+        {name:"Name",image:"backgrounds/bg-59.png",price: "2500"},
+        {name:"Name",image:"backgrounds/bg-60.png",price: "2500"},
+        {name:"Name",image:"backgrounds/bg-61.png",price: "3600"},
+        {name:"Name",image:"backgrounds/bg-62.png",price: "3300"},
+        {name:"Name",image:"backgrounds/bg-63.png",price: "2500"},
+        {name:"Name",image:"backgrounds/bg-64.png",price: "2240"},
+        {name:"Name",image:"backgrounds/bg-65.png",price: "2700"},
+        {name:"Name",image:"backgrounds/bg-66.png",price: "1500"},
+        {name:"Name",image:"backgrounds/bg-67.png",price: "1890"},
+        {name:"Name",image:"backgrounds/bg-68.png",price: "1590"},
+        {name:"Name",image:"backgrounds/bg-69.png",price: "1870"},
+        {name:"Name",image:"backgrounds/bg-70.png",price: "2100"},
 
 
-        {image:"backgrounds/body850-1.png",price: "2000"},
-        {image:"backgrounds/body850-2.png",price: "2150"},
-        {image:"backgrounds/body850-3.png",price: "2300"},
-        {image:"backgrounds/body850-4.png",price: "4000"},
-        {image:"backgrounds/body850-5.png",price: "3200"},
-        {image:"backgrounds/body850-6.png",price: "1800"},
-        {image:"backgrounds/body850-7.png",price: "1740"},
-        {image:"backgrounds/body850-8.png",price: "5000"},
-        {image:"backgrounds/body850-9.png",price: "2490"},
-        {image:"backgrounds/body850-11.png",price: "2300"},
-        {image:"backgrounds/body850-12.png",price: "5200"},
-        {image:"backgrounds/body850-13.png",price: "2900"},
-        {image:"backgrounds/body850-14.png",price: "3800"},
-        {image:"backgrounds/body850-15.png",price: "9000"},
-        {image:"backgrounds/body850-16.png",price: "1200"},
-        {image:"backgrounds/body850-17.png",price: "2990"},
-        {image:"backgrounds/body850-18.png",price: "2300"},
-        {image:"backgrounds/body850-19.png",price: "3100"},
-        {image:"backgrounds/body850-20.png",price: "3240"},
-        {image:"backgrounds/body850-21.png",price: "2400"},
-        {image:"backgrounds/body850-22.png",price: "2550"},
-        {image:"backgrounds/body850-23.png",price: "2700"},
-        {image:"backgrounds/body850-24.png",price: "2800"},
-        {image:"backgrounds/body850-25.png",price: "3450"},
-        {image:"backgrounds/body850-26.png",price: "2500"},
-        {image:"backgrounds/body850-27.png",price: "1200"},
-        {image:"backgrounds/body850-28.png",price: "2100"},
-        {image:"backgrounds/body850-29.png",price: "1900"},
-        {image:"backgrounds/body850-30.png",price: "2000"},
-        {image:"backgrounds/body850-31.png",price: "1400"},
-        {image:"backgrounds/body850-32.png",price: "1300"},
-        {image:"backgrounds/body850-33.png",price: "1200"},
-        {image:"backgrounds/body850-34.png",price: "1100"},
-        {image:"backgrounds/body850-35.png",price: "850"},
-        {image:"backgrounds/body850-36.png",price: "6000"},
-        {image:"backgrounds/body850-37.png",price: "2000"},
-        {image:"backgrounds/body850-38.png",price: "3000"},
-        {image:"backgrounds/body850-39.png",price: "2100"},
-        {image:"backgrounds/body850-40.png",price: "2200"},
-        {image:"backgrounds/body850-41.png",price: "2300"},
-        {image:"backgrounds/body850-42.png",price: "1800"},
+        {name:"Name",image:"backgrounds/body850-1.png",price: "2000"},
+        {name:"Name",image:"backgrounds/body850-2.png",price: "2150"},
+        {name:"Name",image:"backgrounds/body850-3.png",price: "2300"},
+        {name:"Name",image:"backgrounds/body850-4.png",price: "4000"},
+        {name:"Name",image:"backgrounds/body850-5.png",price: "3200"},
+        {name:"Name",image:"backgrounds/body850-6.png",price: "1800"},
+        {name:"Name",image:"backgrounds/body850-7.png",price: "1740"},
+        {name:"Name",image:"backgrounds/body850-8.png",price: "5000"},
+        {name:"Name",image:"backgrounds/body850-9.png",price: "2490"},
+        {name:"Name",image:"backgrounds/body850-11.png",price: "2300"},
+        {name:"Name",image:"backgrounds/body850-12.png",price: "5200"},
+        {name:"Name",image:"backgrounds/body850-13.png",price: "2900"},
+        {name:"Name",image:"backgrounds/body850-14.png",price: "3800"},
+        {name:"Name",image:"backgrounds/body850-15.png",price: "9000"},
+        {name:"Name",image:"backgrounds/body850-16.png",price: "1200"},
+        {name:"Name",image:"backgrounds/body850-17.png",price: "2990"},
+        {name:"Name",image:"backgrounds/body850-18.png",price: "2300"},
+        {name:"Name",image:"backgrounds/body850-19.png",price: "3100"},
+        {name:"Name",image:"backgrounds/body850-20.png",price: "3240"},
+        {name:"Name",image:"backgrounds/body850-21.png",price: "2400"},
+        {name:"Name",image:"backgrounds/body850-22.png",price: "2550"},
+        {name:"Name",image:"backgrounds/body850-23.png",price: "2700"},
+        {name:"Name",image:"backgrounds/body850-24.png",price: "2800"},
+        {name:"Name",image:"backgrounds/body850-25.png",price: "3450"},
+        {name:"Name",image:"backgrounds/body850-26.png",price: "2500"},
+        {name:"Name",image:"backgrounds/body850-27.png",price: "1200"},
+        {name:"Name",image:"backgrounds/body850-28.png",price: "2100"},
+        {name:"Name",image:"backgrounds/body850-29.png",price: "1900"},
+        {name:"Name",image:"backgrounds/body850-30.png",price: "2000"},
+        {name:"Name",image:"backgrounds/body850-31.png",price: "1400"},
+        {name:"Name",image:"backgrounds/body850-32.png",price: "1300"},
+        {name:"Name",image:"backgrounds/body850-33.png",price: "1200"},
+        {name:"Name",image:"backgrounds/body850-34.png",price: "1100"},
+        {name:"Name",image:"backgrounds/body850-35.png",price: "850"},
+        {name:"Name",image:"backgrounds/body850-36.png",price: "6000"},
+        {name:"Name",image:"backgrounds/body850-37.png",price: "2000"},
+        {name:"Name",image:"backgrounds/body850-38.png",price: "3000"},
+        {name:"Name",image:"backgrounds/body850-39.png",price: "2100"},
+        {name:"Name",image:"backgrounds/body850-40.png",price: "2200"},
+        {name:"Name",image:"backgrounds/body850-41.png",price: "2300"},
+        {name:"Name",image:"backgrounds/body850-42.png",price: "1800"},
         ], 
         pairs:[
-        {image:"pairs/Down Boarder 01.png",image_rotated:"pairs/Upper Boarder 01.png",thumbnail:"pairs/pair-bg-1.png",price:"700"},
-        {image:"pairs/Down Boarder 02.png",image_rotated:"pairs/Upper Boarder 02.png",thumbnail:"pairs/pair-bg-2.png",price:"800"},
-        {image:"pairs/Down Boarder 03.png",image_rotated:"pairs/Upper Boarder 03.png",thumbnail:"pairs/pair-bg-3.png",price:"1100"},
-        {image:"pairs/Down Boarder 04.png",image_rotated:"pairs/Upper Boarder 04.png",thumbnail:"pairs/pair-bg-4.png",price:"700"},
-        {image:"pairs/Down Boarder 05.png",image_rotated:"pairs/Down Boarder 05.png",thumbnail:"pairs/pair-bg-5.png",price:"800"},
-        {image:"pairs/Down Boarder 06.png",image_rotated:"pairs/Down Boarder 06.png",thumbnail:"pairs/pair-bg-6.png",price:"500"},
-        {image:"pairs/Down Boarder 07.png",image_rotated:"pairs/Down Boarder 07.png",thumbnail:"pairs/pair-bg-7.png",price:"800"},
-        {image:"pairs/Down Boarder 08.png",image_rotated:"pairs/Down Boarder 08.png",thumbnail:"pairs/pair-bg-8.png",price:"800"},
-        {image:"pairs/Down Boarder 09.png",image_rotated:"pairs/Down Boarder 09.png",thumbnail:"pairs/pair-bg-9.png",price:"700"},
-        {image:"pairs/Down Boarder 10.png",image_rotated:"pairs/Down Boarder 10.png",thumbnail:"pairs/pair-bg-10.png",price:"900"},
-        {image:"pairs/Down Boarder 11.png",image_rotated:"pairs/Down Boarder 11.png",thumbnail:"pairs/pair-bg-11.png",price:"1600"},
-        {image:"pairs/Down Boarder 12.png",image_rotated:"pairs/Down Boarder 12.png",thumbnail:"pairs/pair-bg-12.png",price:"950"},
-        {image:"pairs/Down Boarder 13.png",image_rotated:"pairs/Down Boarder 13.png",thumbnail:"pairs/pair-bg-13.png",price:"750"},
-        {image:"pairs/Down Boarder 14.png",image_rotated:"pairs/Down Boarder 14.png",thumbnail:"pairs/pair-bg-14.png",price:"1050"},
-        {image:"pairs/Down Boarder 15.png",image_rotated:"pairs/Down Boarder 15.png",thumbnail:"pairs/pair-bg-15.png",price:"1900"},
-        {image:"pairs/Down Boarder 16.png",image_rotated:"pairs/Down Boarder 16.png",thumbnail:"pairs/pair-bg-16.png",price:"800"},
-        {image:"pairs/Down Boarder 17.png",image_rotated:"pairs/Down Boarder 17.png",thumbnail:"pairs/pair-bg-17.png",price:"490"},
+        {name:"Name",image:"pairs/Down Boarder 01.png",image_rotated:"pairs/Upper Boarder 01.png",thumbnail:"pairs/pair-bg-1.png",price:"700"},
+        {name:"Name",image:"pairs/Down Boarder 02.png",image_rotated:"pairs/Upper Boarder 02.png",thumbnail:"pairs/pair-bg-2.png",price:"800"},
+        {name:"Name",image:"pairs/Down Boarder 03.png",image_rotated:"pairs/Upper Boarder 03.png",thumbnail:"pairs/pair-bg-3.png",price:"1100"},
+        {name:"Name",image:"pairs/Down Boarder 04.png",image_rotated:"pairs/Upper Boarder 04.png",thumbnail:"pairs/pair-bg-4.png",price:"700"},
+        {name:"Name",image:"pairs/Down Boarder 05.png",image_rotated:"pairs/Down Boarder 05.png",thumbnail:"pairs/pair-bg-5.png",price:"800"},
+        {name:"Name",image:"pairs/Down Boarder 06.png",image_rotated:"pairs/Down Boarder 06.png",thumbnail:"pairs/pair-bg-6.png",price:"500"},
+        {name:"Name",image:"pairs/Down Boarder 07.png",image_rotated:"pairs/Down Boarder 07.png",thumbnail:"pairs/pair-bg-7.png",price:"800"},
+        {name:"Name",image:"pairs/Down Boarder 08.png",image_rotated:"pairs/Down Boarder 08.png",thumbnail:"pairs/pair-bg-8.png",price:"800"},
+        {name:"Name",image:"pairs/Down Boarder 09.png",image_rotated:"pairs/Down Boarder 09.png",thumbnail:"pairs/pair-bg-9.png",price:"700"},
+        {name:"Name",image:"pairs/Down Boarder 10.png",image_rotated:"pairs/Down Boarder 10.png",thumbnail:"pairs/pair-bg-10.png",price:"900"},
+        {name:"Name",image:"pairs/Down Boarder 11.png",image_rotated:"pairs/Down Boarder 11.png",thumbnail:"pairs/pair-bg-11.png",price:"1600"},
+        {name:"Name",image:"pairs/Down Boarder 12.png",image_rotated:"pairs/Down Boarder 12.png",thumbnail:"pairs/pair-bg-12.png",price:"950"},
+        {name:"Name",image:"pairs/Down Boarder 13.png",image_rotated:"pairs/Down Boarder 13.png",thumbnail:"pairs/pair-bg-13.png",price:"750"},
+        {name:"Name",image:"pairs/Down Boarder 14.png",image_rotated:"pairs/Down Boarder 14.png",thumbnail:"pairs/pair-bg-14.png",price:"1050"},
+        {name:"Name",image:"pairs/Down Boarder 15.png",image_rotated:"pairs/Down Boarder 15.png",thumbnail:"pairs/pair-bg-15.png",price:"1900"},
+        {name:"Name",image:"pairs/Down Boarder 16.png",image_rotated:"pairs/Down Boarder 16.png",thumbnail:"pairs/pair-bg-16.png",price:"800"},
+        {name:"Name",image:"pairs/Down Boarder 17.png",image_rotated:"pairs/Down Boarder 17.png",thumbnail:"pairs/pair-bg-17.png",price:"490"},
 
-        {image:"pairs/Down Boarder 18.png",image_rotated:"pairs/Down Boarder 18.png",thumbnail:"pairs/pair-bg-18.png",price:"1200"},
-        {image:"pairs/Down Boarder 19.png",image_rotated:"pairs/Down Boarder 19.png",thumbnail:"pairs/pair-bg-19.png",price:"500"},
-        {image:"pairs/Down Boarder 20.png",image_rotated:"pairs/Down Boarder 20.png",thumbnail:"pairs/pair-bg-20.png",price:"1600"},
+        {name:"Name",image:"pairs/Down Boarder 18.png",image_rotated:"pairs/Down Boarder 18.png",thumbnail:"pairs/pair-bg-18.png",price:"1200"},
+        {name:"Name",image:"pairs/Down Boarder 19.png",image_rotated:"pairs/Down Boarder 19.png",thumbnail:"pairs/pair-bg-19.png",price:"500"},
+        {name:"Name",image:"pairs/Down Boarder 20.png",image_rotated:"pairs/Down Boarder 20.png",thumbnail:"pairs/pair-bg-20.png",price:"1600"},
 
-        {image:"pairs/Down Boarder 21.png",image_rotated:"pairs/Down Boarder 21.png",thumbnail:"pairs/pair-bg-21.png",price:"800"},
-        {image:"pairs/Down Boarder 22.png",image_rotated:"pairs/Down Boarder 22.png",thumbnail:"pairs/pair-bg-22.png",price:"900"},
-        {image:"pairs/Down Boarder 23.png",image_rotated:"pairs/Down Boarder 23.png",thumbnail:"pairs/pair-bg-23.png",price:"800"},
-        {image:"pairs/Down Boarder 24.png",image_rotated:"pairs/Down Boarder 24.png",thumbnail:"pairs/pair-bg-24.png",price:"1100"},
+        {name:"Name",image:"pairs/Down Boarder 21.png",image_rotated:"pairs/Down Boarder 21.png",thumbnail:"pairs/pair-bg-21.png",price:"800"},
+        {name:"Name",image:"pairs/Down Boarder 22.png",image_rotated:"pairs/Down Boarder 22.png",thumbnail:"pairs/pair-bg-22.png",price:"900"},
+        {name:"Name",image:"pairs/Down Boarder 23.png",image_rotated:"pairs/Down Boarder 23.png",thumbnail:"pairs/pair-bg-23.png",price:"800"},
+        {name:"Name",image:"pairs/Down Boarder 24.png",image_rotated:"pairs/Down Boarder 24.png",thumbnail:"pairs/pair-bg-24.png",price:"1100"},
 
-        {image:"pairs/Down Boarder 25.png",image_rotated:"pairs/Down Boarder 25.png",thumbnail:"pairs/pair-bg-25.png",price:"1200"},
-        {image:"pairs/Down Boarder 26.png",image_rotated:"pairs/Down Boarder 26.png",thumbnail:"pairs/pair-bg-26.png",price:"1900"},
-        {image:"pairs/Down Boarder 27.png",image_rotated:"pairs/Down Boarder 27.png",thumbnail:"pairs/pair-bg-27.png",price:"2000"},
-        {image:"pairs/Down Boarder 28.png",image_rotated:"pairs/Down Boarder 28.png",thumbnail:"pairs/pair-bg-28.png",price:"1700"},
+        {name:"Name",image:"pairs/Down Boarder 25.png",image_rotated:"pairs/Down Boarder 25.png",thumbnail:"pairs/pair-bg-25.png",price:"1200"},
+        {name:"Name",image:"pairs/Down Boarder 26.png",image_rotated:"pairs/Down Boarder 26.png",thumbnail:"pairs/pair-bg-26.png",price:"1900"},
+        {name:"Name",image:"pairs/Down Boarder 27.png",image_rotated:"pairs/Down Boarder 27.png",thumbnail:"pairs/pair-bg-27.png",price:"2000"},
+        {name:"Name",image:"pairs/Down Boarder 28.png",image_rotated:"pairs/Down Boarder 28.png",thumbnail:"pairs/pair-bg-28.png",price:"1700"},
 
-        {image:"pairs/Down Boarder 29.png",image_rotated:"pairs/Down Boarder 29.png",thumbnail:"pairs/pair-bg-29.png",price:"1750"},
-        {image:"pairs/Down Boarder 30.png",image_rotated:"pairs/Down Boarder 30.png",thumbnail:"pairs/pair-bg-30.png",price:"1190"},
-        {image:"pairs/Down Boarder 31.png",image_rotated:"pairs/Down Boarder 31.png",thumbnail:"pairs/pair-bg-31.png",price:"2200"},
-        {image:"pairs/Down Boarder 32.png",image_rotated:"pairs/Down Boarder 32.png",thumbnail:"pairs/pair-bg-32.png",price:"1400"},
-        {image:"pairs/Down Boarder 33.png",image_rotated:"pairs/Down Boarder 33.png",thumbnail:"pairs/pair-bg-33.png",price:"1150"},
+        {name:"Name",image:"pairs/Down Boarder 29.png",image_rotated:"pairs/Down Boarder 29.png",thumbnail:"pairs/pair-bg-29.png",price:"1750"},
+        {name:"Name",image:"pairs/Down Boarder 30.png",image_rotated:"pairs/Down Boarder 30.png",thumbnail:"pairs/pair-bg-30.png",price:"1190"},
+        {name:"Name",image:"pairs/Down Boarder 31.png",image_rotated:"pairs/Down Boarder 31.png",thumbnail:"pairs/pair-bg-31.png",price:"2200"},
+        {name:"Name",image:"pairs/Down Boarder 32.png",image_rotated:"pairs/Down Boarder 32.png",thumbnail:"pairs/pair-bg-32.png",price:"1400"},
+        {name:"Name",image:"pairs/Down Boarder 33.png",image_rotated:"pairs/Down Boarder 33.png",thumbnail:"pairs/pair-bg-33.png",price:"1150"},
 
 
-        {image:"pairs/p-001.png",image_rotated:"pairs/p-001-rotated.png",thumbnail:"pairs/s-p-001.png",price:"600"},
-        {image:"pairs/p-002.png",image_rotated:"pairs/p-002-rotated.png",thumbnail:"pairs/s-p-002.png",price:"450"},
-        {image:"pairs/p-003.png",image_rotated:"pairs/p-003-rotated.png",thumbnail:"pairs/s-p-003.png",price:"700"},
-        {image:"pairs/p-005.png",image_rotated:"pairs/p-005-rotated.png",thumbnail:"pairs/s-p-005.png",price:"1200"},
-        {image:"pairs/p-006.png",image_rotated:"pairs/p-006-rotated.png",thumbnail:"pairs/s-p-006.png",price:"990"},
-        {image:"pairs/p-007.png",image_rotated:"pairs/p-007-rotated.png",thumbnail:"pairs/s-p-007.png",price:"320"},
-        {image:"pairs/p-008.png",image_rotated:"pairs/p-008-rotated.png",thumbnail:"pairs/s-p-008.png",price:"590"},
-        {image:"pairs/p-009.png",image_rotated:"pairs/p-009-rotated.png",thumbnail:"pairs/s-p-009.png",price:"800"},
-        {image:"pairs/p-0010.png",image_rotated:"pairs/p-0010-rotated.png",thumbnail:"pairs/s-p-0010.png",price:"900"},
-        {image:"pairs/p-0011.png",image_rotated:"pairs/p-0011-rotated.png",thumbnail:"pairs/s-p-0011.png",price:"450"},
-        {image:"pairs/p-0012.png",image_rotated:"pairs/p-0012-rotated.png",thumbnail:"pairs/s-p-0012.png",price:"620"},
-        {image:"pairs/p-0013.png",image_rotated:"pairs/p-0013-rotated.png",thumbnail:"pairs/s-p-0013.png",price:"480"},
-        {image:"pairs/p-0014.png",image_rotated:"pairs/p-0014-rotated.png",thumbnail:"pairs/s-p-0014.png",price:"510"},
-        {image:"pairs/p-0015.png",image_rotated:"pairs/p-0015-rotated.png",thumbnail:"pairs/s-p-0015.png",price:"550"},
-        {image:"pairs/p-16.png",image_rotated:"pairs/p-16-rotated.png",thumbnail:"pairs/s-p-16.png",price:"450"},
-        {image:"pairs/p-17.png",image_rotated:"pairs/p-17-rotated.png",thumbnail:"pairs/s-p-17.png",price:"400"},
-        {image:"pairs/p-18.png",image_rotated:"pairs/p-18-rotated.png",thumbnail:"pairs/s-p-18.png",price:"350"},
-        {image:"pairs/p-19.png",image_rotated:"pairs/p-19-rotated.png",thumbnail:"pairs/s-p-19.png",price:"600"},
-        {image:"pairs/p-20.png",image_rotated:"pairs/p-20-rotated.png",thumbnail:"pairs/s-p-20.png",price:"700"},
-        {image:"pairs/p-21.png",image_rotated:"pairs/p-21-rotated.png",thumbnail:"pairs/s-p-21.png",price:"450"},
-        {image:"pairs/p-22.png",image_rotated:"pairs/p-22-rotated.png",thumbnail:"pairs/s-p-22.png",price:"700"}
+        {name:"Name",image:"pairs/p-001.png",image_rotated:"pairs/p-001-rotated.png",thumbnail:"pairs/s-p-001.png",price:"600"},
+        {name:"Name",image:"pairs/p-002.png",image_rotated:"pairs/p-002-rotated.png",thumbnail:"pairs/s-p-002.png",price:"450"},
+        {name:"Name",image:"pairs/p-003.png",image_rotated:"pairs/p-003-rotated.png",thumbnail:"pairs/s-p-003.png",price:"700"},
+        {name:"Name",image:"pairs/p-005.png",image_rotated:"pairs/p-005-rotated.png",thumbnail:"pairs/s-p-005.png",price:"1200"},
+        {name:"Name",image:"pairs/p-006.png",image_rotated:"pairs/p-006-rotated.png",thumbnail:"pairs/s-p-006.png",price:"990"},
+        {name:"Name",image:"pairs/p-007.png",image_rotated:"pairs/p-007-rotated.png",thumbnail:"pairs/s-p-007.png",price:"320"},
+        {name:"Name",image:"pairs/p-008.png",image_rotated:"pairs/p-008-rotated.png",thumbnail:"pairs/s-p-008.png",price:"590"},
+        {name:"Name",image:"pairs/p-009.png",image_rotated:"pairs/p-009-rotated.png",thumbnail:"pairs/s-p-009.png",price:"800"},
+        {name:"Name",image:"pairs/p-0010.png",image_rotated:"pairs/p-0010-rotated.png",thumbnail:"pairs/s-p-0010.png",price:"900"},
+        {name:"Name",image:"pairs/p-0011.png",image_rotated:"pairs/p-0011-rotated.png",thumbnail:"pairs/s-p-0011.png",price:"450"},
+        {name:"Name",image:"pairs/p-0012.png",image_rotated:"pairs/p-0012-rotated.png",thumbnail:"pairs/s-p-0012.png",price:"620"},
+        {name:"Name",image:"pairs/p-0013.png",image_rotated:"pairs/p-0013-rotated.png",thumbnail:"pairs/s-p-0013.png",price:"480"},
+        {name:"Name",image:"pairs/p-0014.png",image_rotated:"pairs/p-0014-rotated.png",thumbnail:"pairs/s-p-0014.png",price:"510"},
+        {name:"Name",image:"pairs/p-0015.png",image_rotated:"pairs/p-0015-rotated.png",thumbnail:"pairs/s-p-0015.png",price:"550"},
+        {name:"Name",image:"pairs/p-16.png",image_rotated:"pairs/p-16-rotated.png",thumbnail:"pairs/s-p-16.png",price:"450"},
+        {name:"Name",image:"pairs/p-17.png",image_rotated:"pairs/p-17-rotated.png",thumbnail:"pairs/s-p-17.png",price:"400"},
+        {name:"Name",image:"pairs/p-18.png",image_rotated:"pairs/p-18-rotated.png",thumbnail:"pairs/s-p-18.png",price:"350"},
+        {name:"Name",image:"pairs/p-19.png",image_rotated:"pairs/p-19-rotated.png",thumbnail:"pairs/s-p-19.png",price:"600"},
+        {name:"Name",image:"pairs/p-20.png",image_rotated:"pairs/p-20-rotated.png",thumbnail:"pairs/s-p-20.png",price:"700"},
+        {name:"Name",image:"pairs/p-21.png",image_rotated:"pairs/p-21-rotated.png",thumbnail:"pairs/s-p-21.png",price:"450"},
+        {name:"Name",image:"pairs/p-22.png",image_rotated:"pairs/p-22-rotated.png",thumbnail:"pairs/s-p-22.png",price:"700"}
         ],
         grids:[
-        {image:"grids/Body 01.png",thumbnail:"grids/Body-bg-1.png",price:"10000"},
-        {image:"grids/Body 02.png",thumbnail:"grids/Body-bg-2.png",price:"14000"},
-        {image:"grids/Body 03.png",thumbnail:"grids/Body-bg-3.png",price:"11000"},
-        {image:"grids/Body 04.png",thumbnail:"grids/Body-bg-4.png",price:"11000"},
-        {image:"grids/Body 05.png",thumbnail:"grids/Body-bg-5.png",price:"12000"},
-        {image:"grids/Body 06.png",thumbnail:"grids/Body-bg-6.png",price:"15000"},
-        {image:"grids/Body 07.png",thumbnail:"grids/Body-bg-7.png",price:"8000"},
-        {image:"grids/Body 08.png",thumbnail:"grids/Body-bg-8.png",price:"6000"},
-        {image:"grids/Body 09.png",thumbnail:"grids/Body-bg-9.png",price:"12000"},
-        {image:"grids/Body 10.png",thumbnail:"grids/Body-bg-10.png",price:"16000"},
-        {image:"grids/Body 11.png",thumbnail:"grids/Body-bg-11.png",price:"13000"},
-        {image:"grids/Body 12.png",thumbnail:"grids/Body-bg-12.png",price:"9000"},
-        {image:"grids/Body 13.png",thumbnail:"grids/Body-bg-13.png",price:"5000"},
-        {image:"grids/Body 14.png",thumbnail:"grids/Body-bg-14.png",price:"8000"},
-        {image:"grids/Body 15.png",thumbnail:"grids/Body-bg-15.png",price:"11000"},
-        {image:"grids/Body 16.png",thumbnail:"grids/Body-bg-16.png",price:"9000"},
-        {image:"grids/Body 17.png",thumbnail:"grids/Body-bg-17.png",price:"5500"},
-        {image:"grids/Body 18.png",thumbnail:"grids/Body-bg-18.png",price:"9500"},
-        {image:"grids/Body 19.png",thumbnail:"grids/Body-bg-19.png",price:"6500"},
-        {image:"grids/Body 20.png",thumbnail:"grids/Body-bg-20.png",price:"8500"},
-        {image:"grids/Body 21.png",thumbnail:"grids/Body-bg-21.png",price:"1200"},
-        {image:"grids/Body 22.png",thumbnail:"grids/Body-bg-22.png",price:"8500"},
-        {image:"grids/Body 23.png",thumbnail:"grids/Body-bg-23.png",price:"11500"},
-        {image:"grids/Body 24.png",thumbnail:"grids/Body-bg-24.png",price:"1600"},
-        {image:"grids/Body 25.png",thumbnail:"grids/Body-bg-25.png",price:"1500"},
-        {image:"grids/Body 26.png",thumbnail:"grids/Body-bg-26.png",price:"1200"},
-        {image:"grids/Body 27.png",thumbnail:"grids/Body-bg-27.png",price:"2500"},
-        {image:"grids/Body 28.png",thumbnail:"grids/Body-bg-28.png",price:"1500"},
-        {image:"grids/Body 29.png",thumbnail:"grids/Body-bg-29.png",price:"1600"},
-        {image:"grids/Body 30.png",thumbnail:"grids/Body-bg-30.png",price:"1500"},
-        {image:"grids/Body 31.png",thumbnail:"grids/Body-bg-31.png",price:"900"},
-        {image:"grids/Body 32.png",thumbnail:"grids/Body-bg-32.png",price:"1500"},
-        {image:"grids/Body 33.png",thumbnail:"grids/Body-bg-33.png",price:"1500"},
-        {image:"grids/Body 34.png",thumbnail:"grids/Body-bg-34.png",price:"1200"},
-        {image:"grids/Body 35.png",thumbnail:"grids/Body-bg-35.png",price:"1000"},
-        {image:"grids/Body 36.png",thumbnail:"grids/Body-bg-36.png",price:"1200"},
-        {image:"grids/Body 37.png",thumbnail:"grids/Body-bg-37.png",price:"890"},
-        {image:"grids/Body 38.png",thumbnail:"grids/Body-bg-38.png",price:"1550"},
-        {image:"grids/Body 39.png",thumbnail:"grids/Body-bg-39.png",price:"1200"},
-        {image:"grids/Body 40.png",thumbnail:"grids/Body-bg-40.png",price:"1350"},
-        {image:"grids/Body 41.png",thumbnail:"grids/Body-bg-41.png",price:"1900"},
-        {image:"grids/Body 42.png",thumbnail:"grids/Body-bg-42.png",price:"1200"},
-        {image:"grids/Body 43.png",thumbnail:"grids/Body-bg-43.png",price:"1500"},
-        {image:"grids/Body 44.png",thumbnail:"grids/Body-bg-44.png",price:"1600"},
-        {image:"grids/Body 45.png",thumbnail:"grids/Body-bg-45.png",price:"1070"},
-        {image:"grids/Body 46.png",thumbnail:"grids/Body-bg-46.png",price:"1250"},
-        {image:"grids/Body 47.png",thumbnail:"grids/Body-bg-47.png",price:"1890"},
-        {image:"grids/Body 48.png",thumbnail:"grids/Body-bg-48.png",price:"1050"},
-        {image:"grids/Body 49.png",thumbnail:"grids/Body-bg-49.png",price:"1000"},
-        {image:"grids/Body 50.png",thumbnail:"grids/Body-bg-50.png",price:"1050"},
-        {image:"grids/Body 51.png",thumbnail:"grids/Body-bg-51.png",price:"970"},
-        {image:"grids/Body 52.png",thumbnail:"grids/Body-bg-52.png",price:"1050"},
+        {name:"Name",image:"grids/Body 01.png",thumbnail:"grids/Body-bg-1.png",price:"10000"},
+        {name:"Name",image:"grids/Body 02.png",thumbnail:"grids/Body-bg-2.png",price:"14000"},
+        {name:"Name",image:"grids/Body 03.png",thumbnail:"grids/Body-bg-3.png",price:"11000"},
+        {name:"Name",image:"grids/Body 04.png",thumbnail:"grids/Body-bg-4.png",price:"11000"},
+        {name:"Name",image:"grids/Body 05.png",thumbnail:"grids/Body-bg-5.png",price:"12000"},
+        {name:"Name",image:"grids/Body 06.png",thumbnail:"grids/Body-bg-6.png",price:"15000"},
+        {name:"Name",image:"grids/Body 07.png",thumbnail:"grids/Body-bg-7.png",price:"8000"},
+        {name:"Name",image:"grids/Body 08.png",thumbnail:"grids/Body-bg-8.png",price:"6000"},
+        {name:"Name",image:"grids/Body 09.png",thumbnail:"grids/Body-bg-9.png",price:"12000"},
+        {name:"Name",image:"grids/Body 10.png",thumbnail:"grids/Body-bg-10.png",price:"16000"},
+        {name:"Name",image:"grids/Body 11.png",thumbnail:"grids/Body-bg-11.png",price:"13000"},
+        {name:"Name",image:"grids/Body 12.png",thumbnail:"grids/Body-bg-12.png",price:"9000"},
+        {name:"Name",image:"grids/Body 13.png",thumbnail:"grids/Body-bg-13.png",price:"5000"},
+        {name:"Name",image:"grids/Body 14.png",thumbnail:"grids/Body-bg-14.png",price:"8000"},
+        {name:"Name",image:"grids/Body 15.png",thumbnail:"grids/Body-bg-15.png",price:"11000"},
+        {name:"Name",image:"grids/Body 16.png",thumbnail:"grids/Body-bg-16.png",price:"9000"},
+        {name:"Name",image:"grids/Body 17.png",thumbnail:"grids/Body-bg-17.png",price:"5500"},
+        {name:"Name",image:"grids/Body 18.png",thumbnail:"grids/Body-bg-18.png",price:"9500"},
+        {name:"Name",image:"grids/Body 19.png",thumbnail:"grids/Body-bg-19.png",price:"6500"},
+        {name:"Name",image:"grids/Body 20.png",thumbnail:"grids/Body-bg-20.png",price:"8500"},
+        {name:"Name",image:"grids/Body 21.png",thumbnail:"grids/Body-bg-21.png",price:"1200"},
+        {name:"Name",image:"grids/Body 22.png",thumbnail:"grids/Body-bg-22.png",price:"8500"},
+        {name:"Name",image:"grids/Body 23.png",thumbnail:"grids/Body-bg-23.png",price:"11500"},
+        {name:"Name",image:"grids/Body 24.png",thumbnail:"grids/Body-bg-24.png",price:"1600"},
+        {name:"Name",image:"grids/Body 25.png",thumbnail:"grids/Body-bg-25.png",price:"1500"},
+        {name:"Name",image:"grids/Body 26.png",thumbnail:"grids/Body-bg-26.png",price:"1200"},
+        {name:"Name",image:"grids/Body 27.png",thumbnail:"grids/Body-bg-27.png",price:"2500"},
+        {name:"Name",image:"grids/Body 28.png",thumbnail:"grids/Body-bg-28.png",price:"1500"},
+        {name:"Name",image:"grids/Body 29.png",thumbnail:"grids/Body-bg-29.png",price:"1600"},
+        {name:"Name",image:"grids/Body 30.png",thumbnail:"grids/Body-bg-30.png",price:"1500"},
+        {name:"Name",image:"grids/Body 31.png",thumbnail:"grids/Body-bg-31.png",price:"900"},
+        {name:"Name",image:"grids/Body 32.png",thumbnail:"grids/Body-bg-32.png",price:"1500"},
+        {name:"Name",image:"grids/Body 33.png",thumbnail:"grids/Body-bg-33.png",price:"1500"},
+        {name:"Name",image:"grids/Body 34.png",thumbnail:"grids/Body-bg-34.png",price:"1200"},
+        {name:"Name",image:"grids/Body 35.png",thumbnail:"grids/Body-bg-35.png",price:"1000"},
+        {name:"Name",image:"grids/Body 36.png",thumbnail:"grids/Body-bg-36.png",price:"1200"},
+        {name:"Name",image:"grids/Body 37.png",thumbnail:"grids/Body-bg-37.png",price:"890"},
+        {name:"Name",image:"grids/Body 38.png",thumbnail:"grids/Body-bg-38.png",price:"1550"},
+        {name:"Name",image:"grids/Body 39.png",thumbnail:"grids/Body-bg-39.png",price:"1200"},
+        {name:"Name",image:"grids/Body 40.png",thumbnail:"grids/Body-bg-40.png",price:"1350"},
+        {name:"Name",image:"grids/Body 41.png",thumbnail:"grids/Body-bg-41.png",price:"1900"},
+        {name:"Name",image:"grids/Body 42.png",thumbnail:"grids/Body-bg-42.png",price:"1200"},
+        {name:"Name",image:"grids/Body 43.png",thumbnail:"grids/Body-bg-43.png",price:"1500"},
+        {name:"Name",image:"grids/Body 44.png",thumbnail:"grids/Body-bg-44.png",price:"1600"},
+        {name:"Name",image:"grids/Body 45.png",thumbnail:"grids/Body-bg-45.png",price:"1070"},
+        {name:"Name",image:"grids/Body 46.png",thumbnail:"grids/Body-bg-46.png",price:"1250"},
+        {name:"Name",image:"grids/Body 47.png",thumbnail:"grids/Body-bg-47.png",price:"1890"},
+        {name:"Name",image:"grids/Body 48.png",thumbnail:"grids/Body-bg-48.png",price:"1050"},
+        {name:"Name",image:"grids/Body 49.png",thumbnail:"grids/Body-bg-49.png",price:"1000"},
+        {name:"Name",image:"grids/Body 50.png",thumbnail:"grids/Body-bg-50.png",price:"1050"},
+        {name:"Name",image:"grids/Body 51.png",thumbnail:"grids/Body-bg-51.png",price:"970"},
+        {name:"Name",image:"grids/Body 52.png",thumbnail:"grids/Body-bg-52.png",price:"1050"},
 
-        {image:"grids/Body 53.png",thumbnail:"grids/Body-bg-53.png",price:"1000"},
-        {image:"grids/Body 54.png",thumbnail:"grids/Body-bg-54.png",price:"1150"},
-        {image:"grids/Body 55.png",thumbnail:"grids/Body-bg-55.png",price:"950"},
-        {image:"grids/Body 56.png",thumbnail:"grids/Body-bg-56.png",price:"690"},
-        {image:"grids/Body 57.png",thumbnail:"grids/Body-bg-57.png",price:"2150"},
-        {image:"grids/Body 58.png",thumbnail:"grids/Body-bg-58.png",price:"1950"},
-        {image:"grids/Body 59.png",thumbnail:"grids/Body-bg-59.png",price:"1450"},
+        {name:"Name",image:"grids/Body 53.png",thumbnail:"grids/Body-bg-53.png",price:"1000"},
+        {name:"Name",image:"grids/Body 54.png",thumbnail:"grids/Body-bg-54.png",price:"1150"},
+        {name:"Name",image:"grids/Body 55.png",thumbnail:"grids/Body-bg-55.png",price:"950"},
+        {name:"Name",image:"grids/Body 56.png",thumbnail:"grids/Body-bg-56.png",price:"690"},
+        {name:"Name",image:"grids/Body 57.png",thumbnail:"grids/Body-bg-57.png",price:"2150"},
+        {name:"Name",image:"grids/Body 58.png",thumbnail:"grids/Body-bg-58.png",price:"1950"},
+        {name:"Name",image:"grids/Body 59.png",thumbnail:"grids/Body-bg-59.png",price:"1450"},
 
 
         ],
         achols:[
-        {image:"achols/Achol 01.png",thumbnail:"achols/achol-bg-01.png",price:"1400"},
-        {image:"achols/Achol 02.png",thumbnail:"achols/achol-bg-02.png",price:"1100"},
-        {image:"achols/Achol 03.png",thumbnail:"achols/achol-bg-03.png",price:"1700"},
-        {image:"achols/Achol 04.png",thumbnail:"achols/achol-bg-04.png",price:"1200"},
-        {image:"achols/Achol 05.png",thumbnail:"achols/achol-bg-05.png",price:"1500"},
-        {image:"achols/Achol 06.png",thumbnail:"achols/achol-bg-06.png",price:"1800"},
-        {image:"achols/Achol 07.png",thumbnail:"achols/achol-bg-07.png",price:"1100"},
-        {image:"achols/Achol 08.png",thumbnail:"achols/achol-bg-08.png",price:"1200"},
-        {image:"achols/Achol 09.png",thumbnail:"achols/achol-bg-09.png",price:"1900"},
-        {image:"achols/Achol 10.png",thumbnail:"achols/achol-bg-10.png",price:"2100"},
-        {image:"achols/Achol 11.png",thumbnail:"achols/achol-bg-11.png",price:"1700"},
-        {image:"achols/Achol 12.png",thumbnail:"achols/achol-bg-12.png",price:"1500"},
-        {image:"achols/Achol 13.png",thumbnail:"achols/achol-bg-13.png",price:"1100"},
-        {image:"achols/Achol 14.png",thumbnail:"achols/achol-bg-14.png",price:"1000"},
-        {image:"achols/Achol 15.png",thumbnail:"achols/achol-bg-15.png",price:"700"},
-        {image:"achols/Achol 16.png",thumbnail:"achols/achol-bg-16.png",price:"1200"},
-        {image:"achols/Achol 17.png",thumbnail:"achols/achol-bg-17.png",price:"1400"},
-        {image:"achols/Achol 18.png",thumbnail:"achols/achol-bg-18.png",price:"1500"},
-        {image:"achols/Achol 19.png",thumbnail:"achols/achol-bg-19.png",price:"900"},
-        {image:"achols/Achol 20.png",thumbnail:"achols/achol-bg-20.png",price:"2200"},
-        {image:"achols/Achol 21.png",thumbnail:"achols/achol-bg-21.png",price:"1400"},
-        {image:"achols/Achol 22.png",thumbnail:"achols/achol-bg-22.png",price:"1100"},
-        {image:"achols/Achol 23.png",thumbnail:"achols/achol-bg-23.png",price:"1000"},
-        {image:"achols/Achol 24.png",thumbnail:"achols/achol-bg-24.png",price:"1900"},
-        {image:"achols/Achol 25.png",thumbnail:"achols/achol-bg-25.png",price:"2400"},
-        {image:"achols/Achol 26.png",thumbnail:"achols/achol-bg-26.png",price:"2100"},
-        {image:"achols/Achol 27.png",thumbnail:"achols/achol-bg-27.png",price:"700"},
-        {image:"achols/Achol 28.png",thumbnail:"achols/achol-bg-28.png",price:"1200"},
-        {image:"achols/Achol 29.png",thumbnail:"achols/achol-bg-29.png",price:"700"},
-        {image:"achols/Achol 30.png",thumbnail:"achols/achol-bg-30.png",price:"1200"},
-        {image:"achols/Achol 31.png",thumbnail:"achols/achol-bg-31.png",price:"1400"},
-        {image:"achols/Achol 32.png",thumbnail:"achols/achol-bg-32.png",price:"890"},
-        {image:"achols/Achol 33.png",thumbnail:"achols/achol-bg-33.png",price:"900"},
-        {image:"achols/Achol 34.png",thumbnail:"achols/achol-bg-34.png",price:"1100"},
-        {image:"achols/Achol 35.png",thumbnail:"achols/achol-bg-35.png",price:"1450"},
-        {image:"achols/Achol 36.png",thumbnail:"achols/achol-bg-36.png",price:"1900"},
-        {image:"achols/Achol 37.png",thumbnail:"achols/achol-bg-37.png",price:"1300"},
-        {image:"achols/Achol 38.png",thumbnail:"achols/achol-bg-38.png",price:"1090"},
-        {image:"achols/Achol 39.png",thumbnail:"achols/achol-bg-39.png",price:"790"},
-        {image:"achols/Achol 40.png",thumbnail:"achols/achol-bg-40.png",price:"1600"},
-        {image:"achols/Achol 41.png",thumbnail:"achols/achol-bg-41.png",price:"1500"},
-        {image:"achols/Achol 42.png",thumbnail:"achols/achol-bg-42.png",price:"1090"},
-        {image:"achols/Achol 43.png",thumbnail:"achols/achol-bg-43.png",price:"1050"},
-        {image:"achols/Achol 44.png",thumbnail:"achols/achol-bg-44.png",price:"990"},
-        {image:"achols/Achol 45.png",thumbnail:"achols/achol-bg-45.png",price:"1250"},
-        {image:"achols/Achol 46.png",thumbnail:"achols/achol-bg-46.png",price:"1100"},
-        {image:"achols/Achol 47.png",thumbnail:"achols/achol-bg-47.png",price:"1000"},
-        {image:"achols/Achol 48.png",thumbnail:"achols/achol-bg-48.png",price:"1190"},
-        {image:"achols/Achol 49.png",thumbnail:"achols/achol-bg-49.png",price:"990"},
-        {image:"achols/Achol 50.png",thumbnail:"achols/achol-bg-50.png",price:"1200"},
-        {image:"achols/Achol 51.png",thumbnail:"achols/achol-bg-51.png",price:"790"},
-        {image:"achols/Achol 52.png",thumbnail:"achols/achol-bg-52.png",price:"1090"},
-        {image:"achols/Achol 53.png",thumbnail:"achols/achol-bg-53.png",price:"1100"},
+        {name:"Name",image:"achols/Achol 01.png",thumbnail:"achols/achol-bg-01.png",price:"1400"},
+        {name:"Name",image:"achols/Achol 02.png",thumbnail:"achols/achol-bg-02.png",price:"1100"},
+        {name:"Name",image:"achols/Achol 03.png",thumbnail:"achols/achol-bg-03.png",price:"1700"},
+        {name:"Name",image:"achols/Achol 04.png",thumbnail:"achols/achol-bg-04.png",price:"1200"},
+        {name:"Name",image:"achols/Achol 05.png",thumbnail:"achols/achol-bg-05.png",price:"1500"},
+        {name:"Name",image:"achols/Achol 06.png",thumbnail:"achols/achol-bg-06.png",price:"1800"},
+        {name:"Name",image:"achols/Achol 07.png",thumbnail:"achols/achol-bg-07.png",price:"1100"},
+        {name:"Name",image:"achols/Achol 08.png",thumbnail:"achols/achol-bg-08.png",price:"1200"},
+        {name:"Name",image:"achols/Achol 09.png",thumbnail:"achols/achol-bg-09.png",price:"1900"},
+        {name:"Name",image:"achols/Achol 10.png",thumbnail:"achols/achol-bg-10.png",price:"2100"},
+        {name:"Name",image:"achols/Achol 11.png",thumbnail:"achols/achol-bg-11.png",price:"1700"},
+        {name:"Name",image:"achols/Achol 12.png",thumbnail:"achols/achol-bg-12.png",price:"1500"},
+        {name:"Name",image:"achols/Achol 13.png",thumbnail:"achols/achol-bg-13.png",price:"1100"},
+        {name:"Name",image:"achols/Achol 14.png",thumbnail:"achols/achol-bg-14.png",price:"1000"},
+        {name:"Name",image:"achols/Achol 15.png",thumbnail:"achols/achol-bg-15.png",price:"700"},
+        {name:"Name",image:"achols/Achol 16.png",thumbnail:"achols/achol-bg-16.png",price:"1200"},
+        {name:"Name",image:"achols/Achol 17.png",thumbnail:"achols/achol-bg-17.png",price:"1400"},
+        {name:"Name",image:"achols/Achol 18.png",thumbnail:"achols/achol-bg-18.png",price:"1500"},
+        {name:"Name",image:"achols/Achol 19.png",thumbnail:"achols/achol-bg-19.png",price:"900"},
+        {name:"Name",image:"achols/Achol 20.png",thumbnail:"achols/achol-bg-20.png",price:"2200"},
+        {name:"Name",image:"achols/Achol 21.png",thumbnail:"achols/achol-bg-21.png",price:"1400"},
+        {name:"Name",image:"achols/Achol 22.png",thumbnail:"achols/achol-bg-22.png",price:"1100"},
+        {name:"Name",image:"achols/Achol 23.png",thumbnail:"achols/achol-bg-23.png",price:"1000"},
+        {name:"Name",image:"achols/Achol 24.png",thumbnail:"achols/achol-bg-24.png",price:"1900"},
+        {name:"Name",image:"achols/Achol 25.png",thumbnail:"achols/achol-bg-25.png",price:"2400"},
+        {name:"Name",image:"achols/Achol 26.png",thumbnail:"achols/achol-bg-26.png",price:"2100"},
+        {name:"Name",image:"achols/Achol 27.png",thumbnail:"achols/achol-bg-27.png",price:"700"},
+        {name:"Name",image:"achols/Achol 28.png",thumbnail:"achols/achol-bg-28.png",price:"1200"},
+        {name:"Name",image:"achols/Achol 29.png",thumbnail:"achols/achol-bg-29.png",price:"700"},
+        {name:"Name",image:"achols/Achol 30.png",thumbnail:"achols/achol-bg-30.png",price:"1200"},
+        {name:"Name",image:"achols/Achol 31.png",thumbnail:"achols/achol-bg-31.png",price:"1400"},
+        {name:"Name",image:"achols/Achol 32.png",thumbnail:"achols/achol-bg-32.png",price:"890"},
+        {name:"Name",image:"achols/Achol 33.png",thumbnail:"achols/achol-bg-33.png",price:"900"},
+        {name:"Name",image:"achols/Achol 34.png",thumbnail:"achols/achol-bg-34.png",price:"1100"},
+        {name:"Name",image:"achols/Achol 35.png",thumbnail:"achols/achol-bg-35.png",price:"1450"},
+        {name:"Name",image:"achols/Achol 36.png",thumbnail:"achols/achol-bg-36.png",price:"1900"},
+        {name:"Name",image:"achols/Achol 37.png",thumbnail:"achols/achol-bg-37.png",price:"1300"},
+        {name:"Name",image:"achols/Achol 38.png",thumbnail:"achols/achol-bg-38.png",price:"1090"},
+        {name:"Name",image:"achols/Achol 39.png",thumbnail:"achols/achol-bg-39.png",price:"790"},
+        {name:"Name",image:"achols/Achol 40.png",thumbnail:"achols/achol-bg-40.png",price:"1600"},
+        {name:"Name",image:"achols/Achol 41.png",thumbnail:"achols/achol-bg-41.png",price:"1500"},
+        {name:"Name",image:"achols/Achol 42.png",thumbnail:"achols/achol-bg-42.png",price:"1090"},
+        {name:"Name",image:"achols/Achol 43.png",thumbnail:"achols/achol-bg-43.png",price:"1050"},
+        {name:"Name",image:"achols/Achol 44.png",thumbnail:"achols/achol-bg-44.png",price:"990"},
+        {name:"Name",image:"achols/Achol 45.png",thumbnail:"achols/achol-bg-45.png",price:"1250"},
+        {name:"Name",image:"achols/Achol 46.png",thumbnail:"achols/achol-bg-46.png",price:"1100"},
+        {name:"Name",image:"achols/Achol 47.png",thumbnail:"achols/achol-bg-47.png",price:"1000"},
+        {name:"Name",image:"achols/Achol 48.png",thumbnail:"achols/achol-bg-48.png",price:"1190"},
+        {name:"Name",image:"achols/Achol 49.png",thumbnail:"achols/achol-bg-49.png",price:"990"},
+        {name:"Name",image:"achols/Achol 50.png",thumbnail:"achols/achol-bg-50.png",price:"1200"},
+        {name:"Name",image:"achols/Achol 51.png",thumbnail:"achols/achol-bg-51.png",price:"790"},
+        {name:"Name",image:"achols/Achol 52.png",thumbnail:"achols/achol-bg-52.png",price:"1090"},
+        {name:"Name",image:"achols/Achol 53.png",thumbnail:"achols/achol-bg-53.png",price:"1100"},
 
-        {image:"achols/Achol 54.png",thumbnail:"achols/achol-bg-54.png",price:"1750"},
-        {image:"achols/Achol 55.png",thumbnail:"achols/achol-bg-55.png",price:"1380"},
-        {image:"achols/Achol 56.png",thumbnail:"achols/achol-bg-56.png",price:"970"},
-        {image:"achols/Achol 57.png",thumbnail:"achols/achol-bg-57.png",price:"1600"},
-        {image:"achols/Achol 58.png",thumbnail:"achols/achol-bg-58.png",price:"1960"},
-        {image:"achols/Achol 59.png",thumbnail:"achols/achol-bg-59.png",price:"1800"},
-        {image:"achols/Achol 60.png",thumbnail:"achols/achol-bg-60.png",price:"1050"},
-        {image:"achols/Achol 61.png",thumbnail:"achols/achol-bg-51.png",price:"1700"},
+        {name:"Name",image:"achols/Achol 54.png",thumbnail:"achols/achol-bg-54.png",price:"1750"},
+        {name:"Name",image:"achols/Achol 55.png",thumbnail:"achols/achol-bg-55.png",price:"1380"},
+        {name:"Name",image:"achols/Achol 56.png",thumbnail:"achols/achol-bg-56.png",price:"970"},
+        {name:"Name",image:"achols/Achol 57.png",thumbnail:"achols/achol-bg-57.png",price:"1600"},
+        {name:"Name",image:"achols/Achol 58.png",thumbnail:"achols/achol-bg-58.png",price:"1960"},
+        {name:"Name",image:"achols/Achol 59.png",thumbnail:"achols/achol-bg-59.png",price:"1800"},
+        {name:"Name",image:"achols/Achol 60.png",thumbnail:"achols/achol-bg-60.png",price:"1050"},
+        {name:"Name",image:"achols/Achol 61.png",thumbnail:"achols/achol-bg-51.png",price:"1700"},
 
 
         
@@ -722,7 +742,7 @@ downloadImage(){
           a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
           a.download = 'jamdani_'+Date.now()+'.jpg';
           a.click();
-        });
+  });
 },
 loadMoreSarees(){
   let i =0;
@@ -819,7 +839,7 @@ return output.join('');
     height:80px;
   }
   .background-image:hover{
-    curson:pointer;
+    cursor:pointer;
   }
 
   .sml-btn, .thm-btn.lft-icon.brd-btn.sml-btn, .thm-btn.brd-btn.sml-btn {
