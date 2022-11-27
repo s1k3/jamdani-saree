@@ -5,13 +5,15 @@
     <div class="col-lg-12">
      <!-- <input class="form-control mb-2" placeholder="আপনার পছন্দের শাড়ি খুঁজুন; লাল পার | লাল কাজ | ফুল বডি কাজ | হালকা কাজ" v-model="search"/> -->
 
-<div id="search-wrapper" >
-  <i class="search-icon fas fa-search"></i>
-<input type="text" id="search" placeholder="আপনার পছন্দের শাড়ি খুঁজুন; লাল পার | লাল কাজ | ফুল বডি কাজ | হালকা কাজ" v-model="search"/>
-<!-- <button id="search-button">Search</button> -->
-</div>
+     <div id="search-wrapper" style="display: none;">
+      <i class="search-icon fas fa-search"></i>
+      <input type="text" id="search" placeholder="আপনার পছন্দের শাড়ি খুঁজুন; লাল পার | লাল কাজ | ফুল বডি কাজ | হালকা কাজ" v-model="search"/>
+      <!-- <button id="search-button">Search</button> -->
+    </div>
 
-     <div class="row" style="padding-top: 30px;">
+    <!-- <div class="row" style="padding-top: 30px;"> -->
+    <div class="row" style="padding-top: 0px;">
+
       <div class="col-lg-4 mb-2 p-2" 
       v-for="(saree,index) in filteredSarees" 
       :key="index">
@@ -155,7 +157,7 @@ data-target="#priceModal">
 </div>
 </div>
 </div>
-<div class="modal" tabindex="-1" role="dialog" id="priceModal" style="top:30px;">
+<div class="modal" tabindex="-1" role="dialog" id="priceModal" style="top:60px;">
   <div class="modal-dialog" role="document">
    <div class="modal-content">
     <div class="modal-header">
@@ -171,60 +173,67 @@ data-target="#priceModal">
     <thead>
      <tr style="background-color:rgb(223, 238, 214); ">
       <th scope="col">বিবরণ</th>
+      <th scope="col" style="text-align: center;">নাম</th>
       <th scope="col" style="text-align: center;">মূল্য</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-    <th scope="row">সুতার কাউন্ট</th>
-    <td><b> {{yarn_count.title}}</b></td>
-  </tr>
-   <tr>
-    <th scope="row">সুতার কাউন্টের মূল্য</th>
-    <td><b> {{numberWithCommas(yarn_count.price/4)}} টাকা</b></td>
-  </tr>
-  <tr>
-    <th scope="row">কাপড়ের রং</th>
-    <td><b> {{background.name}}</b></td>
-  </tr>
-  <tr>
-    <th scope="row">কাপড়ের রং এর মূল্য</th>
-    <td><b> {{numberWithCommas(background.price)}} টাকা</b></td>
-  </tr>
-  <tr>
-    <th scope="row">আঁচল</th>
-    <td><b> {{achol.name}}</b></td>
-  </tr>
-  <tr>
-    <th scope="row">আঁচলের  মূল্য</th>
-    <td><b> {{numberWithCommas(achol.price)}} টাকা</b></td>
-  </tr>
-  <tr>
-    <th scope="row">পাড়</th>
-    <td><b> {{pair.name}}</b></td>
-  </tr>
-  <tr>
-    <th scope="row">পাড়ের মূল্য</th>
-    <td><b> {{numberWithCommas(pair.price)}} টাকা</b></td>
-  </tr>
-  <tr>
-    <th scope="row">জমিন</th>
-    <td><b> {{grid.name}}</b></td>
-  </tr>
-  <tr>
-    <th scope="row">জমিনের মূল্য</th>
-    <td><b> {{numberWithCommas(grid.price)}} টাকা</b></td>
-  </tr>
-  <tr>
-    <th scope="row">শ্রমিকের (কার্যদিবস) মজুরি </th>
-    <td><b> {{numberWithCommas(yarn_count.price-(yarn_count.price/4))}} টাকা</b></td>
-  </tr>
-  <tr style="background-color:rgb(223, 238, 214);">
-    <th scope="row">মোট</th>
-    <td><b> {{numberWithCommas(totalPrice)}} টাকা</b></td>
-  </tr>
-</tbody>
+      <th scope="row">সুতার কাউন্ট</th>
+      <td><b> {{yarn_count.title}}</b></td>
+      <td><b> {{numberWithCommas(yarn_count.price/4)}} টাকা</b></td>
+
+    </tr>
+    
+    <tr>
+      <th scope="row">কাপড়ের রং</th>
+      <td><b> {{background.name}}</b></td>
+      <td><b> {{numberWithCommas(background.price)}} টাকা</b></td>
+    </tr>
+
+    <tr>
+      <th scope="row">আঁচল</th>
+      <td><b> {{achol.name}}</b></td>
+      <td><b> {{numberWithCommas(achol.price)}} টাকা</b></td>
+    </tr>
+
+    <tr>
+      <th scope="row">পাড়</th>
+      <td><b> {{pair.name}}</b></td>
+      <td><b> {{numberWithCommas(pair.price)}} টাকা</b></td>
+    </tr>
+
+    <tr>
+      <th scope="row">জমিন</th>
+      <td><b> {{grid.name}}</b></td>
+      <td><b> {{numberWithCommas(grid.price)}} টাকা</b></td>
+    </tr>
+
+    <tr>
+      <th scope="row">শ্রমিকের (কার্যদিবস) মজুরি </th>
+      <th scope="row" style="text-align: center;"> - </th>
+      <td><b> {{numberWithCommas(yarn_count.price-(yarn_count.price/4))}} টাকা</b></td>
+
+    </tr>
+    <tr style="background-color:rgb(223, 238, 214);">
+      <th scope="row" style="text-align: center;">-</th>
+      <th scope="row" style="text-align: center;">মোট মূল্য</th>
+      <td><b> {{numberWithCommas(totalPrice)}} টাকা</b></td>
+    </tr>
+  </tbody>
 </table>
+</div>
+<div class="modal-footer">
+
+  <a class="thm-btn fill-btn" href="design.html" title="জামদানি শাড়ি" style="font-size: 1.13rem; padding: 0.35rem 1.875rem ;    font-weight: 400;
+  ;">জামদানি শাড়ি</a>
+
+  <button type="button" class="thm-btn fill-btn btn-danger" style="font-size: 1.13rem; padding: 0.35rem 1.875rem ;    font-weight: 400; background-color: red;
+  ;"
+  data-dismiss="modal">
+  বন্ধ করুন
+</button> 
+
 </div>
 </div>
 </div>
@@ -285,7 +294,7 @@ data-target="#priceModal">
 
         {name:"Name",tag:["হালকা কাজ","বাসন্তি","কমলা","সুরমা কাজ","orange","surma","bashonti","halka kaj", "pair", "holud", "yellow"], link:"sarees/22.jpg",background:52,pair:47,achol:47,grid:31,index:3},
 
-        {name:"Name",tag:["লাল কাজ", "নীল আচল","হালকা কাজ","blue achol","red kaj", "red", "nil", "lal" ], link:"sarees/s-12.png",background:27,pair:40,achol:18,grid:22,index:4},
+        {name:"Name",tag:["লাল কাজ", "নীল আচল","হালকা কাজ","blue achol","red kaj", "red", "nil", "lal" ], link:"sarees/s-12.png",background:8,pair:49,achol:18,grid:22,index:4},
 
         {name:"Name",tag:["লাল পার", "ফুল বডি কাজ", "full body kaj", "lal", "red", "megenda", "মেজেন্ডা পার" ], link:"sarees/s-6.png",background:5,pair:27,achol:12,grid:10,index:5},
 
@@ -368,272 +377,272 @@ data-target="#priceModal">
 
         {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-31.png",background:26,pair:0,achol:11,grid:22,index:32},
 
-         {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-32.png",background:4,pair:2,achol:6,grid:14,index:33},
+        {name:"Name",tag:["গোলাপি পার", "গোলাপি কাজ","golapi","komola" ,"হালকা কাজ", "সাদা"], link:"sarees/s-32.png",background:4,pair:2,achol:6,grid:14,index:33},
 
         ],
         backgrounds:[
         
-        {name:"Name",image:"backgrounds/bg-43.png",price: "2000"},
-        {name:"Name",image:"backgrounds/bg-44.png",price: "2200"},
-        {name:"Name",image:"backgrounds/bg-45.png",price: "2700"},
-        {name:"Name",image:"backgrounds/bg-46.png",price: "2900"},
-        {name:"Name",image:"backgrounds/bg-47.png",price: "2000"},
-        {name:"Name",image:"backgrounds/bg-48.png",price: "2700"},
-        {name:"Name",image:"backgrounds/bg-49.png",price: "2700"},
-        {name:"Name",image:"backgrounds/bg-50.png",price: "2600"},
-        {name:"Name",image:"backgrounds/bg-51.png",price: "3600"},
-        {name:"Name",image:"backgrounds/bg-52.png",price: "2300"},
-        {name:"Name",image:"backgrounds/bg-53.png",price: "2500"},
-        {name:"Name",image:"backgrounds/bg-54.png",price: "3600"},
-        {name:"Name",image:"backgrounds/bg-55.png",price: "2300"},
-        {name:"Name",image:"backgrounds/bg-56.png",price: "2500"},
-        {name:"Name",image:"backgrounds/bg-57.png",price: "3600"},
-        {name:"Name",image:"backgrounds/bg-58.png",price: "3300"},
-        {name:"Name",image:"backgrounds/bg-59.png",price: "2500"},
-        {name:"Name",image:"backgrounds/bg-60.png",price: "2500"},
-        {name:"Name",image:"backgrounds/bg-61.png",price: "3600"},
-        {name:"Name",image:"backgrounds/bg-62.png",price: "3300"},
-        {name:"Name",image:"backgrounds/bg-63.png",price: "2500"},
-        {name:"Name",image:"backgrounds/bg-64.png",price: "2240"},
-        {name:"Name",image:"backgrounds/bg-65.png",price: "2700"},
-        {name:"Name",image:"backgrounds/bg-66.png",price: "1500"},
-        {name:"Name",image:"backgrounds/bg-67.png",price: "1890"},
-        {name:"Name",image:"backgrounds/bg-68.png",price: "1590"},
-        {name:"Name",image:"backgrounds/bg-69.png",price: "1870"},
-        {name:"Name",image:"backgrounds/bg-70.png",price: "2100"},
+        {name:"হালকা আকাশী",image:"backgrounds/bg-43.png",price: "2000"},
+        {name:"ধূসর ছাই",image:"backgrounds/bg-44.png",price: "2200"},
+        {name:"হলুদাভ সাদা",image:"backgrounds/bg-45.png",price: "2700"},
+        {name:"হালকা বেগুনি",image:"backgrounds/bg-46.png",price: "2900"},
+        {name:"হালকা গোলাপি",image:"backgrounds/bg-47.png",price: "2000"},
+        {name:"হালকা বেগুনি লাল রঙ",image:"backgrounds/bg-48.png",price: "2700"},
+        {name:"ধূসর ",image:"backgrounds/bg-49.png",price: "2700"},
+        {name:"আসমানি নীল",image:"backgrounds/bg-50.png",price: "2600"},
+        {name:"ধূসর সাদা",image:"backgrounds/bg-51.png",price: "3600"},
+        {name:"নীললোহিত",image:"backgrounds/bg-52.png",price: "2300"},
+        {name:"গাঢ় হলুদাভ সবুজ",image:"backgrounds/bg-53.png",price: "2500"},
+        {name:"উজ্জ্বল বেগুনি গোলাপি",image:"backgrounds/bg-54.png",price: "3600"},
+        {name:"উজ্জ্বল হলুদাভ সবুজ",image:"backgrounds/bg-55.png",price: "2300"},
+        {name:"গোলাপি",image:"backgrounds/bg-56.png",price: "2500"},
+        {name:"গাঢ় ধূসর ছাই",image:"backgrounds/bg-57.png",price: "3600"},
+        {name:"উজ্জ্বল ধূসর ছাই",image:"backgrounds/bg-58.png",price: "3300"},
+        {name:"গাঢ় ধূসর ছাই",image:"backgrounds/bg-59.png",price: "2500"},
+        {name:"উজ্জ্বল বেগুনি",image:"backgrounds/bg-60.png",price: "2500"},
+        {name:"উজ্জ্বল ধূসর সাদা",image:"backgrounds/bg-61.png",price: "3600"},
+        {name:"গোলাপি সাদা",image:"backgrounds/bg-62.png",price: "3300"},
+        {name:"বাদামি কমলা",image:"backgrounds/bg-63.png",price: "2500"},
+        {name:"হলদে কমলা",image:"backgrounds/bg-64.png",price: "2240"},
+        {name:"গাঢ় সবুজ",image:"backgrounds/bg-65.png",price: "2700"},
+        {name:"সি গ্রীন",image:"backgrounds/bg-66.png",price: "1500"},
+        {name:"বাদামী",image:"backgrounds/bg-67.png",price: "1890"},
+        {name:"নেভি ব্লু",image:"backgrounds/bg-68.png",price: "1590"},
+        {name:"গাঢ় আসমানি নীল",image:"backgrounds/bg-69.png",price: "1870"},
+        {name:"কালচে বেগুনি",image:"backgrounds/bg-70.png",price: "2100"},
 
 
-        {name:"Name",image:"backgrounds/body850-1.png",price: "2000"},
-        {name:"Name",image:"backgrounds/body850-2.png",price: "2150"},
-        {name:"Name",image:"backgrounds/body850-3.png",price: "2300"},
-        {name:"Name",image:"backgrounds/body850-4.png",price: "4000"},
-        {name:"Name",image:"backgrounds/body850-5.png",price: "3200"},
-        {name:"Name",image:"backgrounds/body850-6.png",price: "1800"},
-        {name:"Name",image:"backgrounds/body850-7.png",price: "1740"},
-        {name:"Name",image:"backgrounds/body850-8.png",price: "5000"},
-        {name:"Name",image:"backgrounds/body850-9.png",price: "2490"},
-        {name:"Name",image:"backgrounds/body850-11.png",price: "2300"},
-        {name:"Name",image:"backgrounds/body850-12.png",price: "5200"},
-        {name:"Name",image:"backgrounds/body850-13.png",price: "2900"},
-        {name:"Name",image:"backgrounds/body850-14.png",price: "3800"},
-        {name:"Name",image:"backgrounds/body850-15.png",price: "9000"},
-        {name:"Name",image:"backgrounds/body850-16.png",price: "1200"},
-        {name:"Name",image:"backgrounds/body850-17.png",price: "2990"},
-        {name:"Name",image:"backgrounds/body850-18.png",price: "2300"},
-        {name:"Name",image:"backgrounds/body850-19.png",price: "3100"},
-        {name:"Name",image:"backgrounds/body850-20.png",price: "3240"},
-        {name:"Name",image:"backgrounds/body850-21.png",price: "2400"},
-        {name:"Name",image:"backgrounds/body850-22.png",price: "2550"},
-        {name:"Name",image:"backgrounds/body850-23.png",price: "2700"},
-        {name:"Name",image:"backgrounds/body850-24.png",price: "2800"},
-        {name:"Name",image:"backgrounds/body850-25.png",price: "3450"},
-        {name:"Name",image:"backgrounds/body850-26.png",price: "2500"},
-        {name:"Name",image:"backgrounds/body850-27.png",price: "1200"},
-        {name:"Name",image:"backgrounds/body850-28.png",price: "2100"},
-        {name:"Name",image:"backgrounds/body850-29.png",price: "1900"},
-        {name:"Name",image:"backgrounds/body850-30.png",price: "2000"},
-        {name:"Name",image:"backgrounds/body850-31.png",price: "1400"},
-        {name:"Name",image:"backgrounds/body850-32.png",price: "1300"},
-        {name:"Name",image:"backgrounds/body850-33.png",price: "1200"},
-        {name:"Name",image:"backgrounds/body850-34.png",price: "1100"},
-        {name:"Name",image:"backgrounds/body850-35.png",price: "850"},
-        {name:"Name",image:"backgrounds/body850-36.png",price: "6000"},
-        {name:"Name",image:"backgrounds/body850-37.png",price: "2000"},
-        {name:"Name",image:"backgrounds/body850-38.png",price: "3000"},
-        {name:"Name",image:"backgrounds/body850-39.png",price: "2100"},
-        {name:"Name",image:"backgrounds/body850-40.png",price: "2200"},
-        {name:"Name",image:"backgrounds/body850-41.png",price: "2300"},
-        {name:"Name",image:"backgrounds/body850-42.png",price: "1800"},
+        {name:"উজ্জ্বল আসমানি নীল",image:"backgrounds/body850-1.png",price: "2000"},
+        {name:"হালকা ছাই",image:"backgrounds/body850-2.png",price: "2150"},
+        {name:"গাঢ় ছাই",image:"backgrounds/body850-3.png",price: "2300"},
+        {name:"হালকা বেগুনি",image:"backgrounds/body850-4.png",price: "4000"},
+        {name:"গাঢ় কালচে নীল",image:"backgrounds/body850-5.png",price: "3200"},
+        {name:"উজ্জ্বল সাদা",image:"backgrounds/body850-6.png",price: "1800"},
+        {name:"গাঢ় ধূসর",image:"backgrounds/body850-7.png",price: "1740"},
+        {name:"সাদাটে ধূসর",image:"backgrounds/body850-8.png",price: "5000"},
+        {name:"গোলাপি ধূসর",image:"backgrounds/body850-9.png",price: "2490"},
+        {name:"ধূসর কালো",image:"backgrounds/body850-11.png",price: "2300"},
+        {name:"নীলাভ সাদা",image:"backgrounds/body850-12.png",price: "5200"},
+        {name:"নীলচে ধূসর",image:"backgrounds/body850-13.png",price: "2900"},
+        {name:"ধূসর সাদা",image:"backgrounds/body850-14.png",price: "3800"},
+        {name:"গোলাপি",image:"backgrounds/body850-15.png",price: "9000"},
+        {name:"গোলাপি",image:"backgrounds/body850-16.png",price: "1200"},
+        {name:"উজ্জ্বল গোলাপি",image:"backgrounds/body850-17.png",price: "2990"},
+        {name:"গাঢ় গোলাপি",image:"backgrounds/body850-18.png",price: "2300"},
+        {name:"লাল",image:"backgrounds/body850-19.png",price: "3100"},
+        {name:"গাঢ় গোলাপি",image:"backgrounds/body850-20.png",price: "3240"},
+        {name:"খয়েরি",image:"backgrounds/body850-21.png",price: "2400"},
+        {name:"গাঢ় মিষ্টি",image:"backgrounds/body850-22.png",price: "2550"},
+        {name:"নীলাভ সাদা",image:"backgrounds/body850-23.png",price: "2700"},
+        {name:"আকাশী ",image:"backgrounds/body850-24.png",price: "2800"},
+        {name:"সরষে",image:"backgrounds/body850-25.png",price: "3450"},
+        {name:"হালকা উজ্জ্বল হলুদ",image:"backgrounds/body850-26.png",price: "2500"},
+        {name:"হলুদ",image:"backgrounds/body850-27.png",price: "1200"},
+        {name:"হালকা সরষে হলুদ ",image:"backgrounds/body850-28.png",price: "2100"},
+        {name:"হালকা জলপাই ",image:"backgrounds/body850-29.png",price: "1900"},
+        {name:"জলপাই সবুজ",image:"backgrounds/body850-30.png",price: "2000"},
+        {name:"গাঢ় জলপাই সবুজ",image:"backgrounds/body850-31.png",price: "1400"},
+        {name:"পাতা সবুজ",image:"backgrounds/body850-32.png",price: "1300"},
+        {name:"গাঢ় পাতা সবুজ",image:"backgrounds/body850-33.png",price: "1200"},
+        {name:"হালকা পাতা সবুজ",image:"backgrounds/body850-34.png",price: "1100"},
+        {name:"উজ্জ্বল ধূসর",image:"backgrounds/body850-35.png",price: "850"},
+        {name:"সাদাটে ধূসর",image:"backgrounds/body850-36.png",price: "6000"},
+        {name:"গাঢ় খয়েরি",image:"backgrounds/body850-37.png",price: "2000"},
+        {name:"কালচে লাল",image:"backgrounds/body850-38.png",price: "3000"},
+        {name:"হলুদাভ কমলা",image:"backgrounds/body850-39.png",price: "2100"},
+        {name:"উজ্জ্বল কমলা",image:"backgrounds/body850-40.png",price: "2200"},
+        {name:"বাদামি",image:"backgrounds/body850-41.png",price: "2300"},
+        {name:"বাদামি কমলা",image:"backgrounds/body850-42.png",price: "1800"},
         ], 
         pairs:[
-        {name:"Name",image:"pairs/Down Boarder 01.png",image_rotated:"pairs/Upper Boarder 01.png",thumbnail:"pairs/pair-bg-1.png",price:"700"},
-        {name:"Name",image:"pairs/Down Boarder 02.png",image_rotated:"pairs/Upper Boarder 02.png",thumbnail:"pairs/pair-bg-2.png",price:"800"},
-        {name:"Name",image:"pairs/Down Boarder 03.png",image_rotated:"pairs/Upper Boarder 03.png",thumbnail:"pairs/pair-bg-3.png",price:"1100"},
-        {name:"Name",image:"pairs/Down Boarder 04.png",image_rotated:"pairs/Upper Boarder 04.png",thumbnail:"pairs/pair-bg-4.png",price:"700"},
-        {name:"Name",image:"pairs/Down Boarder 05.png",image_rotated:"pairs/Down Boarder 05.png",thumbnail:"pairs/pair-bg-5.png",price:"800"},
-        {name:"Name",image:"pairs/Down Boarder 06.png",image_rotated:"pairs/Down Boarder 06.png",thumbnail:"pairs/pair-bg-6.png",price:"500"},
-        {name:"Name",image:"pairs/Down Boarder 07.png",image_rotated:"pairs/Down Boarder 07.png",thumbnail:"pairs/pair-bg-7.png",price:"800"},
-        {name:"Name",image:"pairs/Down Boarder 08.png",image_rotated:"pairs/Down Boarder 08.png",thumbnail:"pairs/pair-bg-8.png",price:"800"},
-        {name:"Name",image:"pairs/Down Boarder 09.png",image_rotated:"pairs/Down Boarder 09.png",thumbnail:"pairs/pair-bg-9.png",price:"700"},
-        {name:"Name",image:"pairs/Down Boarder 10.png",image_rotated:"pairs/Down Boarder 10.png",thumbnail:"pairs/pair-bg-10.png",price:"900"},
-        {name:"Name",image:"pairs/Down Boarder 11.png",image_rotated:"pairs/Down Boarder 11.png",thumbnail:"pairs/pair-bg-11.png",price:"1600"},
-        {name:"Name",image:"pairs/Down Boarder 12.png",image_rotated:"pairs/Down Boarder 12.png",thumbnail:"pairs/pair-bg-12.png",price:"950"},
-        {name:"Name",image:"pairs/Down Boarder 13.png",image_rotated:"pairs/Down Boarder 13.png",thumbnail:"pairs/pair-bg-13.png",price:"750"},
-        {name:"Name",image:"pairs/Down Boarder 14.png",image_rotated:"pairs/Down Boarder 14.png",thumbnail:"pairs/pair-bg-14.png",price:"1050"},
-        {name:"Name",image:"pairs/Down Boarder 15.png",image_rotated:"pairs/Down Boarder 15.png",thumbnail:"pairs/pair-bg-15.png",price:"1900"},
-        {name:"Name",image:"pairs/Down Boarder 16.png",image_rotated:"pairs/Down Boarder 16.png",thumbnail:"pairs/pair-bg-16.png",price:"800"},
-        {name:"Name",image:"pairs/Down Boarder 17.png",image_rotated:"pairs/Down Boarder 17.png",thumbnail:"pairs/pair-bg-17.png",price:"490"},
+        {name:"বেলপাতা পাড়",image:"pairs/Down Boarder 01.png",image_rotated:"pairs/Upper Boarder 01.png",thumbnail:"pairs/pair-bg-1.png",price:"700"},
+        {name:"বেলপাতা পাড়",image:"pairs/Down Boarder 02.png",image_rotated:"pairs/Upper Boarder 02.png",thumbnail:"pairs/pair-bg-2.png",price:"800"},
+        {name:"বেলপাতা পাড়",image:"pairs/Down Boarder 03.png",image_rotated:"pairs/Upper Boarder 03.png",thumbnail:"pairs/pair-bg-3.png",price:"1100"},
+        {name:"বেলপাতা পাড়",image:"pairs/Down Boarder 04.png",image_rotated:"pairs/Upper Boarder 04.png",thumbnail:"pairs/pair-bg-4.png",price:"700"},
+        {name:"আমিত্তি পার",image:"pairs/Down Boarder 05.png",image_rotated:"pairs/Down Boarder 05.png",thumbnail:"pairs/pair-bg-5.png",price:"800"},
+        {name:"কান্দি পার",image:"pairs/Down Boarder 06.png",image_rotated:"pairs/Down Boarder 06.png",thumbnail:"pairs/pair-bg-6.png",price:"500"},
+        {name:"খন্ডা পার",image:"pairs/Down Boarder 07.png",image_rotated:"pairs/Down Boarder 07.png",thumbnail:"pairs/pair-bg-7.png",price:"800"},
+        {name:"জুপ্পা পাইর",image:"pairs/Down Boarder 08.png",image_rotated:"pairs/Down Boarder 08.png",thumbnail:"pairs/pair-bg-8.png",price:"800"},
+        {name:"উদ্দা পার",image:"pairs/Down Boarder 09.png",image_rotated:"pairs/Down Boarder 09.png",thumbnail:"pairs/pair-bg-9.png",price:"700"},
+        {name:"উদ্দা পার",image:"pairs/Down Boarder 10.png",image_rotated:"pairs/Down Boarder 10.png",thumbnail:"pairs/pair-bg-10.png",price:"900"},
+        {name:"উদ্দা পার",image:"pairs/Down Boarder 11.png",image_rotated:"pairs/Down Boarder 11.png",thumbnail:"pairs/pair-bg-11.png",price:"1600"},
+        {name:"উদ্দা পার",image:"pairs/Down Boarder 12.png",image_rotated:"pairs/Down Boarder 12.png",thumbnail:"pairs/pair-bg-12.png",price:"950"},
+        {name:"বেলপাতা পাড়",image:"pairs/Down Boarder 13.png",image_rotated:"pairs/Down Boarder 13.png",thumbnail:"pairs/pair-bg-13.png",price:"750"},
+        {name:"বেলপাতা পাড়",image:"pairs/Down Boarder 14.png",image_rotated:"pairs/Down Boarder 14.png",thumbnail:"pairs/pair-bg-14.png",price:"1050"},
+        {name:"মাল পার",image:"pairs/Down Boarder 15.png",image_rotated:"pairs/Down Boarder 15.png",thumbnail:"pairs/pair-bg-15.png",price:"1900"},
+        {name:"মাল পার",image:"pairs/Down Boarder 16.png",image_rotated:"pairs/Down Boarder 16.png",thumbnail:"pairs/pair-bg-16.png",price:"800"},
+        {name:"নিমপাতা ফুলের তেছরি পার",image:"pairs/Down Boarder 17.png",image_rotated:"pairs/Down Boarder 17.png",thumbnail:"pairs/pair-bg-17.png",price:"490"},
 
-        {name:"Name",image:"pairs/Down Boarder 18.png",image_rotated:"pairs/Down Boarder 18.png",thumbnail:"pairs/pair-bg-18.png",price:"1200"},
-        {name:"Name",image:"pairs/Down Boarder 19.png",image_rotated:"pairs/Down Boarder 19.png",thumbnail:"pairs/pair-bg-19.png",price:"500"},
-        {name:"Name",image:"pairs/Down Boarder 20.png",image_rotated:"pairs/Down Boarder 20.png",thumbnail:"pairs/pair-bg-20.png",price:"1600"},
+        {name:"মাদলি তেছরি পার",image:"pairs/Down Boarder 18.png",image_rotated:"pairs/Down Boarder 18.png",thumbnail:"pairs/pair-bg-18.png",price:"1200"},
+        {name:"দুই গাইন্না কাউয়া ঠেঙ্গি পার",image:"pairs/Down Boarder 19.png",image_rotated:"pairs/Down Boarder 19.png",thumbnail:"pairs/pair-bg-19.png",price:"500"},
+        {name:"আংটি জাল",image:"pairs/Down Boarder 20.png",image_rotated:"pairs/Down Boarder 20.png",thumbnail:"pairs/pair-bg-20.png",price:"1600"},
 
-        {name:"Name",image:"pairs/Down Boarder 21.png",image_rotated:"pairs/Down Boarder 21.png",thumbnail:"pairs/pair-bg-21.png",price:"800"},
-        {name:"Name",image:"pairs/Down Boarder 22.png",image_rotated:"pairs/Down Boarder 22.png",thumbnail:"pairs/pair-bg-22.png",price:"900"},
-        {name:"Name",image:"pairs/Down Boarder 23.png",image_rotated:"pairs/Down Boarder 23.png",thumbnail:"pairs/pair-bg-23.png",price:"800"},
-        {name:"Name",image:"pairs/Down Boarder 24.png",image_rotated:"pairs/Down Boarder 24.png",thumbnail:"pairs/pair-bg-24.png",price:"1100"},
+        {name:"বাঘনলি ফুল",image:"pairs/Down Boarder 21.png",image_rotated:"pairs/Down Boarder 21.png",thumbnail:"pairs/pair-bg-21.png",price:"800"},
+        {name:"নিমপাতা ফুলের তেছরি পার",image:"pairs/Down Boarder 22.png",image_rotated:"pairs/Down Boarder 22.png",thumbnail:"pairs/pair-bg-22.png",price:"900"},
+        {name:"মুরালি জাল",image:"pairs/Down Boarder 23.png",image_rotated:"pairs/Down Boarder 23.png",thumbnail:"pairs/pair-bg-23.png",price:"800"},
+        {name:"মুরালি জাল",image:"pairs/Down Boarder 24.png",image_rotated:"pairs/Down Boarder 24.png",thumbnail:"pairs/pair-bg-24.png",price:"1100"},
 
-        {name:"Name",image:"pairs/Down Boarder 25.png",image_rotated:"pairs/Down Boarder 25.png",thumbnail:"pairs/pair-bg-25.png",price:"1200"},
-        {name:"Name",image:"pairs/Down Boarder 26.png",image_rotated:"pairs/Down Boarder 26.png",thumbnail:"pairs/pair-bg-26.png",price:"1900"},
-        {name:"Name",image:"pairs/Down Boarder 27.png",image_rotated:"pairs/Down Boarder 27.png",thumbnail:"pairs/pair-bg-27.png",price:"2000"},
-        {name:"Name",image:"pairs/Down Boarder 28.png",image_rotated:"pairs/Down Boarder 28.png",thumbnail:"pairs/pair-bg-28.png",price:"1700"},
+        {name:"ঘুড্ডি ফুল পার",image:"pairs/Down Boarder 25.png",image_rotated:"pairs/Down Boarder 25.png",thumbnail:"pairs/pair-bg-25.png",price:"1200"},
+        {name:"ঘুড্ডি ফুল পার",image:"pairs/Down Boarder 26.png",image_rotated:"pairs/Down Boarder 26.png",thumbnail:"pairs/pair-bg-26.png",price:"1900"},
+        {name:"ঘুড্ডি ফুল পার",image:"pairs/Down Boarder 27.png",image_rotated:"pairs/Down Boarder 27.png",thumbnail:"pairs/pair-bg-27.png",price:"2000"},
+        {name:"ঘুড্ডি ফুল পার",image:"pairs/Down Boarder 28.png",image_rotated:"pairs/Down Boarder 28.png",thumbnail:"pairs/pair-bg-28.png",price:"1700"},
 
-        {name:"Name",image:"pairs/Down Boarder 29.png",image_rotated:"pairs/Down Boarder 29.png",thumbnail:"pairs/pair-bg-29.png",price:"1750"},
-        {name:"Name",image:"pairs/Down Boarder 30.png",image_rotated:"pairs/Down Boarder 30.png",thumbnail:"pairs/pair-bg-30.png",price:"1190"},
-        {name:"Name",image:"pairs/Down Boarder 31.png",image_rotated:"pairs/Down Boarder 31.png",thumbnail:"pairs/pair-bg-31.png",price:"2200"},
-        {name:"Name",image:"pairs/Down Boarder 32.png",image_rotated:"pairs/Down Boarder 32.png",thumbnail:"pairs/pair-bg-32.png",price:"1400"},
-        {name:"Name",image:"pairs/Down Boarder 33.png",image_rotated:"pairs/Down Boarder 33.png",thumbnail:"pairs/pair-bg-33.png",price:"1150"},
+        {name:"ঘুড্ডি ফুল পার",image:"pairs/Down Boarder 29.png",image_rotated:"pairs/Down Boarder 29.png",thumbnail:"pairs/pair-bg-29.png",price:"1750"},
+        {name:"ঘুড্ডি ফুল পার",image:"pairs/Down Boarder 30.png",image_rotated:"pairs/Down Boarder 30.png",thumbnail:"pairs/pair-bg-30.png",price:"1190"},
+        {name:"ঘুড্ডি ফুল পার",image:"pairs/Down Boarder 31.png",image_rotated:"pairs/Down Boarder 31.png",thumbnail:"pairs/pair-bg-31.png",price:"2200"},
+        {name:"ঘুড্ডি ফুল পার",image:"pairs/Down Boarder 32.png",image_rotated:"pairs/Down Boarder 32.png",thumbnail:"pairs/pair-bg-32.png",price:"1400"},
+        {name:"ঘুড্ডি ফুল পার",image:"pairs/Down Boarder 33.png",image_rotated:"pairs/Down Boarder 33.png",thumbnail:"pairs/pair-bg-33.png",price:"1150"},
 
 
-        {name:"Name",image:"pairs/p-001.png",image_rotated:"pairs/p-001-rotated.png",thumbnail:"pairs/s-p-001.png",price:"600"},
-        {name:"Name",image:"pairs/p-002.png",image_rotated:"pairs/p-002-rotated.png",thumbnail:"pairs/s-p-002.png",price:"450"},
-        {name:"Name",image:"pairs/p-003.png",image_rotated:"pairs/p-003-rotated.png",thumbnail:"pairs/s-p-003.png",price:"700"},
-        {name:"Name",image:"pairs/p-005.png",image_rotated:"pairs/p-005-rotated.png",thumbnail:"pairs/s-p-005.png",price:"1200"},
-        {name:"Name",image:"pairs/p-006.png",image_rotated:"pairs/p-006-rotated.png",thumbnail:"pairs/s-p-006.png",price:"990"},
-        {name:"Name",image:"pairs/p-007.png",image_rotated:"pairs/p-007-rotated.png",thumbnail:"pairs/s-p-007.png",price:"320"},
-        {name:"Name",image:"pairs/p-008.png",image_rotated:"pairs/p-008-rotated.png",thumbnail:"pairs/s-p-008.png",price:"590"},
-        {name:"Name",image:"pairs/p-009.png",image_rotated:"pairs/p-009-rotated.png",thumbnail:"pairs/s-p-009.png",price:"800"},
-        {name:"Name",image:"pairs/p-0010.png",image_rotated:"pairs/p-0010-rotated.png",thumbnail:"pairs/s-p-0010.png",price:"900"},
-        {name:"Name",image:"pairs/p-0011.png",image_rotated:"pairs/p-0011-rotated.png",thumbnail:"pairs/s-p-0011.png",price:"450"},
-        {name:"Name",image:"pairs/p-0012.png",image_rotated:"pairs/p-0012-rotated.png",thumbnail:"pairs/s-p-0012.png",price:"620"},
-        {name:"Name",image:"pairs/p-0013.png",image_rotated:"pairs/p-0013-rotated.png",thumbnail:"pairs/s-p-0013.png",price:"480"},
-        {name:"Name",image:"pairs/p-0014.png",image_rotated:"pairs/p-0014-rotated.png",thumbnail:"pairs/s-p-0014.png",price:"510"},
-        {name:"Name",image:"pairs/p-0015.png",image_rotated:"pairs/p-0015-rotated.png",thumbnail:"pairs/s-p-0015.png",price:"550"},
-        {name:"Name",image:"pairs/p-16.png",image_rotated:"pairs/p-16-rotated.png",thumbnail:"pairs/s-p-16.png",price:"450"},
-        {name:"Name",image:"pairs/p-17.png",image_rotated:"pairs/p-17-rotated.png",thumbnail:"pairs/s-p-17.png",price:"400"},
-        {name:"Name",image:"pairs/p-18.png",image_rotated:"pairs/p-18-rotated.png",thumbnail:"pairs/s-p-18.png",price:"350"},
-        {name:"Name",image:"pairs/p-19.png",image_rotated:"pairs/p-19-rotated.png",thumbnail:"pairs/s-p-19.png",price:"600"},
-        {name:"Name",image:"pairs/p-20.png",image_rotated:"pairs/p-20-rotated.png",thumbnail:"pairs/s-p-20.png",price:"700"},
-        {name:"Name",image:"pairs/p-21.png",image_rotated:"pairs/p-21-rotated.png",thumbnail:"pairs/s-p-21.png",price:"450"},
-        {name:"Name",image:"pairs/p-22.png",image_rotated:"pairs/p-22-rotated.png",thumbnail:"pairs/s-p-22.png",price:"700"}
+        {name:"আমকড়া পার",image:"pairs/p-001.png",image_rotated:"pairs/p-001-rotated.png",thumbnail:"pairs/s-p-001.png",price:"600"},
+        {name:"বেলপাতা পাড়",image:"pairs/p-002.png",image_rotated:"pairs/p-002-rotated.png",thumbnail:"pairs/s-p-002.png",price:"450"},
+        {name:"আমকড়া পার",image:"pairs/p-003.png",image_rotated:"pairs/p-003-rotated.png",thumbnail:"pairs/s-p-003.png",price:"700"},
+        {name:"নিমপাতা তেছরি",image:"pairs/p-005.png",image_rotated:"pairs/p-005-rotated.png",thumbnail:"pairs/s-p-005.png",price:"1200"},
+        {name:"আঙুল পার",image:"pairs/p-006.png",image_rotated:"pairs/p-006-rotated.png",thumbnail:"pairs/s-p-006.png",price:"990"},
+        {name:"পাংখি পার",image:"pairs/p-007.png",image_rotated:"pairs/p-007-rotated.png",thumbnail:"pairs/s-p-007.png",price:"320"},
+        {name:"আমকড়া পার",image:"pairs/p-008.png",image_rotated:"pairs/p-008-rotated.png",thumbnail:"pairs/s-p-008.png",price:"590"},
+        {name:"আমকড়া পার",image:"pairs/p-009.png",image_rotated:"pairs/p-009-rotated.png",thumbnail:"pairs/s-p-009.png",price:"800"},
+        {name:"দুই গাইন্না দুবলা জাল",image:"pairs/p-0010.png",image_rotated:"pairs/p-0010-rotated.png",thumbnail:"pairs/s-p-0010.png",price:"900"},
+        {name:"আমকড়া পার",image:"pairs/p-0011.png",image_rotated:"pairs/p-0011-rotated.png",thumbnail:"pairs/s-p-0011.png",price:"450"},
+        {name:"কালসা পার",image:"pairs/p-0012.png",image_rotated:"pairs/p-0012-rotated.png",thumbnail:"pairs/s-p-0012.png",price:"620"},
+        {name:"নিমপাতা তেছরি",image:"pairs/p-0013.png",image_rotated:"pairs/p-0013-rotated.png",thumbnail:"pairs/s-p-0013.png",price:"480"},
+        {name:"হাজরা তারা",image:"pairs/p-0014.png",image_rotated:"pairs/p-0014-rotated.png",thumbnail:"pairs/s-p-0014.png",price:"510"},
+        {name:"চক মতি",image:"pairs/p-0015.png",image_rotated:"pairs/p-0015-rotated.png",thumbnail:"pairs/s-p-0015.png",price:"550"},
+        {name:"পোনা ফুল পাতা",image:"pairs/p-16.png",image_rotated:"pairs/p-16-rotated.png",thumbnail:"pairs/s-p-16.png",price:"450"},
+        {name:"পোনা ফুল পাতা",image:"pairs/p-17.png",image_rotated:"pairs/p-17-rotated.png",thumbnail:"pairs/s-p-17.png",price:"400"},
+        {name:"পোনা ফুল পাতা",image:"pairs/p-18.png",image_rotated:"pairs/p-18-rotated.png",thumbnail:"pairs/s-p-18.png",price:"350"},
+        {name:"তেতন জবা পার",image:"pairs/p-19.png",image_rotated:"pairs/p-19-rotated.png",thumbnail:"pairs/s-p-19.png",price:"600"},
+        {name:"তেতন জবা পার",image:"pairs/p-20.png",image_rotated:"pairs/p-20-rotated.png",thumbnail:"pairs/s-p-20.png",price:"700"},
+        {name:"তেতন জবা পার",image:"pairs/p-21.png",image_rotated:"pairs/p-21-rotated.png",thumbnail:"pairs/s-p-21.png",price:"450"},
+        {name:"তেতন জবা পার",image:"pairs/p-22.png",image_rotated:"pairs/p-22-rotated.png",thumbnail:"pairs/s-p-22.png",price:"700"}
         ],
         grids:[
-        {name:"Name",image:"grids/Body 01.png",thumbnail:"grids/Body-bg-1.png",price:"10000"},
-        {name:"Name",image:"grids/Body 02.png",thumbnail:"grids/Body-bg-2.png",price:"14000"},
-        {name:"Name",image:"grids/Body 03.png",thumbnail:"grids/Body-bg-3.png",price:"11000"},
-        {name:"Name",image:"grids/Body 04.png",thumbnail:"grids/Body-bg-4.png",price:"11000"},
-        {name:"Name",image:"grids/Body 05.png",thumbnail:"grids/Body-bg-5.png",price:"12000"},
-        {name:"Name",image:"grids/Body 06.png",thumbnail:"grids/Body-bg-6.png",price:"15000"},
-        {name:"Name",image:"grids/Body 07.png",thumbnail:"grids/Body-bg-7.png",price:"8000"},
-        {name:"Name",image:"grids/Body 08.png",thumbnail:"grids/Body-bg-8.png",price:"6000"},
-        {name:"Name",image:"grids/Body 09.png",thumbnail:"grids/Body-bg-9.png",price:"12000"},
-        {name:"Name",image:"grids/Body 10.png",thumbnail:"grids/Body-bg-10.png",price:"16000"},
-        {name:"Name",image:"grids/Body 11.png",thumbnail:"grids/Body-bg-11.png",price:"13000"},
-        {name:"Name",image:"grids/Body 12.png",thumbnail:"grids/Body-bg-12.png",price:"9000"},
-        {name:"Name",image:"grids/Body 13.png",thumbnail:"grids/Body-bg-13.png",price:"5000"},
-        {name:"Name",image:"grids/Body 14.png",thumbnail:"grids/Body-bg-14.png",price:"8000"},
-        {name:"Name",image:"grids/Body 15.png",thumbnail:"grids/Body-bg-15.png",price:"11000"},
-        {name:"Name",image:"grids/Body 16.png",thumbnail:"grids/Body-bg-16.png",price:"9000"},
-        {name:"Name",image:"grids/Body 17.png",thumbnail:"grids/Body-bg-17.png",price:"5500"},
-        {name:"Name",image:"grids/Body 18.png",thumbnail:"grids/Body-bg-18.png",price:"9500"},
-        {name:"Name",image:"grids/Body 19.png",thumbnail:"grids/Body-bg-19.png",price:"6500"},
-        {name:"Name",image:"grids/Body 20.png",thumbnail:"grids/Body-bg-20.png",price:"8500"},
-        {name:"Name",image:"grids/Body 21.png",thumbnail:"grids/Body-bg-21.png",price:"1200"},
-        {name:"Name",image:"grids/Body 22.png",thumbnail:"grids/Body-bg-22.png",price:"8500"},
-        {name:"Name",image:"grids/Body 23.png",thumbnail:"grids/Body-bg-23.png",price:"11500"},
-        {name:"Name",image:"grids/Body 24.png",thumbnail:"grids/Body-bg-24.png",price:"1600"},
-        {name:"Name",image:"grids/Body 25.png",thumbnail:"grids/Body-bg-25.png",price:"1500"},
-        {name:"Name",image:"grids/Body 26.png",thumbnail:"grids/Body-bg-26.png",price:"1200"},
-        {name:"Name",image:"grids/Body 27.png",thumbnail:"grids/Body-bg-27.png",price:"2500"},
-        {name:"Name",image:"grids/Body 28.png",thumbnail:"grids/Body-bg-28.png",price:"1500"},
-        {name:"Name",image:"grids/Body 29.png",thumbnail:"grids/Body-bg-29.png",price:"1600"},
-        {name:"Name",image:"grids/Body 30.png",thumbnail:"grids/Body-bg-30.png",price:"1500"},
-        {name:"Name",image:"grids/Body 31.png",thumbnail:"grids/Body-bg-31.png",price:"900"},
-        {name:"Name",image:"grids/Body 32.png",thumbnail:"grids/Body-bg-32.png",price:"1500"},
-        {name:"Name",image:"grids/Body 33.png",thumbnail:"grids/Body-bg-33.png",price:"1500"},
-        {name:"Name",image:"grids/Body 34.png",thumbnail:"grids/Body-bg-34.png",price:"1200"},
-        {name:"Name",image:"grids/Body 35.png",thumbnail:"grids/Body-bg-35.png",price:"1000"},
-        {name:"Name",image:"grids/Body 36.png",thumbnail:"grids/Body-bg-36.png",price:"1200"},
-        {name:"Name",image:"grids/Body 37.png",thumbnail:"grids/Body-bg-37.png",price:"890"},
-        {name:"Name",image:"grids/Body 38.png",thumbnail:"grids/Body-bg-38.png",price:"1550"},
-        {name:"Name",image:"grids/Body 39.png",thumbnail:"grids/Body-bg-39.png",price:"1200"},
-        {name:"Name",image:"grids/Body 40.png",thumbnail:"grids/Body-bg-40.png",price:"1350"},
-        {name:"Name",image:"grids/Body 41.png",thumbnail:"grids/Body-bg-41.png",price:"1900"},
-        {name:"Name",image:"grids/Body 42.png",thumbnail:"grids/Body-bg-42.png",price:"1200"},
-        {name:"Name",image:"grids/Body 43.png",thumbnail:"grids/Body-bg-43.png",price:"1500"},
-        {name:"Name",image:"grids/Body 44.png",thumbnail:"grids/Body-bg-44.png",price:"1600"},
-        {name:"Name",image:"grids/Body 45.png",thumbnail:"grids/Body-bg-45.png",price:"1070"},
-        {name:"Name",image:"grids/Body 46.png",thumbnail:"grids/Body-bg-46.png",price:"1250"},
-        {name:"Name",image:"grids/Body 47.png",thumbnail:"grids/Body-bg-47.png",price:"1890"},
-        {name:"Name",image:"grids/Body 48.png",thumbnail:"grids/Body-bg-48.png",price:"1050"},
-        {name:"Name",image:"grids/Body 49.png",thumbnail:"grids/Body-bg-49.png",price:"1000"},
-        {name:"Name",image:"grids/Body 50.png",thumbnail:"grids/Body-bg-50.png",price:"1050"},
-        {name:"Name",image:"grids/Body 51.png",thumbnail:"grids/Body-bg-51.png",price:"970"},
-        {name:"Name",image:"grids/Body 52.png",thumbnail:"grids/Body-bg-52.png",price:"1050"},
+        {name:"ছোট গুটি ফুল",image:"grids/Body 01.png",thumbnail:"grids/Body-bg-1.png",price:"10000"},
+        {name:"ছোট গুটি ফুল",image:"grids/Body 02.png",thumbnail:"grids/Body-bg-2.png",price:"14000"},
+        {name:"ছোট গুটি ফুল",image:"grids/Body 03.png",thumbnail:"grids/Body-bg-3.png",price:"11000"},
+        {name:"ছোট গুটি ফুল",image:"grids/Body 04.png",thumbnail:"grids/Body-bg-4.png",price:"11000"},
+        {name:"এক জাইন্না জুঁই ফুল",image:"grids/Body 05.png",thumbnail:"grids/Body-bg-5.png",price:"12000"},
+        {name:"আংটি জাল + বাঘনলি ফুল",image:"grids/Body 06.png",thumbnail:"grids/Body-bg-6.png",price:"15000"},
+        {name:"গুট ফুলা",image:"grids/Body 07.png",thumbnail:"grids/Body-bg-7.png",price:"8000"},
+        {name:"-",image:"grids/Body 08.png",thumbnail:"grids/Body-bg-8.png",price:"6000"},
+        {name:"মটর ছিটা দিয়া ঘুড্ডি ফুল",image:"grids/Body 09.png",thumbnail:"grids/Body-bg-9.png",price:"12000"},
+        {name:"মটর ছিটা দিয়া ঘুড্ডি ফুল",image:"grids/Body 10.png",thumbnail:"grids/Body-bg-10.png",price:"16000"},
+        {name:"চাইল ছিটা তেছরি",image:"grids/Body 11.png",thumbnail:"grids/Body-bg-11.png",price:"13000"},
+        {name:"চাইল ছিটা তেছরি",image:"grids/Body 12.png",thumbnail:"grids/Body-bg-12.png",price:"9000"},
+        {name:"চাইল ছিটা তেছরি",image:"grids/Body 13.png",thumbnail:"grids/Body-bg-13.png",price:"5000"},
+        {name:"মটর ছিটা দিয়া ঘুড্ডি ফুল",image:"grids/Body 14.png",thumbnail:"grids/Body-bg-14.png",price:"8000"},
+        {name:"আংটি জাল + বাঘনলি ফুল",image:"grids/Body 15.png",thumbnail:"grids/Body-bg-15.png",price:"11000"},
+        {name:"আংটি জাল + বাঘনলি ফুল",image:"grids/Body 16.png",thumbnail:"grids/Body-bg-16.png",price:"9000"},
+        {name:"রিং জাল/ ঘের ফুল",image:"grids/Body 17.png",thumbnail:"grids/Body-bg-17.png",price:"5500"},
+        {name:"রিং জাল/ ঘের ফুল",image:"grids/Body 18.png",thumbnail:"grids/Body-bg-18.png",price:"9500"},
+        {name:"রিং জাল/ ঘের ফুল",image:"grids/Body 19.png",thumbnail:"grids/Body-bg-19.png",price:"6500"},
+        {name:"ছিটা তেছড়ি",image:"grids/Body 20.png",thumbnail:"grids/Body-bg-20.png",price:"8500"},
+        {name:"ছিটা তেছড়ি",image:"grids/Body 21.png",thumbnail:"grids/Body-bg-21.png",price:"1200"},
+        {name:"ছিটা তেছড়ি",image:"grids/Body 22.png",thumbnail:"grids/Body-bg-22.png",price:"8500"},
+        {name:"সাবুদানা তেছড়ি",image:"grids/Body 23.png",thumbnail:"grids/Body-bg-23.png",price:"11500"},
+        {name:"আংটি জাল + বাঘনলি ফুল",image:"grids/Body 24.png",thumbnail:"grids/Body-bg-24.png",price:"1600"},
+        {name:"আংটি জাল + বাঘনলি ফুল",image:"grids/Body 25.png",thumbnail:"grids/Body-bg-25.png",price:"1500"},
+        {name:"শাপলা ফুল",image:"grids/Body 26.png",thumbnail:"grids/Body-bg-26.png",price:"1200"},
+        {name:"নিমপাতা ফুল",image:"grids/Body 27.png",thumbnail:"grids/Body-bg-27.png",price:"2500"},
+        {name:"বদনা তেছরি",image:"grids/Body 28.png",thumbnail:"grids/Body-bg-28.png",price:"1500"},
+        {name:"ঢেউ জাল",image:"grids/Body 29.png",thumbnail:"grids/Body-bg-29.png",price:"1600"},
+        {name:"ইয়ারিং ফুল + বাঘের পাড়া",image:"grids/Body 30.png",thumbnail:"grids/Body-bg-30.png",price:"1500"},
+        {name:"নিরালা গুটা ফুলা",image:"grids/Body 31.png",thumbnail:"grids/Body-bg-31.png",price:"900"},
+        {name:"চাদর ছিটা দিয়া আমিতি",image:"grids/Body 32.png",thumbnail:"grids/Body-bg-32.png",price:"1500"},
+        {name:"নিরালা পোনা",image:"grids/Body 33.png",thumbnail:"grids/Body-bg-33.png",price:"1500"},
+        {name:"সুপারি টাঙ্গি",image:"grids/Body 34.png",thumbnail:"grids/Body-bg-34.png",price:"1200"},
+        {name:"এক গাইন্না সন্দেশ ফুল",image:"grids/Body 35.png",thumbnail:"grids/Body-bg-35.png",price:"1000"},
+        {name:"-",image:"grids/Body 36.png",thumbnail:"grids/Body-bg-36.png",price:"1200"},
+        {name:"জবা ফুল",image:"grids/Body 37.png",thumbnail:"grids/Body-bg-37.png",price:"890"},
+        {name:"পাতি জাল/ জুঁই ফুল",image:"grids/Body 38.png",thumbnail:"grids/Body-bg-38.png",price:"1550"},
+        {name:"গুটফুলা",image:"grids/Body 39.png",thumbnail:"grids/Body-bg-39.png",price:"1200"},
+        {name:" - ",image:"grids/Body 40.png",thumbnail:"grids/Body-bg-40.png",price:"1350"},
+        {name:"-",image:"grids/Body 41.png",thumbnail:"grids/Body-bg-41.png",price:"1900"},
+        {name:"-",image:"grids/Body 42.png",thumbnail:"grids/Body-bg-42.png",price:"1200"},
+        {name:"পাতি জাল/ জুঁই ফুল",image:"grids/Body 43.png",thumbnail:"grids/Body-bg-43.png",price:"1500"},
+        {name:"রিং জাল/ ঘের ফুল",image:"grids/Body 44.png",thumbnail:"grids/Body-bg-44.png",price:"1600"},
+        {name:"সেবরকা ছিটা দিয়ে জানালা ফুল",image:"grids/Body 45.png",thumbnail:"grids/Body-bg-45.png",price:"1070"},
+        {name:"সেবরকা ছিটা দিয়ে জানালা ফুল",image:"grids/Body 46.png",thumbnail:"grids/Body-bg-46.png",price:"1250"},
+        {name:"সেবরকা ছিটা দিয়ে জানালা ফুল",image:"grids/Body 47.png",thumbnail:"grids/Body-bg-47.png",price:"1890"},
+        {name:"সেবরকা ছিটা দিয়ে জানালা ফুল",image:"grids/Body 48.png",thumbnail:"grids/Body-bg-48.png",price:"1050"},
+        {name:"ছোট গুটি ফুল",image:"grids/Body 49.png",thumbnail:"grids/Body-bg-49.png",price:"1000"},
+        {name:"ছোট গুটি ফুল",image:"grids/Body 50.png",thumbnail:"grids/Body-bg-50.png",price:"1050"},
+        {name:"ছোট গুটি ফুল",image:"grids/Body 51.png",thumbnail:"grids/Body-bg-51.png",price:"970"},
+        {name:"ছোট গুটি ফুল",image:"grids/Body 52.png",thumbnail:"grids/Body-bg-52.png",price:"1050"},
 
-        {name:"Name",image:"grids/Body 53.png",thumbnail:"grids/Body-bg-53.png",price:"1000"},
-        {name:"Name",image:"grids/Body 54.png",thumbnail:"grids/Body-bg-54.png",price:"1150"},
-        {name:"Name",image:"grids/Body 55.png",thumbnail:"grids/Body-bg-55.png",price:"950"},
-        {name:"Name",image:"grids/Body 56.png",thumbnail:"grids/Body-bg-56.png",price:"690"},
-        {name:"Name",image:"grids/Body 57.png",thumbnail:"grids/Body-bg-57.png",price:"2150"},
-        {name:"Name",image:"grids/Body 58.png",thumbnail:"grids/Body-bg-58.png",price:"1950"},
-        {name:"Name",image:"grids/Body 59.png",thumbnail:"grids/Body-bg-59.png",price:"1450"},
+        {name:"এক গাইন্না জুঁই ফুল",image:"grids/Body 53.png",thumbnail:"grids/Body-bg-53.png",price:"1000"},
+        {name:"এক গাইন্না জুঁই ফুল",image:"grids/Body 54.png",thumbnail:"grids/Body-bg-54.png",price:"1150"},
+        {name:"এক গাইন্না জুঁই ফুল",image:"grids/Body 55.png",thumbnail:"grids/Body-bg-55.png",price:"950"},
+        {name:"এক গাইন্না জুঁই ফুল",image:"grids/Body 56.png",thumbnail:"grids/Body-bg-56.png",price:"690"},
+        {name:"এক গাইন্না জুঁই ফুল",image:"grids/Body 57.png",thumbnail:"grids/Body-bg-57.png",price:"2150"},
+        {name:"এক গাইন্না জুঁই ফুল",image:"grids/Body 58.png",thumbnail:"grids/Body-bg-58.png",price:"1950"},
+        {name:"এক গাইন্না জুঁই ফুল",image:"grids/Body 59.png",thumbnail:"grids/Body-bg-59.png",price:"1450"},
 
 
         ],
         achols:[
-        {name:"Name",image:"achols/Achol 01.png",thumbnail:"achols/achol-bg-01.png",price:"1400"},
-        {name:"Name",image:"achols/Achol 02.png",thumbnail:"achols/achol-bg-02.png",price:"1100"},
-        {name:"Name",image:"achols/Achol 03.png",thumbnail:"achols/achol-bg-03.png",price:"1700"},
-        {name:"Name",image:"achols/Achol 04.png",thumbnail:"achols/achol-bg-04.png",price:"1200"},
-        {name:"Name",image:"achols/Achol 05.png",thumbnail:"achols/achol-bg-05.png",price:"1500"},
-        {name:"Name",image:"achols/Achol 06.png",thumbnail:"achols/achol-bg-06.png",price:"1800"},
-        {name:"Name",image:"achols/Achol 07.png",thumbnail:"achols/achol-bg-07.png",price:"1100"},
-        {name:"Name",image:"achols/Achol 08.png",thumbnail:"achols/achol-bg-08.png",price:"1200"},
-        {name:"Name",image:"achols/Achol 09.png",thumbnail:"achols/achol-bg-09.png",price:"1900"},
-        {name:"Name",image:"achols/Achol 10.png",thumbnail:"achols/achol-bg-10.png",price:"2100"},
-        {name:"Name",image:"achols/Achol 11.png",thumbnail:"achols/achol-bg-11.png",price:"1700"},
-        {name:"Name",image:"achols/Achol 12.png",thumbnail:"achols/achol-bg-12.png",price:"1500"},
-        {name:"Name",image:"achols/Achol 13.png",thumbnail:"achols/achol-bg-13.png",price:"1100"},
-        {name:"Name",image:"achols/Achol 14.png",thumbnail:"achols/achol-bg-14.png",price:"1000"},
-        {name:"Name",image:"achols/Achol 15.png",thumbnail:"achols/achol-bg-15.png",price:"700"},
-        {name:"Name",image:"achols/Achol 16.png",thumbnail:"achols/achol-bg-16.png",price:"1200"},
-        {name:"Name",image:"achols/Achol 17.png",thumbnail:"achols/achol-bg-17.png",price:"1400"},
-        {name:"Name",image:"achols/Achol 18.png",thumbnail:"achols/achol-bg-18.png",price:"1500"},
-        {name:"Name",image:"achols/Achol 19.png",thumbnail:"achols/achol-bg-19.png",price:"900"},
-        {name:"Name",image:"achols/Achol 20.png",thumbnail:"achols/achol-bg-20.png",price:"2200"},
-        {name:"Name",image:"achols/Achol 21.png",thumbnail:"achols/achol-bg-21.png",price:"1400"},
-        {name:"Name",image:"achols/Achol 22.png",thumbnail:"achols/achol-bg-22.png",price:"1100"},
-        {name:"Name",image:"achols/Achol 23.png",thumbnail:"achols/achol-bg-23.png",price:"1000"},
-        {name:"Name",image:"achols/Achol 24.png",thumbnail:"achols/achol-bg-24.png",price:"1900"},
-        {name:"Name",image:"achols/Achol 25.png",thumbnail:"achols/achol-bg-25.png",price:"2400"},
-        {name:"Name",image:"achols/Achol 26.png",thumbnail:"achols/achol-bg-26.png",price:"2100"},
-        {name:"Name",image:"achols/Achol 27.png",thumbnail:"achols/achol-bg-27.png",price:"700"},
-        {name:"Name",image:"achols/Achol 28.png",thumbnail:"achols/achol-bg-28.png",price:"1200"},
-        {name:"Name",image:"achols/Achol 29.png",thumbnail:"achols/achol-bg-29.png",price:"700"},
-        {name:"Name",image:"achols/Achol 30.png",thumbnail:"achols/achol-bg-30.png",price:"1200"},
-        {name:"Name",image:"achols/Achol 31.png",thumbnail:"achols/achol-bg-31.png",price:"1400"},
-        {name:"Name",image:"achols/Achol 32.png",thumbnail:"achols/achol-bg-32.png",price:"890"},
-        {name:"Name",image:"achols/Achol 33.png",thumbnail:"achols/achol-bg-33.png",price:"900"},
-        {name:"Name",image:"achols/Achol 34.png",thumbnail:"achols/achol-bg-34.png",price:"1100"},
-        {name:"Name",image:"achols/Achol 35.png",thumbnail:"achols/achol-bg-35.png",price:"1450"},
-        {name:"Name",image:"achols/Achol 36.png",thumbnail:"achols/achol-bg-36.png",price:"1900"},
-        {name:"Name",image:"achols/Achol 37.png",thumbnail:"achols/achol-bg-37.png",price:"1300"},
-        {name:"Name",image:"achols/Achol 38.png",thumbnail:"achols/achol-bg-38.png",price:"1090"},
-        {name:"Name",image:"achols/Achol 39.png",thumbnail:"achols/achol-bg-39.png",price:"790"},
-        {name:"Name",image:"achols/Achol 40.png",thumbnail:"achols/achol-bg-40.png",price:"1600"},
-        {name:"Name",image:"achols/Achol 41.png",thumbnail:"achols/achol-bg-41.png",price:"1500"},
-        {name:"Name",image:"achols/Achol 42.png",thumbnail:"achols/achol-bg-42.png",price:"1090"},
-        {name:"Name",image:"achols/Achol 43.png",thumbnail:"achols/achol-bg-43.png",price:"1050"},
-        {name:"Name",image:"achols/Achol 44.png",thumbnail:"achols/achol-bg-44.png",price:"990"},
-        {name:"Name",image:"achols/Achol 45.png",thumbnail:"achols/achol-bg-45.png",price:"1250"},
-        {name:"Name",image:"achols/Achol 46.png",thumbnail:"achols/achol-bg-46.png",price:"1100"},
-        {name:"Name",image:"achols/Achol 47.png",thumbnail:"achols/achol-bg-47.png",price:"1000"},
-        {name:"Name",image:"achols/Achol 48.png",thumbnail:"achols/achol-bg-48.png",price:"1190"},
-        {name:"Name",image:"achols/Achol 49.png",thumbnail:"achols/achol-bg-49.png",price:"990"},
-        {name:"Name",image:"achols/Achol 50.png",thumbnail:"achols/achol-bg-50.png",price:"1200"},
-        {name:"Name",image:"achols/Achol 51.png",thumbnail:"achols/achol-bg-51.png",price:"790"},
-        {name:"Name",image:"achols/Achol 52.png",thumbnail:"achols/achol-bg-52.png",price:"1090"},
-        {name:"Name",image:"achols/Achol 53.png",thumbnail:"achols/achol-bg-53.png",price:"1100"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 01.png",thumbnail:"achols/achol-bg-01.png",price:"1400"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 02.png",thumbnail:"achols/achol-bg-02.png",price:"1100"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 03.png",thumbnail:"achols/achol-bg-03.png",price:"1700"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 04.png",thumbnail:"achols/achol-bg-04.png",price:"1200"},
+        {name:"ছলম তেছরি",image:"achols/Achol 05.png",thumbnail:"achols/achol-bg-05.png",price:"1500"},
+        {name:"খন্ডা ফুল",image:"achols/Achol 06.png",thumbnail:"achols/achol-bg-06.png",price:"1800"},
+        {name:"প্যানা মটর ছিটা",image:"achols/Achol 07.png",thumbnail:"achols/achol-bg-07.png",price:"1100"},
+        {name:"এক গাইন্না জাদুর",image:"achols/Achol 08.png",thumbnail:"achols/achol-bg-08.png",price:"1200"},
+        {name:"নকশা",image:"achols/Achol 09.png",thumbnail:"achols/achol-bg-09.png",price:"1900"},
+        {name:"খন্ডা ফুল",image:"achols/Achol 10.png",thumbnail:"achols/achol-bg-10.png",price:"2100"},
+        {name:"খন্ডা ফুল",image:"achols/Achol 11.png",thumbnail:"achols/achol-bg-11.png",price:"1700"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 12.png",thumbnail:"achols/achol-bg-12.png",price:"1500"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 13.png",thumbnail:"achols/achol-bg-13.png",price:"1100"},
+        {name:"নকশা",image:"achols/Achol 14.png",thumbnail:"achols/achol-bg-14.png",price:"1000"},
+        {name:"নকশা",image:"achols/Achol 15.png",thumbnail:"achols/achol-bg-15.png",price:"700"},
+        {name:"নকশা",image:"achols/Achol 16.png",thumbnail:"achols/achol-bg-16.png",price:"1200"},
+        {name:"নকশা",image:"achols/Achol 17.png",thumbnail:"achols/achol-bg-17.png",price:"1400"},
+        {name:"নকশা",image:"achols/Achol 18.png",thumbnail:"achols/achol-bg-18.png",price:"1500"},
+        {name:"নকশা",image:"achols/Achol 19.png",thumbnail:"achols/achol-bg-19.png",price:"900"},
+        {name:"নকশা",image:"achols/Achol 20.png",thumbnail:"achols/achol-bg-20.png",price:"2200"},
+        {name:"নকশা",image:"achols/Achol 21.png",thumbnail:"achols/achol-bg-21.png",price:"1400"},
+        {name:"রিং জাল/ ঘের ফুল",image:"achols/Achol 22.png",thumbnail:"achols/achol-bg-22.png",price:"1100"},
+        {name:"রিং জাল/ ঘের ফুল",image:"achols/Achol 23.png",thumbnail:"achols/achol-bg-23.png",price:"1000"},
+        {name:"রিং জাল/ ঘের ফুল",image:"achols/Achol 24.png",thumbnail:"achols/achol-bg-24.png",price:"1900"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 25.png",thumbnail:"achols/achol-bg-25.png",price:"2400"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 26.png",thumbnail:"achols/achol-bg-26.png",price:"2100"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 27.png",thumbnail:"achols/achol-bg-27.png",price:"700"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 28.png",thumbnail:"achols/achol-bg-28.png",price:"1200"},
+        {name:"মদল পাড়ের আছরা",image:"achols/Achol 29.png",thumbnail:"achols/achol-bg-29.png",price:"700"},
+        {name:"আমিত্তি ফুল",image:"achols/Achol 30.png",thumbnail:"achols/achol-bg-30.png",price:"1200"},
+        {name:"মদল পাড়ের আছরা",image:"achols/Achol 31.png",thumbnail:"achols/achol-bg-31.png",price:"1400"},
+        {name:"নকশা",image:"achols/Achol 32.png",thumbnail:"achols/achol-bg-32.png",price:"890"},
+        {name:"নকশা",image:"achols/Achol 33.png",thumbnail:"achols/achol-bg-33.png",price:"900"},
+        {name:"নকশা",image:"achols/Achol 34.png",thumbnail:"achols/achol-bg-34.png",price:"1100"},
+        {name:"নকশা",image:"achols/Achol 35.png",thumbnail:"achols/achol-bg-35.png",price:"1450"},
+        {name:"মদল পাড়ের আছরা",image:"achols/Achol 36.png",thumbnail:"achols/achol-bg-36.png",price:"1900"},
+        {name:"বল্লম পোনা",image:"achols/Achol 37.png",thumbnail:"achols/achol-bg-37.png",price:"1300"},
+        {name:"কান পাশা ফুল",image:"achols/Achol 38.png",thumbnail:"achols/achol-bg-38.png",price:"1090"},
+        {name:"মদল পাড়ের আছরা",image:"achols/Achol 39.png",thumbnail:"achols/achol-bg-39.png",price:"790"},
+        {name:"নকশা",image:"achols/Achol 40.png",thumbnail:"achols/achol-bg-40.png",price:"1600"},
+        {name:"নকশা",image:"achols/Achol 41.png",thumbnail:"achols/achol-bg-41.png",price:"1500"},
+        {name:"ফাটা জুঁই ছিটা",image:"achols/Achol 42.png",thumbnail:"achols/achol-bg-42.png",price:"1090"},
+        {name:"নকশা",image:"achols/Achol 43.png",thumbnail:"achols/achol-bg-43.png",price:"1050"},
+        {name:"নকশা",image:"achols/Achol 44.png",thumbnail:"achols/achol-bg-44.png",price:"990"},
+        {name:"মটর ছিটা",image:"achols/Achol 45.png",thumbnail:"achols/achol-bg-45.png",price:"1250"},
+        {name:"মটর ছিটা দিয়া লাভ ফুল",image:"achols/Achol 46.png",thumbnail:"achols/achol-bg-46.png",price:"1100"},
+        {name:"সেবরকা দিয়া সিঙ্গারা ফুল",image:"achols/Achol 47.png",thumbnail:"achols/achol-bg-47.png",price:"1000"},
+        {name:"সেবরকা দিয়া সিঙ্গারা ফুল",image:"achols/Achol 48.png",thumbnail:"achols/achol-bg-48.png",price:"1190"},
+        {name:"সেবরকা দিয়া সিঙ্গারা ফুল",image:"achols/Achol 49.png",thumbnail:"achols/achol-bg-49.png",price:"990"},
+        {name:"সেবরকা দিয়া সিঙ্গারা ফুল",image:"achols/Achol 50.png",thumbnail:"achols/achol-bg-50.png",price:"1200"},
+        {name:"দুবলা",image:"achols/Achol 51.png",thumbnail:"achols/achol-bg-51.png",price:"790"},
+        {name:"দুবলা",image:"achols/Achol 52.png",thumbnail:"achols/achol-bg-52.png",price:"1090"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 53.png",thumbnail:"achols/achol-bg-53.png",price:"1100"},
 
-        {name:"Name",image:"achols/Achol 54.png",thumbnail:"achols/achol-bg-54.png",price:"1750"},
-        {name:"Name",image:"achols/Achol 55.png",thumbnail:"achols/achol-bg-55.png",price:"1380"},
-        {name:"Name",image:"achols/Achol 56.png",thumbnail:"achols/achol-bg-56.png",price:"970"},
-        {name:"Name",image:"achols/Achol 57.png",thumbnail:"achols/achol-bg-57.png",price:"1600"},
-        {name:"Name",image:"achols/Achol 58.png",thumbnail:"achols/achol-bg-58.png",price:"1960"},
-        {name:"Name",image:"achols/Achol 59.png",thumbnail:"achols/achol-bg-59.png",price:"1800"},
-        {name:"Name",image:"achols/Achol 60.png",thumbnail:"achols/achol-bg-60.png",price:"1050"},
-        {name:"Name",image:"achols/Achol 61.png",thumbnail:"achols/achol-bg-51.png",price:"1700"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 54.png",thumbnail:"achols/achol-bg-54.png",price:"1750"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 55.png",thumbnail:"achols/achol-bg-55.png",price:"1380"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 56.png",thumbnail:"achols/achol-bg-56.png",price:"970"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 57.png",thumbnail:"achols/achol-bg-57.png",price:"1600"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 58.png",thumbnail:"achols/achol-bg-58.png",price:"1960"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 59.png",thumbnail:"achols/achol-bg-59.png",price:"1800"},
+        {name:"সুরমা জালির আঁচল",image:"achols/Achol 60.png",thumbnail:"achols/achol-bg-60.png",price:"1050"},
+        {name:"দুবলা",image:"achols/Achol 61.png",thumbnail:"achols/achol-bg-51.png",price:"1700"},
 
 
         
@@ -742,7 +751,7 @@ downloadImage(){
           a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
           a.download = 'jamdani_'+Date.now()+'.jpg';
           a.click();
-  });
+        });
 },
 loadMoreSarees(){
   let i =0;
@@ -929,34 +938,34 @@ return output.join('');
 
 /*search*/
 #search-wrapper{
-display: flex;
-border: 1px solid rgba(0, 0, 0, 0.276);
-align-items: stretch;
-border-radius: 50px;
-background-color: #fff;
-overflow: hidden;
-max-width: 100%;
-box-shadow: 2px 1px 5px 1px rgba(0, 0, 0, 0.273);
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.276);
+  align-items: stretch;
+  border-radius: 50px;
+  background-color: #fff;
+  overflow: hidden;
+  max-width: 100%;
+  box-shadow: 2px 1px 5px 1px rgba(0, 0, 0, 0.273);
 
 
 }
 #search{
-    border:none;
-    width:100%;
-    font-size: 15px;
+  border:none;
+  width:100%;
+  font-size: 15px;
 }
 #search:focus{
-    outline: none;
+  outline: none;
 }
 .search-icon{
-    margin: 10px;
-    color:rgba(0, 0, 0, 0.564);
+  margin: 10px;
+  color:rgba(0, 0, 0, 0.564);
 }
 #search-button{
-    border:none;
-    cursor: pointer;
-    color:#fff;
-    background-color:#1dbf73;
-    padding:0px 10px;
+  border:none;
+  cursor: pointer;
+  color:#fff;
+  background-color:#1dbf73;
+  padding:0px 10px;
 }
 </style>

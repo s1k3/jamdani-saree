@@ -21,41 +21,41 @@
 		methods:{
 
 		}
-}
+	}
 </script>
 <style scoped>
 
 	body {
-	font-family: 'kalpurushregular';  
+		font-family: 'kalpurushregular';  
 
 	}
 	.hover-button{
-	position: absolute;
-	top: 40%;
-	left: 28%;
-	margin: 0 auto;
-	z-index:3;
+		position: absolute;
+		top: 40%;
+		left: 28%;
+		margin: 0 auto;
+		z-index:3;
 	}
 	.hover{
-	background:black;
-	position: absolute;
-	top:0;
-	left:0;
-	z-index:2;
-	opacity:0.5;
+		background:black;
+		position: absolute;
+		top:0;
+		left:0;
+		z-index:2;
+		opacity:0.5;
 
 
 	}
 
 	img.full_img:hover  {
-	background: #25a94a;
-	color: #85723d;
-	font-size: 150%;
-	-webkit-transform: scale(1.4);
-	-ms-transform: scale(1.4);
-	transform: scale(1.4);
-	transition: 1s ease;
-	border-radius: 5%;
+		background: #25a94a;
+		color: #85723d;
+		font-size: 150%;
+		-webkit-transform: scale(1.4);
+		-ms-transform: scale(1.4);
+		transform: scale(1.4);
+		transition: 1s ease;
+		border-radius: 5%;
 	}
 
 	@media only screen and (max-width: 768px) {
