@@ -69,6 +69,10 @@
 @click="downloadImage">
 ডাউনলোড<span></span>
 </button>
+<button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5 btn-w-100" 
+@click="artistLink">
+তাঁত শিল্পীদের তথ্য<span></span>
+</button>
 <button class="thm-btn mt-30 sml-btn lft-icon brd-btn mr-5 btn-w-100 mb-2" 
 v-if="totalPrice !== 0"
 data-toggle="modal"
@@ -805,6 +809,9 @@ convertEnglishToBangla(input) {
   }
 }
 return output.join('');
+},
+artistLink(){
+  window.location.href="https://jamdaninarayanganj.com/weaver_info.html";
 }
 }
 }
