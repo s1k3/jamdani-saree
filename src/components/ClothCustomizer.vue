@@ -73,8 +73,12 @@
 v-if="totalPrice !== 0"
 data-toggle="modal"
 data-target="#priceModal">
-মূল্যঃ {{numberWithCommas(totalPrice)}} টাকা<span></span>
+শাড়ি সম্পর্কিত বিস্তারিত ও মূল্য ({{numberWithCommas(totalPrice)}} টাকা) 
+<!-- মূল্যঃ {{numberWithCommas(totalPrice)}} টাকা -->
+<span></span>
 </button>
+
+
 </div>
 </div>
 <div class="col-lg-6 m-0 p-0">
@@ -161,7 +165,8 @@ data-target="#priceModal">
   <div class="modal-dialog" role="document">
    <div class="modal-content">
     <div class="modal-header">
-     <h5 class="modal-title" style="text-align: center;">শাড়ির মূল্যঃ {{numberWithCommas(totalPrice)}} টাকা</h5>
+     <!-- <h5 class="modal-title" style="text-align: center;">শাড়ির মূল্যঃ {{numberWithCommas(totalPrice)}} টাকা</h5> -->
+     <h5 class="modal-title" style="text-align: center;"> শাড়ি সম্পর্কিত বিস্তারিত ও মূল্য ({{numberWithCommas(totalPrice)}} টাকা) </h5>
      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
        <span aria-hidden="true">&times;</span>
      </button>
